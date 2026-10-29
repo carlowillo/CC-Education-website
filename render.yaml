@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: education-reach
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci --include=dev --no-audit --no-fund && npm run build
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: ADMIN_USERNAME
+        value: viewer
+      - key: ADMIN_PASSWORD
+        generateValue: true

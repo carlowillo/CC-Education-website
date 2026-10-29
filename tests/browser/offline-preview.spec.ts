@@ -1,0 +1,62 @@
+import {test,expect} from '@playwright/test';
+import {fileURLToPath} from 'node:url';
+import {readFileSync} from 'node:fs';
+test('standalone HTML displays the real map and working filters without external assets',async({page})=>{
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ const external:string[]=[];
+ await page.route(/^https?:/,route=>{external.push(route.request().url());return route.abort();});
+ const file=fileURLToPath(new URL('../../artifacts/education-reach-preview.html',import.meta.url));
+ // Managed Chromium blocks file URLs by policy. Serve the unchanged file as a
+ // fixture; verify that it is self-contained, without claiming file-URL validation.
+ await page.route('http://127.0.0.1:3000/download-preview.html',route=>route.fulfill({contentType:'text/html',body:readFileSync(file,'utf8')}));
+ await page.goto('http://127.0.0.1:3000/download-preview.html');
+ await expect(page.getByText('90 initiatives in this view')).toBeVisible();
+ await expect(page.locator('.leaflet-interactive').first()).toBeVisible();
+ await expect(page.getByText('70 / 70 sites · combined driving coverage')).toBeVisible();
+ await page.getByRole('button',{name:'Hide saved coverage'}).click();
+ await expect(page.locator('.map-caption')).toContainText('Coverage layer hidden');
+ await expect(page.locator('.coverage-summary')).toContainText('70 / 70');
+ await expect(page.locator('.coverage-summary')).toContainText('0 awaiting travel areas');
+ await page.getByRole('button',{name:'Show saved coverage'}).click();
+ await page.getByRole('button',{name:'Public transport',exact:true}).click();
+ await expect(page.getByText('70 / 70 sites · combined public transport coverage')).toBeVisible();
+ await expect(page.getByRole('button',{name:'Live recalculation requires server'})).toBeDisabled();
+ await page.getByRole('button',{name:'Driving',exact:true}).click();
+ await page.getByRole('button',{name:'Review coverage & exclusions'}).click();
+ await expect(page.getByText('70 of 70 eligible selected initiatives', {exact:false})).toBeVisible();
+ const download=page.waitForEvent('download');await page.getByRole('button',{name:'Export combined coverage'}).click();expect((await download).suggestedFilename()).toBe('education-reach-combined.geojson');
+ await page.getByRole('button',{name:'Close dialog'}).click();
+ await page.getByLabel('Open').uncheck();
+ await expect(page.getByText('132 initiatives in this view')).toBeVisible();
+ await page.getByLabel('Strong Christian ethos',{exact:false}).check();
+ await expect(page.getByText('17 initiatives in this view')).toBeVisible();
+ await expect(page.locator('.map-caption')).toContainText('combined driving coverage',{timeout:20000});
+ await expect(page.locator('.coverage-summary')).not.toContainText('Combining failed');
+ await page.getByRole('button',{name:'Reset',exact:true}).click();
+ await page.screenshot({path:'/tmp/education-reach-download-preview.png',fullPage:true});
+ expect(errors).toEqual([]);expect(external).toEqual([]);
+});
+
+test('provision, support and organisation filters rebuild coverage with accurate exclusions',async({page})=>{
+ const file=fileURLToPath(new URL('../../artifacts/education-reach-preview.html',import.meta.url));
+ await page.route('http://127.0.0.1:3000/download-preview.html',route=>route.fulfill({contentType:'text/html',body:readFileSync(file,'utf8')}));
+ await page.goto('http://127.0.0.1:3000/download-preview.html');
+ await page.getByLabel('Home Education Hub',{exact:false}).check();
+ await expect(page.locator('.map-caption')).toHaveText('3 / 3 sites · combined driving coverage',{timeout:20000});
+ await expect(page.locator('.coverage-summary')).toContainText('11 missing precise locations');
+ await page.getByRole('button',{name:'Reset',exact:true}).click();
+ await page.locator('summary').filter({hasText:'Our level of support'}).click();
+ await page.getByLabel('High - inspired the vision',{exact:false}).check();
+ await expect(page.locator('.map-caption')).toHaveText('9 / 9 sites · combined driving coverage',{timeout:20000});
+ await expect(page.locator('.coverage-summary')).toContainText('1 missing precise locations');
+ await page.getByRole('button',{name:'Reset',exact:true}).click();
+ await page.locator('summary').filter({hasText:'Connected organisation'}).click();
+ await page.getByLabel('Christian Schools Trust',{exact:false}).check();
+ await expect(page.locator('.map-caption')).toHaveText('25 / 25 sites · combined driving coverage',{timeout:20000});
+ await expect(page.locator('.coverage-summary')).toContainText('0 missing precise locations');
+ await page.getByRole('button',{name:'Reset',exact:true}).click();
+ await page.getByLabel('Open').uncheck();
+ await page.getByLabel('Include selected planned / unknown stages').check();
+ await expect(page.locator('.coverage-summary')).toContainText('70 / 79');
+ await expect(page.locator('.coverage-summary')).toContainText('9 awaiting travel areas');
+});

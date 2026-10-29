@@ -1,0 +1,710 @@
+{
+  "version": 1,
+  "provider": "Postcodes.io",
+  "resolvedAt": "2026-10-29T09:37:24.847Z",
+  "locations": {
+    "HS12YN": {
+      "lat": 58.222417,
+      "lng": -6.391932,
+      "precision": "postcode",
+      "label": "HS1 2YN",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "EH218QZ": {
+      "lat": 55.935469,
+      "lng": -3.087904,
+      "precision": "postcode",
+      "label": "EH21 8QZ",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "BD21BT": {
+      "lat": 53.819836,
+      "lng": -1.76038,
+      "precision": "postcode",
+      "label": "BD2 1BT",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "L73HL": {
+      "lat": 53.402127,
+      "lng": -2.954444,
+      "precision": "postcode",
+      "label": "L7 3HL",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SK44NX": {
+      "lat": 53.424835,
+      "lng": -2.180391,
+      "precision": "postcode",
+      "label": "SK4 4NX",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SK151SH": {
+      "lat": 53.480315,
+      "lng": -2.063383,
+      "precision": "postcode",
+      "label": "SK15 1SH",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "S37PS": {
+      "lat": 53.385995,
+      "lng": -1.484866,
+      "precision": "postcode",
+      "label": "S3 7PS",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "DE557GL": {
+      "lat": 53.095728,
+      "lng": -1.379559,
+      "precision": "postcode",
+      "label": "DE55 7GL",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "DE221FP": {
+      "lat": 52.930211,
+      "lng": -1.48581,
+      "precision": "postcode",
+      "label": "DE22 1FP",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "WS28PR": {
+      "lat": 52.58658,
+      "lng": -1.99697,
+      "precision": "postcode",
+      "label": "WS2 8PR",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "LE31QP": {
+      "lat": 52.626184,
+      "lng": -1.183463,
+      "precision": "postcode",
+      "label": "LE3 1QP",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "WR37ST": {
+      "lat": 52.225774,
+      "lng": -2.20851,
+      "precision": "postcode",
+      "label": "WR3 7ST",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "CF838PU": {
+      "lat": 51.59717,
+      "lng": -3.1414,
+      "precision": "postcode",
+      "label": "CF83 8PU",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "BA146NZ": {
+      "lat": 51.34148,
+      "lng": -2.208388,
+      "precision": "postcode",
+      "label": "BA14 6NZ",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SN67SQ": {
+      "lat": 51.610549,
+      "lng": -1.722597,
+      "precision": "postcode",
+      "label": "SN6 7SQ",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "OX296TA": {
+      "lat": 51.798651,
+      "lng": -1.473443,
+      "precision": "postcode",
+      "label": "OX29 6TA",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "OX44PU": {
+      "lat": 51.720106,
+      "lng": -1.225174,
+      "precision": "postcode",
+      "label": "OX4 4PU",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SO507DB": {
+      "lat": 50.959228,
+      "lng": -1.305547,
+      "precision": "postcode",
+      "label": "SO50 7DB",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "RG71HF": {
+      "lat": 51.405713,
+      "lng": -0.972629,
+      "precision": "postcode",
+      "label": "RG7 1HF",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SL43AQ": {
+      "lat": 51.475393,
+      "lng": -0.610531,
+      "precision": "postcode",
+      "label": "SL4 3AQ",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "WD259JT": {
+      "lat": 51.685824,
+      "lng": -0.396487,
+      "precision": "postcode",
+      "label": "WD25 9JT",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "AL54DU": {
+      "lat": 51.829332,
+      "lng": -0.364185,
+      "precision": "postcode",
+      "label": "AL5 4DU",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "E78QT": {
+      "lat": 51.540025,
+      "lng": 0.042003,
+      "precision": "postcode",
+      "label": "E7 8QT",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "DA53LH": {
+      "lat": 51.438493,
+      "lng": 0.124667,
+      "precision": "postcode",
+      "label": "DA5 3LH",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "IP117NA": {
+      "lat": 51.967089,
+      "lng": 1.368274,
+      "precision": "postcode",
+      "label": "IP11 7NA",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "BN209RA": {
+      "lat": 50.81054,
+      "lng": 0.240723,
+      "precision": "postcode",
+      "label": "BN20 9RA",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "BS378QG": {
+      "lat": 51.522347,
+      "lng": -2.434942,
+      "precision": "postcode",
+      "label": "BS37 8QG",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "CT162JX": {
+      "lat": 51.149475,
+      "lng": 1.290205,
+      "precision": "postcode",
+      "label": "CT16 2JX",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "WF134LA": {
+      "lat": 53.697021,
+      "lng": -1.64055,
+      "precision": "postcode",
+      "label": "WF13 4LA",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "M65YD": {
+      "lat": 53.483493,
+      "lng": -2.301543,
+      "precision": "postcode",
+      "label": "M6 5YD",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "M126EL": {
+      "lat": 53.475696,
+      "lng": -2.220593,
+      "precision": "postcode",
+      "label": "M12 6EL",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "G315JL": {
+      "lat": 55.854044,
+      "lng": -4.191966,
+      "precision": "postcode",
+      "label": "G31 5JL",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "G37JB": {
+      "lat": 55.865116,
+      "lng": -4.280476,
+      "precision": "postcode",
+      "label": "G3 7JB",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "AB165QQ": {
+      "lat": 57.161196,
+      "lng": -2.151824,
+      "precision": "postcode",
+      "label": "AB16 5QQ",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "IV180PW": {
+      "lat": 57.705954,
+      "lng": -4.216914,
+      "precision": "postcode",
+      "label": "IV18 0PW",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SW112FR": {
+      "lat": 51.465125,
+      "lng": -0.172751,
+      "precision": "postcode",
+      "label": "SW11 2FR",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SE14JU": {
+      "lat": 51.500478,
+      "lng": -0.091631,
+      "precision": "postcode",
+      "label": "SE1 4JU",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "RM14HR": {
+      "lat": 51.605342,
+      "lng": 0.180381,
+      "precision": "postcode",
+      "label": "RM1 4HR",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "E161LN": {
+      "lat": 51.512484,
+      "lng": 0.016861,
+      "precision": "postcode",
+      "label": "E16 1LN",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "BS67TH": {
+      "lat": 51.480224,
+      "lng": -2.604523,
+      "precision": "postcode",
+      "label": "BS6 7TH",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "NR12HX": {
+      "lat": 52.609857,
+      "lng": 1.303218,
+      "precision": "postcode",
+      "label": "NR1 2HX",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SW1E6BS": {
+      "lat": 51.498682,
+      "lng": -0.137623,
+      "precision": "postcode",
+      "label": "SW1E 6BS",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SR51RU": {
+      "lat": 54.920462,
+      "lng": -1.393273,
+      "precision": "postcode",
+      "label": "SR5 1RU",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "PR21AU": {
+      "lat": 53.76302,
+      "lng": -2.727933,
+      "precision": "postcode",
+      "label": "PR2 1AU",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "CV64GD": {
+      "lat": 52.445905,
+      "lng": -1.513382,
+      "precision": "postcode",
+      "label": "CV6 4GD",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "TN377DN": {
+      "lat": 50.870584,
+      "lng": 0.556633,
+      "precision": "postcode",
+      "label": "TN37 7DN",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "ST47QE": {
+      "lat": 53.000451,
+      "lng": -2.188376,
+      "precision": "postcode",
+      "label": "ST4 7QE",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "E161QU": {
+      "lat": 51.515546,
+      "lng": 0.013451,
+      "precision": "postcode",
+      "label": "E16 1QU",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "DD23DE": {
+      "lat": 56.473316,
+      "lng": -3.010095,
+      "precision": "postcode",
+      "label": "DD2 3DE",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "BT422PQ": {
+      "lat": 54.842321,
+      "lng": -6.409451,
+      "precision": "postcode",
+      "label": "BT42 2PQ",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "DY32AU": {
+      "lat": 52.52062,
+      "lng": -2.122332,
+      "precision": "postcode",
+      "label": "DY3 2AU",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "CF243JW": {
+      "lat": 51.491249,
+      "lng": -3.169332,
+      "precision": "postcode",
+      "label": "CF24 3JW",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "RM175DF": {
+      "lat": 51.478254,
+      "lng": 0.324036,
+      "precision": "postcode",
+      "label": "RM17 5DF",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "UB82TU": {
+      "lat": 51.544879,
+      "lng": -0.483075,
+      "precision": "postcode",
+      "label": "UB8 2TU",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "EH76AE": {
+      "lat": 55.956343,
+      "lng": -3.157631,
+      "precision": "postcode",
+      "label": "EH7 6AE",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "HA12TP": {
+      "lat": 51.584396,
+      "lng": -0.332394,
+      "precision": "postcode",
+      "label": "HA1 2TP",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "ME59QG": {
+      "lat": 51.339487,
+      "lng": 0.500427,
+      "precision": "postcode",
+      "label": "ME5 9QG",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "M95UX": {
+      "lat": 53.508683,
+      "lng": -2.215939,
+      "precision": "postcode",
+      "label": "M9 5UX",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "CT196PQ": {
+      "lat": 51.090648,
+      "lng": 1.192169,
+      "precision": "postcode",
+      "label": "CT19 6PQ",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "TQ126NQ": {
+      "lat": 50.545549,
+      "lng": -3.656138,
+      "precision": "postcode",
+      "label": "TQ12 6NQ",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "DD37BS": {
+      "lat": 56.468927,
+      "lng": -2.964417,
+      "precision": "postcode",
+      "label": "DD3 7BS",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "MK185EH": {
+      "lat": 52.031249,
+      "lng": -1.017879,
+      "precision": "postcode",
+      "label": "MK18 5EH",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "BH213AD": {
+      "lat": 50.789741,
+      "lng": -1.95355,
+      "precision": "postcode",
+      "label": "BH21 3AD",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "GU86AS": {
+      "lat": 51.200659,
+      "lng": -0.664913,
+      "precision": "postcode",
+      "label": "GU8 6AS",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "HP42DJ": {
+      "lat": 51.75938,
+      "lng": -0.561936,
+      "precision": "postcode",
+      "label": "HP4 2DJ",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "S103DH": {
+      "lat": 53.374394,
+      "lng": -1.504816,
+      "precision": "postcode",
+      "label": "S10 3DH",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "BH213RF": {
+      "lat": 50.77675,
+      "lng": -2.035073,
+      "precision": "postcode",
+      "label": "BH21 3RF",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "GL516HE": {
+      "lat": 51.892848,
+      "lng": -2.10575,
+      "precision": "postcode",
+      "label": "GL51 6HE",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SW116QW": {
+      "lat": 51.457312,
+      "lng": -0.165952,
+      "precision": "postcode",
+      "label": "SW11 6QW",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SE94QF": {
+      "lat": 51.43797,
+      "lng": 0.03867,
+      "precision": "postcode",
+      "label": "SE9 4QF",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "SW1W8JF": {
+      "lat": 51.491734,
+      "lng": -0.153796,
+      "precision": "postcode",
+      "label": "SW1W 8JF",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "OX76TH": {
+      "lat": 51.933384,
+      "lng": -1.612227,
+      "precision": "postcode",
+      "label": "OX7 6TH",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "RG403EU": {
+      "lat": 51.398367,
+      "lng": -0.839831,
+      "precision": "postcode",
+      "label": "RG40 3EU",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "BA27HG": {
+      "lat": 51.357305,
+      "lng": -2.326354,
+      "precision": "postcode",
+      "label": "BA2 7HG",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "LL301RD": {
+      "lat": 53.309593,
+      "lng": -3.798767,
+      "precision": "postcode",
+      "label": "LL30 1RD",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "CT117AE": {
+      "lat": 51.343422,
+      "lng": 1.415003,
+      "precision": "postcode",
+      "label": "CT11 7AE",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "BT716PX": {
+      "lat": 54.468222,
+      "lng": -6.722196,
+      "precision": "postcode",
+      "label": "BT71 6PX",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    },
+    "BT248DN": {
+      "lat": 54.40336,
+      "lng": -5.896179,
+      "precision": "postcode",
+      "label": "BT24 8DN",
+      "source": "Postcodes.io",
+      "geocodedAt": "2026-10-29T09:37:24.847Z",
+      "quality": 1
+    }
+  },
+  "failures": {}
+}

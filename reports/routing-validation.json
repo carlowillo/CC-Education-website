@@ -1,0 +1,235 @@
+{
+  "validatedAt": "2026-10-29T09:38:27.521Z",
+  "provider": "TravelTime",
+  "arrivalLondon": "2026-10-30T08:30",
+  "arrivalUTC": "2026-10-30T08:30:00.000Z",
+  "minutes": 45,
+  "direction": "arrival",
+  "sample": [
+    {
+      "id": "9",
+      "name": "School 9",
+      "postcode": "DE22 1FP",
+      "lat": 52.930211,
+      "lng": -1.48581,
+      "siteEntranceVerified": false
+    },
+    {
+      "id": "23",
+      "name": "School 23",
+      "postcode": "E7 8QT",
+      "lat": 51.540025,
+      "lng": 0.042003,
+      "siteEntranceVerified": false
+    },
+    {
+      "id": "32",
+      "name": "School 32",
+      "postcode": "G31 5JL",
+      "lat": 55.854044,
+      "lng": -4.191966,
+      "siteEntranceVerified": false
+    }
+  ],
+  "expectedAreas": 6,
+  "receivedAreas": 6,
+  "checks": [
+    {
+      "id": "9",
+      "postcode": "DE22 1FP",
+      "mode": "driving",
+      "outcome": "passed"
+    },
+    {
+      "id": "23",
+      "postcode": "E7 8QT",
+      "mode": "driving",
+      "outcome": "passed"
+    },
+    {
+      "id": "32",
+      "postcode": "G31 5JL",
+      "mode": "driving",
+      "outcome": "passed"
+    },
+    {
+      "id": "9",
+      "postcode": "DE22 1FP",
+      "mode": "public_transport",
+      "outcome": "passed"
+    },
+    {
+      "id": "23",
+      "postcode": "E7 8QT",
+      "mode": "public_transport",
+      "outcome": "passed"
+    },
+    {
+      "id": "32",
+      "postcode": "G31 5JL",
+      "mode": "public_transport",
+      "outcome": "passed"
+    }
+  ],
+  "blocked": false,
+  "notes": [
+    "Sample site postcodes resolved against Postcodes.io; actual school entrances have not been independently confirmed.",
+    "Only genuine provider responses are included; no radius approximations or fixtures."
+  ],
+  "pointToPointChecks": {
+    "checkedAt": "2026-10-29T09:41:37.138Z",
+    "endpoint": "/v4/time-filter",
+    "checks": [
+      {
+        "destination": "9",
+        "origin": "8",
+        "originPostcode": "DE55 7GL",
+        "kind": "near",
+        "mode": "driving",
+        "travelSeconds": 1588,
+        "matrixReachable": true,
+        "matrixUnreachable": false,
+        "polygonContains": true,
+        "outcome": "passed"
+      },
+      {
+        "destination": "9",
+        "origin": "23",
+        "originPostcode": "E7 8QT",
+        "kind": "far",
+        "mode": "driving",
+        "travelSeconds": null,
+        "matrixReachable": false,
+        "matrixUnreachable": true,
+        "polygonContains": false,
+        "outcome": "passed"
+      },
+      {
+        "destination": "23",
+        "origin": "49",
+        "originPostcode": "E16 1QU",
+        "kind": "near",
+        "mode": "driving",
+        "travelSeconds": 902,
+        "matrixReachable": true,
+        "matrixUnreachable": false,
+        "polygonContains": true,
+        "outcome": "passed"
+      },
+      {
+        "destination": "23",
+        "origin": "32",
+        "originPostcode": "G31 5JL",
+        "kind": "far",
+        "mode": "driving",
+        "travelSeconds": null,
+        "matrixReachable": false,
+        "matrixUnreachable": true,
+        "polygonContains": false,
+        "outcome": "passed"
+      },
+      {
+        "destination": "32",
+        "origin": "33",
+        "originPostcode": "G3 7JB",
+        "kind": "near",
+        "mode": "driving",
+        "travelSeconds": 647,
+        "matrixReachable": true,
+        "matrixUnreachable": false,
+        "polygonContains": true,
+        "outcome": "passed"
+      },
+      {
+        "destination": "32",
+        "origin": "9",
+        "originPostcode": "DE22 1FP",
+        "kind": "far",
+        "mode": "driving",
+        "travelSeconds": null,
+        "matrixReachable": false,
+        "matrixUnreachable": true,
+        "polygonContains": false,
+        "outcome": "passed"
+      },
+      {
+        "destination": "9",
+        "origin": "8",
+        "originPostcode": "DE55 7GL",
+        "kind": "near",
+        "mode": "public_transport",
+        "travelSeconds": null,
+        "matrixReachable": false,
+        "matrixUnreachable": true,
+        "polygonContains": false,
+        "outcome": "passed"
+      },
+      {
+        "destination": "9",
+        "origin": "23",
+        "originPostcode": "E7 8QT",
+        "kind": "far",
+        "mode": "public_transport",
+        "travelSeconds": null,
+        "matrixReachable": false,
+        "matrixUnreachable": true,
+        "polygonContains": false,
+        "outcome": "passed"
+      },
+      {
+        "destination": "23",
+        "origin": "49",
+        "originPostcode": "E16 1QU",
+        "kind": "near",
+        "mode": "public_transport",
+        "travelSeconds": 1972,
+        "matrixReachable": true,
+        "matrixUnreachable": false,
+        "polygonContains": true,
+        "outcome": "passed"
+      },
+      {
+        "destination": "23",
+        "origin": "32",
+        "originPostcode": "G31 5JL",
+        "kind": "far",
+        "mode": "public_transport",
+        "travelSeconds": null,
+        "matrixReachable": false,
+        "matrixUnreachable": true,
+        "polygonContains": false,
+        "outcome": "passed"
+      },
+      {
+        "destination": "32",
+        "origin": "33",
+        "originPostcode": "G3 7JB",
+        "kind": "near",
+        "mode": "public_transport",
+        "travelSeconds": 2503,
+        "matrixReachable": true,
+        "matrixUnreachable": false,
+        "polygonContains": true,
+        "outcome": "passed"
+      },
+      {
+        "destination": "32",
+        "origin": "9",
+        "originPostcode": "DE22 1FP",
+        "kind": "far",
+        "mode": "public_transport",
+        "travelSeconds": null,
+        "matrixReachable": false,
+        "matrixUnreachable": true,
+        "polygonContains": false,
+        "outcome": "passed"
+      }
+    ],
+    "passed": 12,
+    "failed": 0,
+    "notes": [
+      "Checks compare separately requested point-to-point arrival travel times with membership of the saved 45-minute polygons.",
+      "Origin points are other resolved postcodes from the dataset; these are diagnostic test journeys, not claims about families."
+    ]
+  }
+}

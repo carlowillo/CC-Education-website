@@ -1,0 +1,565 @@
+{
+  "version": 1,
+  "provider": "TravelTime",
+  "calculatedAt": "2026-10-29T10:02:07.490Z",
+  "arrivalLondon": "2026-10-30T08:30",
+  "arrivalUTC": "2026-10-30T08:30:00.000Z",
+  "minutes": 45,
+  "direction": "arrival",
+  "openInitiatives": 90,
+  "eligibleCount": 70,
+  "expectedAreas": 140,
+  "receivedAreas": 140,
+  "requests": 134,
+  "reused": 6,
+  "blocked": false,
+  "sourceInputs": [
+    {
+      "id": "1",
+      "postcode": "HS1 2YN",
+      "lat": 58.222417,
+      "lng": -6.391932
+    },
+    {
+      "id": "2",
+      "postcode": "EH21 8QZ",
+      "lat": 55.935469,
+      "lng": -3.087904
+    },
+    {
+      "id": "3",
+      "postcode": "BD2 1BT",
+      "lat": 53.819836,
+      "lng": -1.76038
+    },
+    {
+      "id": "4",
+      "postcode": "L7 3HL",
+      "lat": 53.402127,
+      "lng": -2.954444
+    },
+    {
+      "id": "5",
+      "postcode": "SK4 4NX",
+      "lat": 53.424835,
+      "lng": -2.180391
+    },
+    {
+      "id": "6",
+      "postcode": "SK15 1SH",
+      "lat": 53.480315,
+      "lng": -2.063383
+    },
+    {
+      "id": "7",
+      "postcode": "S3 7PS",
+      "lat": 53.385995,
+      "lng": -1.484866
+    },
+    {
+      "id": "8",
+      "postcode": "DE55 7GL",
+      "lat": 53.095728,
+      "lng": -1.379559
+    },
+    {
+      "id": "9",
+      "postcode": "DE22 1FP",
+      "lat": 52.930211,
+      "lng": -1.48581
+    },
+    {
+      "id": "10",
+      "postcode": "WS2 8PR",
+      "lat": 52.58658,
+      "lng": -1.99697
+    },
+    {
+      "id": "11",
+      "postcode": "LE3 1QP",
+      "lat": 52.626184,
+      "lng": -1.183463
+    },
+    {
+      "id": "12",
+      "postcode": "WR3 7ST",
+      "lat": 52.225774,
+      "lng": -2.20851
+    },
+    {
+      "id": "13",
+      "postcode": "CF83 8PU",
+      "lat": 51.59717,
+      "lng": -3.1414
+    },
+    {
+      "id": "14",
+      "postcode": "BA14 6NZ",
+      "lat": 51.34148,
+      "lng": -2.208388
+    },
+    {
+      "id": "15",
+      "postcode": "SN6 7SQ",
+      "lat": 51.610549,
+      "lng": -1.722597
+    },
+    {
+      "id": "16",
+      "postcode": "OX29 6TA",
+      "lat": 51.798651,
+      "lng": -1.473443
+    },
+    {
+      "id": "17",
+      "postcode": "OX4 4PU",
+      "lat": 51.720106,
+      "lng": -1.225174
+    },
+    {
+      "id": "18",
+      "postcode": "SO50 7DB",
+      "lat": 50.959228,
+      "lng": -1.305547
+    },
+    {
+      "id": "19",
+      "postcode": "RG7 1HF",
+      "lat": 51.405713,
+      "lng": -0.972629
+    },
+    {
+      "id": "20",
+      "postcode": "SL4 3AQ",
+      "lat": 51.475393,
+      "lng": -0.610531
+    },
+    {
+      "id": "21",
+      "postcode": "WD25 9JT",
+      "lat": 51.685824,
+      "lng": -0.396487
+    },
+    {
+      "id": "22",
+      "postcode": "AL5 4DU",
+      "lat": 51.829332,
+      "lng": -0.364185
+    },
+    {
+      "id": "23",
+      "postcode": "E7 8QT",
+      "lat": 51.540025,
+      "lng": 0.042003
+    },
+    {
+      "id": "24",
+      "postcode": "DA5 3LH",
+      "lat": 51.438493,
+      "lng": 0.124667
+    },
+    {
+      "id": "25",
+      "postcode": "IP11 7NA",
+      "lat": 51.967089,
+      "lng": 1.368274
+    },
+    {
+      "id": "26",
+      "postcode": "BN20 9RA",
+      "lat": 50.81054,
+      "lng": 0.240723
+    },
+    {
+      "id": "27",
+      "postcode": "BS37 8QG",
+      "lat": 51.522347,
+      "lng": -2.434942
+    },
+    {
+      "id": "28",
+      "postcode": "CT16 2JX",
+      "lat": 51.149475,
+      "lng": 1.290205
+    },
+    {
+      "id": "29",
+      "postcode": "WF13 4LA",
+      "lat": 53.697021,
+      "lng": -1.64055
+    },
+    {
+      "id": "30",
+      "postcode": "M6 5YD",
+      "lat": 53.483493,
+      "lng": -2.301543
+    },
+    {
+      "id": "31",
+      "postcode": "M12 6EL",
+      "lat": 53.475696,
+      "lng": -2.220593
+    },
+    {
+      "id": "32",
+      "postcode": "G31 5JL",
+      "lat": 55.854044,
+      "lng": -4.191966
+    },
+    {
+      "id": "33",
+      "postcode": "G3 7JB",
+      "lat": 55.865116,
+      "lng": -4.280476
+    },
+    {
+      "id": "34",
+      "postcode": "AB16 5QQ",
+      "lat": 57.161196,
+      "lng": -2.151824
+    },
+    {
+      "id": "35",
+      "postcode": "IV18 0PW",
+      "lat": 57.705954,
+      "lng": -4.216914
+    },
+    {
+      "id": "36",
+      "postcode": "SW11 2FR",
+      "lat": 51.465125,
+      "lng": -0.172751
+    },
+    {
+      "id": "37",
+      "postcode": "SE1 4JU",
+      "lat": 51.500478,
+      "lng": -0.091631
+    },
+    {
+      "id": "38",
+      "postcode": "RM1 4HR",
+      "lat": 51.605342,
+      "lng": 0.180381
+    },
+    {
+      "id": "39",
+      "postcode": "E16 1LN",
+      "lat": 51.512484,
+      "lng": 0.016861
+    },
+    {
+      "id": "40",
+      "postcode": "BS6 7TH",
+      "lat": 51.480224,
+      "lng": -2.604523
+    },
+    {
+      "id": "41",
+      "postcode": "NR1 2HX",
+      "lat": 52.609857,
+      "lng": 1.303218
+    },
+    {
+      "id": "42",
+      "postcode": "SW1E 6BS",
+      "lat": 51.498682,
+      "lng": -0.137623
+    },
+    {
+      "id": "43",
+      "postcode": "SR5 1RU",
+      "lat": 54.920462,
+      "lng": -1.393273
+    },
+    {
+      "id": "44",
+      "postcode": "PR2 1AU",
+      "lat": 53.76302,
+      "lng": -2.727933
+    },
+    {
+      "id": "46",
+      "postcode": "CV6 4GD",
+      "lat": 52.445905,
+      "lng": -1.513382
+    },
+    {
+      "id": "47",
+      "postcode": "TN37 7DN",
+      "lat": 50.870584,
+      "lng": 0.556633
+    },
+    {
+      "id": "48",
+      "postcode": "ST4 7QE",
+      "lat": 53.000451,
+      "lng": -2.188376
+    },
+    {
+      "id": "49",
+      "postcode": "E16 1QU",
+      "lat": 51.515546,
+      "lng": 0.013451
+    },
+    {
+      "id": "50",
+      "postcode": "DD2 3DE",
+      "lat": 56.473316,
+      "lng": -3.010095
+    },
+    {
+      "id": "51",
+      "postcode": "BT42 2PQ",
+      "lat": 54.842321,
+      "lng": -6.409451
+    },
+    {
+      "id": "54",
+      "postcode": "RM17 5DF",
+      "lat": 51.478254,
+      "lng": 0.324036
+    },
+    {
+      "id": "55",
+      "postcode": "DE55 7GL",
+      "lat": 53.095728,
+      "lng": -1.379559
+    },
+    {
+      "id": "102",
+      "postcode": "DD3 7BS",
+      "lat": 56.468927,
+      "lng": -2.964417
+    },
+    {
+      "id": "109",
+      "postcode": "MK18 5EH",
+      "lat": 52.031249,
+      "lng": -1.017879
+    },
+    {
+      "id": "110",
+      "postcode": "BH21 3AD",
+      "lat": 50.789741,
+      "lng": -1.95355
+    },
+    {
+      "id": "111",
+      "postcode": "GU8 6AS",
+      "lat": 51.200659,
+      "lng": -0.664913
+    },
+    {
+      "id": "112",
+      "postcode": "HP4 2DJ",
+      "lat": 51.75938,
+      "lng": -0.561936
+    },
+    {
+      "id": "113",
+      "postcode": "S10 3DH",
+      "lat": 53.374394,
+      "lng": -1.504816
+    },
+    {
+      "id": "114",
+      "postcode": "BH21 3RF",
+      "lat": 50.77675,
+      "lng": -2.035073
+    },
+    {
+      "id": "115",
+      "postcode": "GL51 6HE",
+      "lat": 51.892848,
+      "lng": -2.10575
+    },
+    {
+      "id": "116",
+      "postcode": "SW11 6QW",
+      "lat": 51.457312,
+      "lng": -0.165952
+    },
+    {
+      "id": "117",
+      "postcode": "SE9 4QF",
+      "lat": 51.43797,
+      "lng": 0.03867
+    },
+    {
+      "id": "118",
+      "postcode": "SW1W 8JF",
+      "lat": 51.491734,
+      "lng": -0.153796
+    },
+    {
+      "id": "119",
+      "postcode": "OX7 6TH",
+      "lat": 51.933384,
+      "lng": -1.612227
+    },
+    {
+      "id": "120",
+      "postcode": "RG40 3EU",
+      "lat": 51.398367,
+      "lng": -0.839831
+    },
+    {
+      "id": "121",
+      "postcode": "BA2 7HG",
+      "lat": 51.357305,
+      "lng": -2.326354
+    },
+    {
+      "id": "122",
+      "postcode": "LL30 1RD",
+      "lat": 53.309593,
+      "lng": -3.798767
+    },
+    {
+      "id": "123",
+      "postcode": "CT11 7AE",
+      "lat": 51.343422,
+      "lng": 1.415003
+    },
+    {
+      "id": "124",
+      "postcode": "BT71 6PX",
+      "lat": 54.468222,
+      "lng": -6.722196
+    },
+    {
+      "id": "125",
+      "postcode": "BT24 8DN",
+      "lat": 54.40336,
+      "lng": -5.896179
+    }
+  ],
+  "counts": {
+    "driving": 70,
+    "public_transport": 70
+  },
+  "failures": [],
+  "excludedOpen": [
+    {
+      "id": "45",
+      "name": "School 45",
+      "postcode": "NP7",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "65",
+      "name": "School 65",
+      "postcode": "RG7",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "84",
+      "name": "School 84",
+      "postcode": "CB",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "85",
+      "name": "School 85",
+      "postcode": "PE28",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "86",
+      "name": "School 86",
+      "postcode": "DY10",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "88",
+      "name": "School 88",
+      "postcode": "NR1",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "89",
+      "name": "School 89",
+      "postcode": "CR3",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "91",
+      "name": "School 91",
+      "postcode": "HU",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "94",
+      "name": "School 94",
+      "postcode": "IG10",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "96",
+      "name": "School 96",
+      "postcode": "TN",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "99",
+      "name": "School 99",
+      "postcode": "NW3",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "104",
+      "name": "School 104",
+      "postcode": "NE1",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "108",
+      "name": "School 108",
+      "postcode": "DA11",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "126",
+      "name": "School 126",
+      "postcode": "TR15",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "127",
+      "name": "School 127",
+      "postcode": "DA15",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "128",
+      "name": "School 128",
+      "postcode": "N9",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "129",
+      "name": "School 129",
+      "postcode": "BS",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "130",
+      "name": "School 130",
+      "postcode": "DH",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "131",
+      "name": "School 131",
+      "postcode": "LS1",
+      "reason": "Full site postcode required"
+    },
+    {
+      "id": "132",
+      "name": "School 132",
+      "postcode": "CM17",
+      "reason": "Full site postcode required"
+    }
+  ]
+}

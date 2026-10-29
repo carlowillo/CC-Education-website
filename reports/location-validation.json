@@ -1,0 +1,15 @@
+{
+  "resolvedAt": "2026-10-29T09:37:24.847Z",
+  "total": 132,
+  "sourceFullPostcodes": 79,
+  "precise": 79,
+  "approximate": 41,
+  "unlocated": 12,
+  "needClarification": 53,
+  "failedFullPostcodes": {},
+  "notes": [
+    "Postcode centroids are not verified site entrances.",
+    "District-only and ambiguous locations are not used for journey calculations.",
+    "Original CSV and original normalised source records are unchanged."
+  ]
+}
