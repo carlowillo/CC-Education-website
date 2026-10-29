@@ -63,6 +63,7 @@ app.get('/api/coverage-sample',async(_req,res)=>{
   try{const collection=JSON.parse(await readFile(path.join(root,'data/coverage-sample.geojson'),'utf8'));const report=JSON.parse(await readFile(path.join(root,'reports/routing-validation.json'),'utf8'));res.json({...collection,arrivalLondon:report.arrivalLondon,validatedAt:report.validatedAt});}
   catch{res.json({features:[],arrivalLondon:null});}
 });
+app.get('/api/places',async(_req,res)=>res.type('json').send(await readFile(path.join(root,'data/places.json'),'utf8')));
 app.get('/api/basemap', async (_req,res)=>res.type('json').send(await readFile(path.join(root,'data/basemap.json'),'utf8')));
 app.post('/api/geocode', async (_req,res)=>{
   try {

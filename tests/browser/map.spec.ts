@@ -8,7 +8,8 @@ test('real dataset, filters, data quality, missing-provider safeguard and export
  await page.route('**/api/status',route=>route.fulfill({json:{routingReady:false,precise:0,total:132}}));
  await page.goto('/');
  await expect(page.getByText('90 initiatives in this view')).toBeVisible();
- await expect(page.locator('.leaflet-interactive').first()).toBeVisible();
+ await expect(page.locator('.initiative-cluster, .initiative-pin').first()).toBeVisible();
+ await page.getByRole('button',{name:'Journey settings',exact:true}).click();
  await page.getByRole('button',{name:'Calculate 45-minute areas'}).click();
  await expect(page.getByRole('heading',{name:'Connect travel coverage.'})).toBeVisible();
  await page.getByRole('button',{name:'Close dialog'}).click();
@@ -72,6 +73,7 @@ test('fixture coverage uses both travel modes and checks postcode membership',as
  });
  await page.route('**/api/postcode/HS12YN',route=>route.fulfill({json:{lat:58.21,lng:-6.38,postcode:'HS1 2YN'}}));
  await page.goto('/');
+ await page.getByRole('button',{name:'Journey settings',exact:true}).click();
  await page.getByRole('button',{name:'Calculate 45-minute areas'}).click();
  await expect(page.getByText('1 / 1 sites · combined driving coverage')).toBeVisible();
  await page.getByLabel('Search a full UK postcode').fill('HS12YN');await page.getByRole('button',{name:'Find postcode'}).click();

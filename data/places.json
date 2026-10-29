@@ -1,0 +1,828 @@
+{
+  "source": "Natural Earth 1:10m Populated Places (public domain), supplemented by Gibbs/uk-postcodes district-centroid reference labels (CC0)",
+  "sourceUrl": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_10m_populated_places_simple.geojson",
+  "places": [
+    {
+      "name": "London",
+      "lat": 51.501941,
+      "lng": -0.118668,
+      "population": 8567000,
+      "rank": 0,
+      "capital": true,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Dublin",
+      "lat": 53.346731,
+      "lng": -6.25698,
+      "population": 1059000,
+      "rank": 2,
+      "capital": true,
+      "country": "Ireland"
+    },
+    {
+      "name": "Birmingham",
+      "lat": 52.47692,
+      "lng": -1.921943,
+      "population": 2285000,
+      "rank": 4,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Manchester",
+      "lat": 53.47532,
+      "lng": -2.248685,
+      "population": 2230000,
+      "rank": 4,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Leeds",
+      "lat": 53.790017,
+      "lng": -1.551348,
+      "population": 1529000,
+      "rank": 6,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Sheffield",
+      "lat": 53.366677,
+      "lng": -1.499997,
+      "population": 1292900,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Glasgow",
+      "lat": 55.86227,
+      "lng": -4.239101,
+      "population": 1160000,
+      "rank": 3,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Newcastle",
+      "lat": 54.989742,
+      "lng": -1.611625,
+      "population": 882000,
+      "rank": 6,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Cardiff",
+      "lat": 51.482619,
+      "lng": -3.167598,
+      "population": 861400,
+      "rank": 6,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Nottingham",
+      "lat": 52.941084,
+      "lng": -1.165706,
+      "population": 825600,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Liverpool",
+      "lat": 53.405068,
+      "lng": -2.961934,
+      "population": 811000,
+      "rank": 6,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Southend-on-Sea",
+      "lat": 51.550018,
+      "lng": 0.719997,
+      "population": 618386,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Bristol",
+      "lat": 51.449998,
+      "lng": -2.583315,
+      "population": 553528,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Edinburgh",
+      "lat": 55.948328,
+      "lng": -3.219091,
+      "population": 504966,
+      "rank": 6,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Brighton",
+      "lat": 50.830346,
+      "lng": -0.169974,
+      "population": 503008,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Bradford",
+      "lat": 53.791675,
+      "lng": -1.754465,
+      "population": 501700,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Leicester",
+      "lat": 52.629977,
+      "lng": -1.133249,
+      "population": 457983,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Sunderland",
+      "lat": 54.903407,
+      "lng": -1.379882,
+      "population": 452934,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Belfast",
+      "lat": 54.594245,
+      "lng": -5.928178,
+      "population": 450406,
+      "rank": 4,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Portsmouth",
+      "lat": 50.800348,
+      "lng": -1.080022,
+      "population": 442252,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Bournemouth",
+      "lat": 50.72999,
+      "lng": -1.90005,
+      "population": 426945,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Middlesbrough",
+      "lat": 54.580375,
+      "lng": -1.230013,
+      "population": 416042,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Stoke",
+      "lat": 53.000368,
+      "lng": -2.180007,
+      "population": 390801,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Coventry",
+      "lat": 52.400741,
+      "lng": -1.502675,
+      "population": 388271,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Southampton",
+      "lat": 50.900031,
+      "lng": -1.399977,
+      "population": 384417,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Reading",
+      "lat": 51.469971,
+      "lng": -0.980028,
+      "population": 369804,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Kingston upon Hull",
+      "lat": 53.750426,
+      "lng": -0.329991,
+      "population": 302296,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Swansea",
+      "lat": 51.629987,
+      "lng": -3.950002,
+      "population": 294339,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Blackpool",
+      "lat": 53.830395,
+      "lng": -3.050005,
+      "population": 272792,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Plymouth",
+      "lat": 50.385386,
+      "lng": -4.159989,
+      "population": 247297,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Luton",
+      "lat": 51.880359,
+      "lng": -0.420011,
+      "population": 235958,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Oxford",
+      "lat": 51.751828,
+      "lng": -1.248076,
+      "population": 192796,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Norwich",
+      "lat": 52.630365,
+      "lng": 1.300013,
+      "population": 190756,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Aberdeen",
+      "lat": 57.145133,
+      "lng": -2.10505,
+      "population": 189364,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Cork",
+      "lat": 51.892838,
+      "lng": -8.46511,
+      "population": 188907,
+      "rank": 6,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "York",
+      "lat": 53.951168,
+      "lng": -1.072104,
+      "population": 158947,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Dundee",
+      "lat": 56.470389,
+      "lng": -3.000008,
+      "population": 151592,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Ipswich",
+      "lat": 52.070347,
+      "lng": 1.169995,
+      "population": 143767,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Peterborough",
+      "lat": 52.567187,
+      "lng": -0.248404,
+      "population": 140141,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Cambridge",
+      "lat": 52.200391,
+      "lng": 0.116623,
+      "population": 128488,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Exeter",
+      "lat": 50.700405,
+      "lng": -3.52995,
+      "population": 113118,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Bath",
+      "lat": 51.383749,
+      "lng": -2.350022,
+      "population": 93238,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Limerick",
+      "lat": 52.664704,
+      "lng": -8.62305,
+      "population": 90054,
+      "rank": 6,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Chester",
+      "lat": 53.186325,
+      "lng": -2.902965,
+      "population": 89531,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Londonderry/Derry",
+      "lat": 55.000375,
+      "lng": -7.333284,
+      "population": 83652,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Galway",
+      "lat": 53.272393,
+      "lng": -9.048812,
+      "population": 75594,
+      "rank": 7,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Greenock",
+      "lat": 55.93329,
+      "lng": -4.750031,
+      "population": 74635,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Carlisle",
+      "lat": 54.879995,
+      "lng": -2.929987,
+      "population": 72633,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Scarborough",
+      "lat": 54.280394,
+      "lng": -0.429984,
+      "population": 70571,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Ayr",
+      "lat": 55.4504,
+      "lng": -4.61668,
+      "population": 69042,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Waterford",
+      "lat": 52.258295,
+      "lng": -7.111928,
+      "population": 49275,
+      "rank": 8,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Inverness",
+      "lat": 57.467124,
+      "lng": -4.233266,
+      "population": 45158,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Perth",
+      "lat": 56.392609,
+      "lng": -3.436375,
+      "population": 39654,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Dundalk",
+      "lat": 53.999796,
+      "lng": -6.395592,
+      "population": 38884,
+      "rank": 7,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Drogheda",
+      "lat": 53.708887,
+      "lng": -6.350462,
+      "population": 36533,
+      "rank": 7,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Dover",
+      "lat": 51.133712,
+      "lng": 1.300013,
+      "population": 36384,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Douglas",
+      "lat": 54.149122,
+      "lng": -4.480269,
+      "population": 35854,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Dumfries",
+      "lat": 55.06709,
+      "lng": -3.550001,
+      "population": 31044,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Tralee",
+      "lat": 52.266692,
+      "lng": -9.716653,
+      "population": 26384,
+      "rank": 8,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Kilkenny",
+      "lat": 52.65455,
+      "lng": -7.252255,
+      "population": 21589,
+      "rank": 7,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Omagh",
+      "lat": 54.600012,
+      "lng": -7.300004,
+      "population": 21056,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Penzance",
+      "lat": 50.133722,
+      "lng": -5.550034,
+      "population": 20812,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Sligo",
+      "lat": 54.267061,
+      "lng": -8.483317,
+      "population": 20228,
+      "rank": 7,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Lisburn",
+      "lat": 54.51034,
+      "lng": -6.047723,
+      "population": 12899,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Killarney",
+      "lat": 52.0504,
+      "lng": -9.516665,
+      "population": 11902,
+      "rank": 7,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Fort William",
+      "lat": 56.816478,
+      "lng": -5.112076,
+      "population": 9652,
+      "rank": 8,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Shannon",
+      "lat": 52.703849,
+      "lng": -8.864147,
+      "population": 8781,
+      "rank": 8,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Kirkwall",
+      "lat": 58.966981,
+      "lng": -2.950011,
+      "population": 8500,
+      "rank": 7,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Wick",
+      "lat": 58.433293,
+      "lng": -3.083362,
+      "population": 7147,
+      "rank": 6,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Lerwick",
+      "lat": 60.150035,
+      "lng": -1.149992,
+      "population": 6594,
+      "rank": 6,
+      "capital": false,
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Muineachan",
+      "lat": 54.25,
+      "lng": -6.966667,
+      "population": 5937,
+      "rank": 10,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Ros Comain",
+      "lat": 53.633333,
+      "lng": -8.183333,
+      "population": 4860,
+      "rank": 10,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Donegal",
+      "lat": 54.650009,
+      "lng": -8.116673,
+      "population": 2513,
+      "rank": 8,
+      "capital": false,
+      "country": "Ireland"
+    },
+    {
+      "name": "Stornoway",
+      "lat": 58.21347,
+      "lng": -6.38138,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district HS1"
+    },
+    {
+      "name": "Worcester",
+      "lat": 52.19713,
+      "lng": -2.21656,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district WR1"
+    },
+    {
+      "name": "Northampton",
+      "lat": 52.24154,
+      "lng": -0.88682,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district NN1"
+    },
+    {
+      "name": "Gloucester",
+      "lat": 51.8599,
+      "lng": -2.23962,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district GL1"
+    },
+    {
+      "name": "Bletchley",
+      "lat": 52.00522,
+      "lng": -0.72659,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district MK1"
+    },
+    {
+      "name": "Chelmsford",
+      "lat": 51.74454,
+      "lng": 0.45694,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district CM1"
+    },
+    {
+      "name": "Guildford",
+      "lat": 51.24255,
+      "lng": -0.56436,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district GU1"
+    },
+    {
+      "name": "Taunton",
+      "lat": 51.01234,
+      "lng": -3.10203,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district TA1"
+    },
+    {
+      "name": "Birchwood",
+      "lat": 53.39442,
+      "lng": -2.5685,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district WA1"
+    },
+    {
+      "name": "Shrewsbury",
+      "lat": 52.7228,
+      "lng": -2.74039,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district SY1"
+    },
+    {
+      "name": "Hampton Bishop",
+      "lat": 52.06415,
+      "lng": -2.66963,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district HR1"
+    },
+    {
+      "name": "Colnbrook with Poyle",
+      "lat": 51.51751,
+      "lng": -0.61916,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district SL1"
+    },
+    {
+      "name": "Derby",
+      "lat": 52.91994,
+      "lng": -1.47492,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district DE1"
+    },
+    {
+      "name": "Swindon",
+      "lat": 51.55689,
+      "lng": -1.77351,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district SN1"
+    },
+    {
+      "name": "Doncaster",
+      "lat": 53.52205,
+      "lng": -1.1296,
+      "population": 0,
+      "capital": false,
+      "rank": 9,
+      "minZoom": 7,
+      "country": "United Kingdom",
+      "source": "Gibbs/uk-postcodes (CC0), reference district DN1"
+    }
+  ]
+}

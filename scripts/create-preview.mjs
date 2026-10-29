@@ -26,8 +26,9 @@ const validation=JSON.parse(await read('reports/coverage-open.json'));
 const combined=JSON.parse(await read('data/coverage-combined.geojson'));
 const retained={...coverage,arrivalLondon:validation.arrivalLondon,calculatedAt:validation.calculatedAt,scope:'open',combined:combined.features};
 const basemap=JSON.parse(await read('data/basemap.json'));
+const places=JSON.parse(await read('data/places.json'));
 const json=v=>JSON.stringify(v).replaceAll('<','\\u003c');
-const packed=gzipSync(Buffer.from(JSON.stringify({'/api/initiatives':rows,'/api/basemap':basemap,'/api/coverage-saved':retained,'/api/status':{routingReady:false,offlinePreview:true,precise:rows.filter(r=>r.location?.precision==='postcode').length,total:rows.length}}))).toString('base64');
+const packed=gzipSync(Buffer.from(JSON.stringify({'/api/initiatives':rows,'/api/basemap':basemap,'/api/places':places,'/api/coverage-saved':retained,'/api/status':{routingReady:false,offlinePreview:true,precise:rows.filter(r=>r.location?.precision==='postcode').length,total:rows.length}}))).toString('base64');
 const preload=`
 const previewReady=(async()=>{
  const bytes=Uint8Array.from(atob(${json(packed)}),c=>c.charCodeAt(0));
@@ -51,4 +52,6 @@ html=html.replace('<title>','<title>Offline preview · ');
 html=html.replace('</body>','<div style="margin:0 38px 12px;text-align:center;font:10px system-ui;background:#fff8e8;color:#695c37;border:1px solid #d4c490;border-radius:5px;padding:6px 10px">Internal preview · real coverage for 70 open initiatives · live recalculation requires server</div></body>');
 await mkdir(path.join(root,'artifacts'),{recursive:true});
 await writeFile(path.join(root,'artifacts/education-reach-preview.html'),html);
+await mkdir(path.join(root,'preview'),{recursive:true});
+await writeFile(path.join(root,'preview/education-reach-preview.html'),html);
 console.log('Created artifacts/education-reach-preview.html — open it in a browser. Contains internal data; share only with authorised colleagues.');

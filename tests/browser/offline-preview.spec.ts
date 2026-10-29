@@ -11,7 +11,7 @@ test('standalone HTML displays the real map and working filters without external
  await page.route('http://127.0.0.1:3000/download-preview.html',route=>route.fulfill({contentType:'text/html',body:readFileSync(file,'utf8')}));
  await page.goto('http://127.0.0.1:3000/download-preview.html');
  await expect(page.getByText('90 initiatives in this view')).toBeVisible();
- await expect(page.locator('.leaflet-interactive').first()).toBeVisible();
+ await expect(page.locator('.initiative-cluster, .initiative-pin').first()).toBeVisible();
  await expect(page.getByText('70 / 70 sites · combined driving coverage')).toBeVisible();
  await page.getByRole('button',{name:'Hide saved coverage'}).click();
  await expect(page.locator('.map-caption')).toContainText('Coverage layer hidden');
@@ -20,7 +20,9 @@ test('standalone HTML displays the real map and working filters without external
  await page.getByRole('button',{name:'Show saved coverage'}).click();
  await page.getByRole('button',{name:'Public transport',exact:true}).click();
  await expect(page.getByText('70 / 70 sites · combined public transport coverage')).toBeVisible();
+ await page.getByRole('button',{name:'Journey settings',exact:true}).click();
  await expect(page.getByRole('button',{name:'Live recalculation requires server'})).toBeDisabled();
+ await page.getByRole('button',{name:'Close journey settings'}).click();
  await page.getByRole('button',{name:'Driving',exact:true}).click();
  await page.getByRole('button',{name:'Review coverage & exclusions'}).click();
  await expect(page.getByText('70 of 70 eligible selected initiatives', {exact:false})).toBeVisible();
@@ -56,6 +58,7 @@ test('provision, support and organisation filters rebuild coverage with accurate
  await expect(page.locator('.coverage-summary')).toContainText('0 missing precise locations');
  await page.getByRole('button',{name:'Reset',exact:true}).click();
  await page.getByLabel('Open').uncheck();
+ await page.getByRole('button',{name:'Journey settings',exact:true}).click();
  await page.getByLabel('Include selected planned / unknown stages').check();
  await expect(page.locator('.coverage-summary')).toContainText('70 / 79');
  await expect(page.locator('.coverage-summary')).toContainText('9 awaiting travel areas');

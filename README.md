@@ -4,6 +4,8 @@ An internal Christian education planning map, built from the supplied 23 October
 
 **29 October update:** all 70 open initiatives with resolved postcodes now have genuine 45-minute driving and public transport coverage (140 areas), arriving 30 October 2026 at 08:30 London time. The map combines selected areas and updates the union when filters change. Twenty open initiatives remain excluded for incomplete site postcodes. See [the expansion report](reports/COVERAGE-EXPANSION.md); [the earlier location/sample report](reports/FIRST-TWO-PRIORITIES.md) records the first validation stage.
 
+**Map usability:** offline town/city labels, clustered pins, larger text, collapsible journey settings/key/filters, docked initiative details and an expanded map view are now included in both app and preview. See [the usability report](reports/MAP-USABILITY.md).
+
 ## Run
 
 Requires Node.js **24.5 or later** (Node 24.19 tested) and npm. The startup command uses Node's environment-proxy support so the inherited proxy and CA trust remain in effect.
