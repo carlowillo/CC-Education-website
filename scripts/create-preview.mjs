@@ -21,14 +21,19 @@ for(const match of [...css.matchAll(/url\(([^)]+)\)/g)]){
 const rows=JSON.parse(await read('data/initiatives.json'));
 const locations=JSON.parse(await read('data/locations.json'));
 for(const row of rows){const key=row.postcode.replace(/\s/g,'').toUpperCase();if(row.fullPostcode&&locations.locations[key])row.location=locations.locations[key];}
-const coverage=JSON.parse(await read('data/coverage-open.geojson'));
-const validation=JSON.parse(await read('reports/coverage-open.json'));
-const combined=JSON.parse(await read('data/coverage-combined.geojson'));
-const retained={...coverage,arrivalLondon:validation.arrivalLondon,calculatedAt:validation.calculatedAt,scope:'open',combined:combined.features};
+const estimates=JSON.parse(await read('data/estimated-locations.json'));
+for(const row of rows){const entry=estimates.locations[row.id];if(!row.fullPostcode&&entry?.sourcePostcode===row.postcode&&entry.location?.precision==='estimated')row.location=entry.location;}
+const coverage=JSON.parse(await read('data/coverage-planning.geojson'));
+const validation=JSON.parse(await read('reports/coverage-planning.json'));
+const combined=JSON.parse(await read('data/coverage-planning-combined.geojson'));
+const validIds=new Set(validation.sourceInputs.filter(input=>{const row=rows.find(r=>r.id===input.id);return row?.stage===input.stage&&row?.location?.lat===input.lat&&row?.location?.lng===input.lng&&row?.location?.label===input.routingPostcode&&row?.location?.precision===(input.locationBasis==='estimated'?'estimated':'postcode');}).map(input=>input.id));
+const features=coverage.features.filter(f=>validIds.has(f.properties.id));
+const retained={...coverage,features,arrivalLondon:validation.arrivalLondon,calculatedAt:validation.calculatedAt,scope:validation.scope,combined:combined.features.filter(f=>f.properties.initiativeIds.every(id=>validIds.has(id)))};
+const knownPostcodes=Object.fromEntries(rows.filter(r=>r.location&&['postcode','estimated'].includes(r.location.precision)).map(r=>[r.location.label.replace(/\s/g,'').toUpperCase(),{lat:r.location.lat,lng:r.location.lng,postcode:r.location.label}]));
 const basemap=JSON.parse(await read('data/basemap.json'));
 const places=JSON.parse(await read('data/places.json'));
 const json=v=>JSON.stringify(v).replaceAll('<','\\u003c');
-const packed=gzipSync(Buffer.from(JSON.stringify({'/api/initiatives':rows,'/api/basemap':basemap,'/api/places':places,'/api/coverage-saved':retained,'/api/status':{routingReady:false,offlinePreview:true,precise:rows.filter(r=>r.location?.precision==='postcode').length,total:rows.length}}))).toString('base64');
+const packed=gzipSync(Buffer.from(JSON.stringify({'/api/initiatives':rows,'/api/basemap':basemap,'/api/places':places,'/api/coverage-saved':retained,knownPostcodes,'/api/status':{routingReady:false,offlinePreview:true,precise:rows.filter(r=>r.location?.precision==='postcode').length,total:rows.length}}))).toString('base64');
 const preload=`
 const previewReady=(async()=>{
  const bytes=Uint8Array.from(atob(${json(packed)}),c=>c.charCodeAt(0));
@@ -40,6 +45,20 @@ window.fetch=async function(input,init){
  const url=typeof input==='string'?input:input.url;
  const previewData=await previewReady;
  if(previewData[url])return new Response(JSON.stringify(previewData[url]),{headers:{'Content-Type':'application/json'}});
+ if(url.startsWith('/api/postcode/')){
+  const reply=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json'}});
+  const pc=decodeURIComponent(url.slice('/api/postcode/'.length)).toUpperCase().replace(/\\s/g,'');
+  if(!/^[A-Z]{1,2}\\d[A-Z\\d]?\\d[A-Z]{2}$/.test(pc))return reply({error:'Enter a full UK postcode, for example SW1A 1AA.'},400);
+  if(previewData.knownPostcodes[pc])return reply(previewData.knownPostcodes[pc]);
+  try{
+   const response=await originalFetch('https://api.postcodes.io/postcodes/'+encodeURIComponent(pc),{signal:AbortSignal.timeout(15000)});
+   if(response.status===404)return reply({error:'Postcode not found. Check the postcode and try again.'},404);
+   if(!response.ok)throw new Error();
+   const {result}=await response.json();
+   if(result?.postcode?.replace(/\\s/g,'')!==pc||!Number.isFinite(result.latitude)||!Number.isFinite(result.longitude)||result.latitude<49||result.latitude>62||result.longitude < -9||result.longitude>3)throw new Error();
+   const point={lat:result.latitude,lng:result.longitude,postcode:result.postcode};previewData.knownPostcodes[pc]=point;return reply(point);
+  }catch{return reply({error:'This postcode needs an internet connection to Postcodes.io. Saved initiative and representative postcodes can be searched offline.'},503);}
+ }
  if(url.startsWith('/api/'))return new Response(JSON.stringify({error:'This is the downloaded visual preview. Live postcode lookup and journey calculations require the hosted application.'}),{status:503,headers:{'Content-Type':'application/json'}});
  return originalFetch(input,init);
 };
@@ -49,7 +68,7 @@ const js=await read('dist'+jsPath);
 html=html.replace(/<script[^>]+src="[^"]+"[^>]*><\/script>/,()=>`<script>${preload.replaceAll('</script','<\\/script')}</script><script type="module">${js.replaceAll('</script','<\\/script')}</script>`);
 html=html.replace(/<link[^>]+href="[^"]+\.css"[^>]*>/,()=>`<style>${css}</style>`);
 html=html.replace('<title>','<title>Offline preview · ');
-html=html.replace('</body>','<div style="margin:0 38px 12px;text-align:center;font:10px system-ui;background:#fff8e8;color:#695c37;border:1px solid #d4c490;border-radius:5px;padding:6px 10px">Internal preview · real coverage for 70 open initiatives · live recalculation requires server</div></body>');
+html=html.replace('</body>',`<div style="margin:0 38px 12px;text-align:center;font:11px system-ui;background:#fff8e8;color:#695c37;border:1px solid #d4c490;border-radius:5px;padding:6px 10px">Internal preview · ${new Set(features.map(f=>f.properties.id)).size} initiatives have saved travel areas · estimated locations are labelled · live recalculation requires server</div></body>`);
 await mkdir(path.join(root,'artifacts'),{recursive:true});
 await writeFile(path.join(root,'artifacts/education-reach-preview.html'),html);
 await mkdir(path.join(root,'preview'),{recursive:true});

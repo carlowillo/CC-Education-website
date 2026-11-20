@@ -1,0 +1,749 @@
+{
+  "version": 1,
+  "resolvedAt": "2026-11-20T14:16:45.138Z",
+  "locations": {
+    "45": {
+      "sourcePostcode": "NP7",
+      "location": {
+        "lat": 51.82942,
+        "lng": -3.011287,
+        "precision": "estimated",
+        "label": "NP7 6AW",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:26.497Z",
+        "quality": 1,
+        "referenceArea": "NP7",
+        "estimateBasis": "Representative active postcode near the centre of recorded district NP7."
+      }
+    },
+    "56": {
+      "sourcePostcode": "BT19",
+      "location": {
+        "lat": 54.646677,
+        "lng": -5.662883,
+        "precision": "estimated",
+        "label": "BT19 7NN",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:26.929Z",
+        "quality": 1,
+        "referenceArea": "BT19",
+        "estimateBasis": "Representative active postcode near the centre of recorded district BT19."
+      }
+    },
+    "57": {
+      "sourcePostcode": "NG1",
+      "location": {
+        "lat": 52.954919,
+        "lng": -1.148339,
+        "precision": "estimated",
+        "label": "NG1 2AP",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:27.337Z",
+        "quality": 1,
+        "referenceArea": "NG1",
+        "estimateBasis": "Representative active postcode near the centre of recorded district NG1."
+      }
+    },
+    "60": {
+      "sourcePostcode": "KT3",
+      "location": {
+        "lat": 51.399561,
+        "lng": -0.256749,
+        "precision": "estimated",
+        "label": "KT3 3PS",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:27.779Z",
+        "quality": 1,
+        "referenceArea": "KT3",
+        "estimateBasis": "Representative active postcode near the centre of recorded district KT3."
+      }
+    },
+    "61": {
+      "sourcePostcode": "NE2",
+      "location": {
+        "lat": 54.987519,
+        "lng": -1.605579,
+        "precision": "estimated",
+        "label": "NE2 2AD",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:28.222Z",
+        "quality": 1,
+        "referenceArea": "NE2",
+        "estimateBasis": "Representative active postcode near the centre of recorded district NE2."
+      }
+    },
+    "63": {
+      "sourcePostcode": "DA17",
+      "location": {
+        "lat": 51.486468,
+        "lng": 0.14898,
+        "precision": "estimated",
+        "label": "DA17 5QL",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:28.568Z",
+        "quality": 1,
+        "referenceArea": "DA17",
+        "estimateBasis": "Representative active postcode near the centre of recorded district DA17."
+      }
+    },
+    "65": {
+      "sourcePostcode": "RG7",
+      "location": {
+        "lat": 51.39799,
+        "lng": -1.075381,
+        "precision": "estimated",
+        "label": "RG7 3ZF",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:29.238Z",
+        "quality": 1,
+        "referenceArea": "RG7",
+        "estimateBasis": "Representative active postcode near the centre of recorded district RG7."
+      }
+    },
+    "66": {
+      "sourcePostcode": "P03",
+      "location": {
+        "lat": 50.816948,
+        "lng": -1.059493,
+        "precision": "estimated",
+        "label": "PO3 5LL",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:29.741Z",
+        "quality": 1,
+        "referenceArea": "PO3",
+        "estimateBasis": "Source P03 is invalid. Assumed letter O in PO3 (Portsmouth); this assumption requires confirmation."
+      }
+    },
+    "67": {
+      "sourcePostcode": "NN8",
+      "location": {
+        "lat": 52.303836,
+        "lng": -0.699732,
+        "precision": "estimated",
+        "label": "NN8 4FX",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:30.183Z",
+        "quality": 1,
+        "referenceArea": "NN8",
+        "estimateBasis": "Representative active postcode near the centre of recorded district NN8."
+      }
+    },
+    "68": {
+      "sourcePostcode": "N15",
+      "location": {
+        "lat": 51.582727,
+        "lng": -0.080768,
+        "precision": "estimated",
+        "label": "N15 5HG",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:30.490Z",
+        "quality": 1,
+        "referenceArea": "N15",
+        "estimateBasis": "Representative active postcode near the centre of recorded district N15."
+      }
+    },
+    "69": {
+      "sourcePostcode": "SM1",
+      "location": {
+        "lat": 51.367277,
+        "lng": -0.192034,
+        "precision": "estimated",
+        "label": "SM1 4DE",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:30.802Z",
+        "quality": 1,
+        "referenceArea": "SM1",
+        "estimateBasis": "Representative active postcode near the centre of recorded district SM1."
+      }
+    },
+    "70": {
+      "sourcePostcode": "RM11",
+      "location": {
+        "lat": 51.570656,
+        "lng": 0.219242,
+        "precision": "estimated",
+        "label": "RM11 2JS",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:31.116Z",
+        "quality": 1,
+        "referenceArea": "RM11",
+        "estimateBasis": "Representative active postcode near the centre of recorded district RM11."
+      }
+    },
+    "71": {
+      "sourcePostcode": "LS1",
+      "location": {
+        "lat": 53.797721,
+        "lng": -1.551515,
+        "precision": "estimated",
+        "label": "LS1 2RU",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:31.399Z",
+        "quality": 1,
+        "referenceArea": "LS1",
+        "estimateBasis": "Representative active postcode near the centre of recorded district LS1."
+      }
+    },
+    "74": {
+      "sourcePostcode": "SE1",
+      "location": {
+        "lat": 51.499241,
+        "lng": -0.091308,
+        "precision": "estimated",
+        "label": "SE1 4XX",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:31.697Z",
+        "quality": 1,
+        "referenceArea": "SE1",
+        "estimateBasis": "Representative active postcode near the centre of recorded district SE1."
+      }
+    },
+    "75": {
+      "sourcePostcode": "SOUTH EAST LONDON",
+      "location": {
+        "lat": 51.499241,
+        "lng": -0.091308,
+        "precision": "estimated",
+        "label": "SE1 4XX",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:31.697Z",
+        "quality": 1,
+        "referenceArea": "SE1",
+        "estimateBasis": "Broad South East London description; central SE1 reference chosen."
+      }
+    },
+    "76": {
+      "sourcePostcode": "LE11",
+      "location": {
+        "lat": 52.767512,
+        "lng": -1.220321,
+        "precision": "estimated",
+        "label": "LE11 3BT",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:31.992Z",
+        "quality": 1,
+        "referenceArea": "LE11",
+        "estimateBasis": "Representative active postcode near the centre of recorded district LE11."
+      }
+    },
+    "77": {
+      "sourcePostcode": "EX1",
+      "location": {
+        "lat": 50.728014,
+        "lng": -3.49908,
+        "precision": "estimated",
+        "label": "EX1 3BE",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:32.330Z",
+        "quality": 1,
+        "referenceArea": "EX1",
+        "estimateBasis": "Representative active postcode near the centre of recorded district EX1."
+      }
+    },
+    "79": {
+      "sourcePostcode": "NN11",
+      "location": {
+        "lat": 52.246673,
+        "lng": -1.175322,
+        "precision": "estimated",
+        "label": "NN11 4NH",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:32.755Z",
+        "quality": 1,
+        "referenceArea": "NN11",
+        "estimateBasis": "Representative active postcode near the centre of recorded district NN11."
+      }
+    },
+    "80": {
+      "sourcePostcode": "SO23",
+      "location": {
+        "lat": 51.069742,
+        "lng": -1.311016,
+        "precision": "estimated",
+        "label": "SO23 7EG",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:33.066Z",
+        "quality": 1,
+        "referenceArea": "SO23",
+        "estimateBasis": "Representative active postcode near the centre of recorded district SO23."
+      }
+    },
+    "81": {
+      "sourcePostcode": "DA9",
+      "location": {
+        "lat": 51.447976,
+        "lng": 0.277594,
+        "precision": "estimated",
+        "label": "DA9 9WY",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:33.491Z",
+        "quality": 1,
+        "referenceArea": "DA9",
+        "estimateBasis": "Representative active postcode near the centre of recorded district DA9."
+      }
+    },
+    "82": {
+      "sourcePostcode": "SA2",
+      "location": {
+        "lat": 51.619266,
+        "lng": -3.99797,
+        "precision": "estimated",
+        "label": "SA2 8HU",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:33.943Z",
+        "quality": 1,
+        "referenceArea": "SA2",
+        "estimateBasis": "Representative active postcode near the centre of recorded district SA2."
+      }
+    },
+    "83": {
+      "sourcePostcode": "BS",
+      "location": {
+        "lat": 51.453249,
+        "lng": -2.593919,
+        "precision": "estimated",
+        "label": "BS1 1PN",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:34.215Z",
+        "quality": 1,
+        "referenceArea": "BS1",
+        "estimateBasis": "Broad Bristol postcode area; central BS1 reference chosen."
+      }
+    },
+    "84": {
+      "sourcePostcode": "CB",
+      "location": {
+        "lat": 52.19501,
+        "lng": 0.14167,
+        "precision": "estimated",
+        "label": "CB1 3NG",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:34.544Z",
+        "quality": 1,
+        "referenceArea": "CB1",
+        "estimateBasis": "Broad Cambridge postcode area; central CB1 reference chosen."
+      }
+    },
+    "85": {
+      "sourcePostcode": "PE28",
+      "location": {
+        "lat": 52.364734,
+        "lng": -0.186697,
+        "precision": "estimated",
+        "label": "PE28 2LB",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:34.989Z",
+        "quality": 1,
+        "referenceArea": "PE28",
+        "estimateBasis": "Representative active postcode near the centre of recorded district PE28."
+      }
+    },
+    "86": {
+      "sourcePostcode": "DY10",
+      "location": {
+        "lat": 52.386682,
+        "lng": -2.223256,
+        "precision": "estimated",
+        "label": "DY10 3EP",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:35.366Z",
+        "quality": 1,
+        "referenceArea": "DY10",
+        "estimateBasis": "Representative active postcode near the centre of recorded district DY10."
+      }
+    },
+    "87": {
+      "sourcePostcode": "S43",
+      "location": {
+        "lat": 53.267051,
+        "lng": -1.340951,
+        "precision": "estimated",
+        "label": "S43 3PU",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:35.803Z",
+        "quality": 1,
+        "referenceArea": "S43",
+        "estimateBasis": "Representative active postcode near the centre of recorded district S43."
+      }
+    },
+    "88": {
+      "sourcePostcode": "NR1",
+      "location": {
+        "lat": 52.626765,
+        "lng": 1.306768,
+        "precision": "estimated",
+        "label": "NR1 1EF",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:36.058Z",
+        "quality": 1,
+        "referenceArea": "NR1",
+        "estimateBasis": "Representative active postcode near the centre of recorded district NR1."
+      }
+    },
+    "89": {
+      "sourcePostcode": "CR3",
+      "location": {
+        "lat": 51.287853,
+        "lng": -0.081268,
+        "precision": "estimated",
+        "label": "CR3 6JH",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:36.454Z",
+        "quality": 1,
+        "referenceArea": "CR3",
+        "estimateBasis": "Representative active postcode near the centre of recorded district CR3."
+      }
+    },
+    "90": {
+      "sourcePostcode": "G14",
+      "location": {
+        "lat": 55.880429,
+        "lng": -4.351229,
+        "precision": "estimated",
+        "label": "G14 9FD",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:36.873Z",
+        "quality": 1,
+        "referenceArea": "G14",
+        "estimateBasis": "Representative active postcode near the centre of recorded district G14."
+      }
+    },
+    "91": {
+      "sourcePostcode": "HU",
+      "location": {
+        "lat": 53.742954,
+        "lng": -0.337743,
+        "precision": "estimated",
+        "label": "HU1 2LD",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:37.179Z",
+        "quality": 1,
+        "referenceArea": "HU1",
+        "estimateBasis": "Broad Hull postcode area; central HU1 reference chosen."
+      }
+    },
+    "92": {
+      "sourcePostcode": "BL0",
+      "location": {
+        "lat": 53.648594,
+        "lng": -2.31756,
+        "precision": "estimated",
+        "label": "BL0 9AD",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:37.640Z",
+        "quality": 1,
+        "referenceArea": "BL0",
+        "estimateBasis": "Representative active postcode near the centre of recorded district BL0."
+      }
+    },
+    "93": {
+      "sourcePostcode": "CV12",
+      "location": {
+        "lat": 52.478643,
+        "lng": -1.472649,
+        "precision": "estimated",
+        "label": "CV12 8NQ",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:38.173Z",
+        "quality": 1,
+        "referenceArea": "CV12",
+        "estimateBasis": "Representative active postcode near the centre of recorded district CV12."
+      }
+    },
+    "94": {
+      "sourcePostcode": "IG10",
+      "location": {
+        "lat": 51.648463,
+        "lng": 0.065447,
+        "precision": "estimated",
+        "label": "IG10 1TD",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:38.607Z",
+        "quality": 1,
+        "referenceArea": "IG10",
+        "estimateBasis": "Representative active postcode near the centre of recorded district IG10."
+      }
+    },
+    "95": {
+      "sourcePostcode": "PO40",
+      "location": {
+        "lat": 50.682619,
+        "lng": -1.521532,
+        "precision": "estimated",
+        "label": "PO40 9AU",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:38.925Z",
+        "quality": 1,
+        "referenceArea": "PO40",
+        "estimateBasis": "Representative active postcode near the centre of recorded district PO40."
+      }
+    },
+    "96": {
+      "sourcePostcode": "TN",
+      "location": {
+        "lat": 51.134654,
+        "lng": 0.267042,
+        "precision": "estimated",
+        "label": "TN1 2PS",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:39.214Z",
+        "quality": 1,
+        "referenceArea": "TN1",
+        "estimateBasis": "Broad Tunbridge Wells postcode area; central TN1 reference chosen."
+      }
+    },
+    "97": {
+      "sourcePostcode": "RH17",
+      "location": {
+        "lat": 51.020649,
+        "lng": -0.127297,
+        "precision": "estimated",
+        "label": "RH17 5HP",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:39.614Z",
+        "quality": 1,
+        "referenceArea": "RH17",
+        "estimateBasis": "Representative active postcode near the centre of recorded district RH17."
+      }
+    },
+    "98": {
+      "sourcePostcode": "EH55",
+      "location": {
+        "lat": 55.847366,
+        "lng": -3.573893,
+        "precision": "estimated",
+        "label": "EH55 8FX",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:40.015Z",
+        "quality": 1,
+        "referenceArea": "EH55",
+        "estimateBasis": "Representative active postcode near the centre of recorded district EH55."
+      }
+    },
+    "99": {
+      "sourcePostcode": "NW3",
+      "location": {
+        "lat": 51.552248,
+        "lng": -0.172896,
+        "precision": "estimated",
+        "label": "NW3 5NX",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:40.538Z",
+        "quality": 1,
+        "referenceArea": "NW3",
+        "estimateBasis": "Representative active postcode near the centre of recorded district NW3."
+      }
+    },
+    "100": {
+      "sourcePostcode": "GL",
+      "location": {
+        "lat": 51.859705,
+        "lng": -2.245496,
+        "precision": "estimated",
+        "label": "GL1 1LB",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:40.813Z",
+        "quality": 1,
+        "referenceArea": "GL1",
+        "estimateBasis": "Broad Gloucester postcode area; central GL1 reference chosen."
+      }
+    },
+    "101": {
+      "sourcePostcode": "KT",
+      "location": {
+        "lat": 51.40738,
+        "lng": -0.298022,
+        "precision": "estimated",
+        "label": "KT1 2PE",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:41.115Z",
+        "quality": 1,
+        "referenceArea": "KT1",
+        "estimateBasis": "Broad Kingston postcode area; central KT1 reference chosen."
+      }
+    },
+    "103": {
+      "sourcePostcode": "CH",
+      "location": {
+        "lat": 53.203347,
+        "lng": -2.910123,
+        "precision": "estimated",
+        "label": "CH1 5BL",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:41.371Z",
+        "quality": 1,
+        "referenceArea": "CH1",
+        "estimateBasis": "Broad Chester postcode area; central CH1 reference chosen."
+      }
+    },
+    "104": {
+      "sourcePostcode": "NE1",
+      "location": {
+        "lat": 54.972405,
+        "lng": -1.61135,
+        "precision": "estimated",
+        "label": "NE1 6BX",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:41.722Z",
+        "quality": 1,
+        "referenceArea": "NE1",
+        "estimateBasis": "Representative active postcode near the centre of recorded district NE1."
+      }
+    },
+    "105": {
+      "sourcePostcode": "LE9",
+      "location": {
+        "lat": 52.56946,
+        "lng": -1.273644,
+        "precision": "estimated",
+        "label": "LE9 7TR",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:42.190Z",
+        "quality": 1,
+        "referenceArea": "LE9",
+        "estimateBasis": "Representative active postcode near the centre of recorded district LE9."
+      }
+    },
+    "106": {
+      "sourcePostcode": "BD16",
+      "location": {
+        "lat": 53.848989,
+        "lng": -1.832642,
+        "precision": "estimated",
+        "label": "BD16 2NU",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:42.665Z",
+        "quality": 1,
+        "referenceArea": "BD16",
+        "estimateBasis": "Representative active postcode near the centre of recorded district BD16."
+      }
+    },
+    "107": {
+      "sourcePostcode": "DAGENHAM",
+      "location": {
+        "lat": 51.545218,
+        "lng": 0.157819,
+        "precision": "estimated",
+        "label": "RM10 8HB",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:43.122Z",
+        "quality": 1,
+        "referenceArea": "RM10",
+        "estimateBasis": "Dagenham town description; RM10 reference chosen."
+      }
+    },
+    "108": {
+      "sourcePostcode": "DA11",
+      "location": {
+        "lat": 51.434681,
+        "lng": 0.350184,
+        "precision": "estimated",
+        "label": "DA11 8RG",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:43.408Z",
+        "quality": 1,
+        "referenceArea": "DA11",
+        "estimateBasis": "Representative active postcode near the centre of recorded district DA11."
+      }
+    },
+    "126": {
+      "sourcePostcode": "TR15",
+      "location": {
+        "lat": 50.23177,
+        "lng": -5.238416,
+        "precision": "estimated",
+        "label": "TR15 3GE",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:43.727Z",
+        "quality": 1,
+        "referenceArea": "TR15",
+        "estimateBasis": "Representative active postcode near the centre of recorded district TR15."
+      }
+    },
+    "127": {
+      "sourcePostcode": "DA15",
+      "location": {
+        "lat": 51.44192,
+        "lng": 0.098147,
+        "precision": "estimated",
+        "label": "DA15 8WE",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:44.174Z",
+        "quality": 1,
+        "referenceArea": "DA15",
+        "estimateBasis": "Representative active postcode near the centre of recorded district DA15."
+      }
+    },
+    "128": {
+      "sourcePostcode": "N9",
+      "location": {
+        "lat": 51.62839,
+        "lng": -0.058281,
+        "precision": "estimated",
+        "label": "N9 7AS",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:44.572Z",
+        "quality": 1,
+        "referenceArea": "N9",
+        "estimateBasis": "Representative active postcode near the centre of recorded district N9."
+      }
+    },
+    "129": {
+      "sourcePostcode": "BS",
+      "location": {
+        "lat": 51.453249,
+        "lng": -2.593919,
+        "precision": "estimated",
+        "label": "BS1 1PN",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:34.215Z",
+        "quality": 1,
+        "referenceArea": "BS1",
+        "estimateBasis": "Broad Bristol postcode area; central BS1 reference chosen."
+      }
+    },
+    "130": {
+      "sourcePostcode": "DH",
+      "location": {
+        "lat": 54.781626,
+        "lng": -1.566316,
+        "precision": "estimated",
+        "label": "DH1 1NU",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:44.851Z",
+        "quality": 1,
+        "referenceArea": "DH1",
+        "estimateBasis": "Broad Durham postcode area; central DH1 reference chosen."
+      }
+    },
+    "131": {
+      "sourcePostcode": "LS1",
+      "location": {
+        "lat": 53.797721,
+        "lng": -1.551515,
+        "precision": "estimated",
+        "label": "LS1 2RU",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:31.399Z",
+        "quality": 1,
+        "referenceArea": "LS1",
+        "estimateBasis": "Representative active postcode near the centre of recorded district LS1."
+      }
+    },
+    "132": {
+      "sourcePostcode": "CM17",
+      "location": {
+        "lat": 51.773807,
+        "lng": 0.1456,
+        "precision": "estimated",
+        "label": "CM17 9XP",
+        "source": "Postcodes.io representative active postcode (estimated initiative location)",
+        "geocodedAt": "2026-11-20T14:16:45.138Z",
+        "quality": 1,
+        "referenceArea": "CM17",
+        "estimateBasis": "Representative active postcode near the centre of recorded district CM17."
+      }
+    }
+  },
+  "failures": {}
+}

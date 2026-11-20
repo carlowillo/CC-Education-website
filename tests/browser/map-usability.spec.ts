@@ -6,7 +6,7 @@ async function openOffline(page:Page){
  const body=readFileSync(new URL('../../artifacts/education-reach-preview.html',import.meta.url),'utf8');
  await page.route('http://127.0.0.1:3000/usability-preview.html',route=>route.fulfill({contentType:'text/html',body}));
  await page.goto('http://127.0.0.1:3000/usability-preview.html');
- await expect(page.getByText('70 / 70 sites · combined driving coverage')).toBeVisible();
+ await expect(page.getByText('70 / 90 sites · combined driving coverage')).toBeVisible();
 }
 test('offline place labels, collapsible controls and a docked detail panel keep the map readable',async({page})=>{
  await openOffline(page);

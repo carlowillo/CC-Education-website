@@ -14,7 +14,10 @@
     "routing:validate": "node --env-file-if-exists=.env --use-env-proxy --import tsx scripts/validate-routing.ts",
     "routing:cross-check": "node --env-file-if-exists=.env --use-env-proxy --import tsx scripts/cross-check-routing.ts",
     "routing:expand": "node --env-file-if-exists=.env --use-env-proxy --import tsx scripts/expand-coverage.ts",
-    "routing:combine": "node --import tsx scripts/combine-open-coverage.ts"
+    "routing:combine": "node --import tsx scripts/combine-open-coverage.ts",
+    "locations:estimate": "node --use-env-proxy --import tsx scripts/estimate-locations.ts",
+    "routing:planning": "node --use-env-proxy --import tsx scripts/expand-planning-coverage.ts",
+    "routing:planning:combine": "node --import tsx scripts/combine-planning-coverage.ts"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",

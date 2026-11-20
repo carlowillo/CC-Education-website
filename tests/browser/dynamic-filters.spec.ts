@@ -1,0 +1,83 @@
+import {test,expect} from '@playwright/test';
+import {readFileSync} from 'node:fs';
+import {applyLocations} from '../../server/geocoding';
+import {applyEstimatedLocations} from '../../src/locations';
+import {stageGroup} from '../../src/types';
+import type {Initiative,Coverage} from '../../src/types';
+const read=(file:string)=>JSON.parse(readFileSync(file,'utf8'));
+const count=(page:import('@playwright/test').Page,key:string,value:string)=>page.locator(`[data-filter-key="${key}"] [data-filter-value="${value}"] small`);
+test('facet counts update, combine options and reset without trapping selected filters',async({page})=>{
+ await page.route('**/api/coverage-saved',route=>route.fulfill({json:{features:[],arrivalLondon:null}}));
+ await page.goto('/');
+ await expect(count(page,'ethos','fully')).toHaveText('67');
+ await page.getByLabel('Strong Christian ethos',{exact:false}).check();
+ await expect(count(page,'stage','Open')).toHaveText('17');
+ await expect(count(page,'stage','Gathering a team')).toHaveText('0');
+ await expect(count(page,'provision','Full-Time school')).toHaveText('17');
+ await expect(page.getByLabel('Home Education Hub',{exact:false})).toBeDisabled();
+ await page.getByLabel('Fully Christian ethos',{exact:false}).check();
+ await expect(count(page,'stage','Open')).toHaveText('84');
+ await expect(count(page,'provision','Full-Time school')).toHaveText('52');
+ await page.getByLabel('Home Education Hub',{exact:false}).check();
+ await expect(page.getByText('14 initiatives in this view')).toBeVisible();
+ // A selected option with zero matches stays enabled, so it can be removed.
+ await expect(page.getByLabel('Strong Christian ethos',{exact:false})).toBeEnabled();
+ await expect(count(page,'ethos','strong')).toHaveText('0');
+ await page.getByLabel('Fully Christian ethos',{exact:false}).uncheck();
+ await expect(page.getByText('0 initiatives in this view')).toBeVisible();
+ await expect(page.getByLabel('Home Education Hub',{exact:false})).toBeEnabled();
+ await page.getByRole('button',{name:'Reset',exact:true}).click();
+ await expect(page.getByText('90 initiatives in this view')).toBeVisible();
+ await expect(count(page,'provision','Full-Time school')).toHaveText('55');
+});
+
+test('stage colours and estimate exclusions affect areas, postcode matches and exports',async({page})=>{
+ const all:Initiative[]=applyEstimatedLocations(applyLocations(read('data/initiatives.json'),read('data/locations.json')),read('data/estimated-locations.json'));
+ const rows=all.filter(r=>['1','45','56'].includes(r.id));
+ // Deliberate small UI fixtures: no provider requests and no synthetic production data.
+ const features:Coverage[]=rows.map(row=>{const {lat,lng}=row.location!;return {type:'Feature',properties:{id:row.id,name:row.name,mode:'driving',arrival:'2026-11-23T08:30:00.000Z',minutes:45,stageGroup:stageGroup(row.stage),locationBasis:row.location!.precision==='estimated'?'estimated':'postcode'},geometry:{type:'MultiPolygon',coordinates:[[[[lng-.02,lat-.02],[lng+.02,lat-.02],[lng+.02,lat+.02],[lng-.02,lat+.02],[lng-.02,lat-.02]]]]}};});
+ await page.route('**/api/initiatives',route=>route.fulfill({json:rows}));
+ await page.route('**/api/coverage-saved',route=>route.fulfill({json:{features,arrivalLondon:'2026-11-23T08:30'}}));
+ const estimate=rows.find(r=>r.id==='45')!;
+ await page.route('**/api/postcode/NP76AW',route=>route.fulfill({json:{lat:estimate.location!.lat,lng:estimate.location!.lng,postcode:estimate.location!.label}}));
+ await page.goto('/');
+ await expect(page.locator('.map-caption')).toContainText('2 / 2 sites · combined driving coverage');
+ await expect(page.locator('.coverage-area.open.estimated')).toHaveCount(1);
+ expect(await page.locator('.coverage-area.open.estimated').getAttribute('stroke-dasharray')).toBe('6 4');
+ await page.getByRole('checkbox',{name:/^Open \d+$/}).uncheck();
+ await expect(page.getByText('3 initiatives in this view')).toBeVisible();
+ await expect(page.locator('.coverage-area.developing.estimated')).toHaveCount(1);
+ expect(await page.locator('.coverage-area.developing.estimated').getAttribute('fill')).toBe('#b66c19');
+ expect(await page.locator('.coverage-area.open.postcode').getAttribute('fill')).toBe('#21725a');
+ await page.getByLabel('Search a full UK postcode').fill('NP76AW');await page.getByRole('button',{name:'Find postcode'}).click();
+ await expect(page.locator('.search-match-context')).toContainText('1 use estimated locations');
+ await page.getByRole('button',{name:'Journey settings',exact:true}).click();
+ await page.getByLabel('Include estimated locations',{exact:true}).uncheck();
+ await expect(page.locator('.coverage-summary')).toContainText('1 / 1');
+ await expect(page.locator('.coverage-summary')).toContainText('2 excluded locations');
+ await expect(page.locator('.coverage-area.estimated')).toHaveCount(0);
+ await expect(page.locator('.search-match-context')).toHaveCount(0);
+ await page.getByLabel('Include estimated locations',{exact:true}).check();
+ await expect(page.locator('.coverage-summary')).toContainText('3 / 3');
+ await page.getByRole('button',{name:'Review coverage & exclusions'}).click();
+ const download=page.waitForEvent('download');await page.getByRole('button',{name:'Export combined coverage'}).click();
+ const path=await (await download).path();const exported=JSON.parse(readFileSync(path!,'utf8'));
+ expect(exported.features).toHaveLength(3);expect(exported.features.filter((f:Coverage)=>f.properties.locationBasis==='estimated')).toHaveLength(2);
+});
+
+test('downloaded preview searches saved representative postcodes offline and other postcodes online',async({page})=>{
+ const body=readFileSync('artifacts/education-reach-preview.html','utf8');
+ await page.route('http://127.0.0.1:3000/filters-preview.html',route=>route.fulfill({contentType:'text/html',body}));
+ const requests:string[]=[];
+ await page.route('https://api.postcodes.io/**',route=>{requests.push(route.request().url());return route.fulfill({json:{status:200,result:{postcode:'SW1A 1AA',latitude:51.501,longitude:-.142}}});});
+ await page.goto('http://127.0.0.1:3000/filters-preview.html');
+ await page.getByLabel('Search a full UK postcode').fill('NP76AW');await page.getByRole('button',{name:'Find postcode'}).click();
+ await expect(page.locator('.search-result strong')).toHaveText('NP7 6AW');expect(requests).toHaveLength(0);
+ await page.getByLabel('Search a full UK postcode').fill('SW1A1AA');await page.getByRole('button',{name:'Find postcode'}).click();
+ await expect(page.locator('.search-result strong')).toHaveText('SW1A 1AA');expect(requests).toHaveLength(1);
+ await page.getByRole('button',{name:'Initiative list'}).click();await page.getByLabel('Filter initiative list').fill('School 45');
+ await page.locator('.list-items').getByRole('button',{name:/School 45 NP7/}).click();
+ await expect(page.locator('.location-warning')).toContainText('Estimated location: NP7 6AW');
+ await expect(page.locator('.location-warning')).toContainText('not the school address');
+ await page.screenshot({path:'/tmp/education-reach-estimated-location.png',fullPage:true});
+});

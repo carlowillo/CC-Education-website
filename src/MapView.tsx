@@ -4,11 +4,11 @@ import 'leaflet.markercluster';
 import type {GeoJsonObject} from 'geojson';
 import {Compass} from 'lucide-react';
 import type {Coverage,Initiative} from './types';
+import {stageGroup,stageLabels,stageColours} from './types';
 import type {CombinedCoverage} from './coverage';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 
-const colours:Record<string,string>={fully:'#21725a',strong:'#b07824',unclassified:'#677487'};
 type Place={name:string;lat:number;lng:number;population:number;capital:boolean;rank:number;minZoom?:number};
 const overview=L.latLngBounds([[49.7,-8.8],[61,2]]);
 type Props={rows:Initiative[];coverage:(Coverage|CombinedCoverage)[];selected:Initiative|null;onSelect:(r:Initiative)=>void;searchPoint:{lat:number;lng:number}|null;roads:boolean;labels:boolean};
@@ -24,8 +24,11 @@ export function MapView({rows,coverage,selected,onSelect,searchPoint,roads,label
   L.control.zoom({position:'bottomright'}).addTo(m);
   labelsLayer.current=L.layerGroup().addTo(m);shapes.current=L.layerGroup().addTo(m);
   markers.current=L.markerClusterGroup({maxClusterRadius:42,showCoverageOnHover:false,spiderfyOnMaxZoom:true,spiderfyDistanceMultiplier:1.7,animate:false,removeOutsideVisibleBounds:true,iconCreateFunction:cluster=>{
-   const count=cluster.getChildCount();cluster.options.title=`${count} initiatives. Zoom in to explore.`;
-   return L.divIcon({className:'initiative-cluster',html:`<span aria-hidden="true">${count}</span><span class="sr-only">${count} initiatives. Zoom in to explore.</span>`,iconSize:[40,40]});
+   const count=cluster.getChildCount(),counts={open:0,developing:0,unknown:0};
+   for(const marker of cluster.getAllChildMarkers())counts[(marker.options as L.MarkerOptions&{initiativeStage:keyof typeof counts}).initiativeStage||'unknown']++;
+   let angle=0;const stops=(Object.keys(counts) as (keyof typeof counts)[]).map(key=>{const start=angle;angle+=counts[key]/count*360;return `${stageColours[key]} ${start}deg ${angle}deg`;}).join(',');
+   const description=`${count} initiatives. ${counts.open} open, ${counts.developing} in development, ${counts.unknown} stage not recorded. Zoom in to explore.`;cluster.options.title=description;
+   return L.divIcon({className:'initiative-cluster',html:`<span class="cluster-ring" style="background:conic-gradient(${stops})"><span class="cluster-count" aria-hidden="true">${count}</span></span><span class="sr-only">${description}</span>`,iconSize:[40,40]});
   }}).addTo(m);
   m.on('movestart',()=>markers.current?.eachLayer(layer=>{if('closeTooltip' in layer)(layer as L.Marker).closeTooltip();}));
   let alive=true;
@@ -73,9 +76,10 @@ export function MapView({rows,coverage,selected,onSelect,searchPoint,roads,label
   const group=markers.current;if(!group)return;markerById.current.clear();group.clearLayers();
   for(const row of rows){
    if(!row.location)continue;
-   const title=`${row.name} · ${row.postcode}${row.location.precision!=='postcode'?' · approximate location':''}`;
-   const dot=document.createElement('span');dot.className=`pin-dot ${row.location.precision==='postcode'?'precise':'approximate'}`;dot.style.setProperty('--pin-color',colours[row.ethos]);
+   const stage=stageGroup(row.stage),title=`${row.name} · ${row.postcode} · ${stageLabels[stage]}${row.location.precision!=='postcode'?` · approximate location (${row.location.label})`:''}`;
+   const dot=document.createElement('span');dot.className=`pin-dot ${stage} ${row.location.precision==='postcode'?'precise':'approximate'}`;dot.style.setProperty('--pin-color',stageColours[stage]);
    const marker=L.marker([row.location.lat,row.location.lng],{title,keyboard:true,icon:L.divIcon({className:'initiative-pin',html:dot,iconSize:[28,28],iconAnchor:[14,14]})});
+   (marker.options as L.MarkerOptions&{initiativeStage:string}).initiativeStage=stage;
    const tooltip=document.createElement('span');tooltip.textContent=title;marker.bindTooltip(tooltip,{direction:'top',offset:[0,-9]});
    marker.on('add',()=>{const icon=marker.getElement();icon?.setAttribute('aria-label',title);icon?.querySelector('.pin-dot')?.classList.toggle('is-selected',selectedId.current===row.id);});
    marker.on('click',()=>onSelect(row));markerById.current.set(row.id,marker);group.addLayer(marker);
@@ -84,7 +88,11 @@ export function MapView({rows,coverage,selected,onSelect,searchPoint,roads,label
  useEffect(()=>{for(const [id,marker] of markerById.current)marker.getElement()?.querySelector('.pin-dot')?.classList.toggle('is-selected',id===selected?.id);},[selected,rows]);
  useEffect(()=>{
   shapes.current?.clearLayers();
-  for(const feature of coverage)L.geoJSON(feature as GeoJsonObject,{style:{color:'#278469',weight:1.3,fillColor:'#66b390',fillOpacity:.22},interactive:false}).addTo(shapes.current!);
+  const order={unknown:0,developing:1,open:2};
+  for(const feature of [...coverage].sort((a,b)=>order[a.properties.stageGroup||'open']-order[b.properties.stageGroup||'open']||(a.properties.locationBasis==='estimated'?0:1)-(b.properties.locationBasis==='estimated'?0:1))){
+   const group=feature.properties.stageGroup||'open',estimated=feature.properties.locationBasis==='estimated',color=stageColours[group];
+   L.geoJSON(feature as GeoJsonObject,{style:{className:`coverage-area ${group} ${estimated?'estimated':'postcode'}`,color,weight:estimated?1.8:1.3,dashArray:estimated?'6 4':undefined,fillColor:color,fillOpacity:estimated?.11:.21},interactive:false}).addTo(shapes.current!);
+  }
  },[coverage]);
  useEffect(()=>{if(selected?.location)map.current?.setView([selected.location.lat,selected.location.lng],Math.max(10,map.current.getZoom()),{animate:false});},[selected]);
  useEffect(()=>{

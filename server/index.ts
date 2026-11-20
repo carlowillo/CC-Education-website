@@ -8,6 +8,7 @@ import {applyLocations,postcodeKey,resolvePostcodes,type LocationSnapshot} from 
 import {requestTravelArea,type TravelMode} from './routing.ts';
 import type {Initiative, Coverage} from '../src/types.ts';
 import {passwordGate} from './auth.ts';
+import {applyEstimatedLocations,isPrecise} from '../src/locations.ts';
 
 const host=process.env.HOST||'127.0.0.1';
 const password=process.env.ADMIN_PASSWORD||'';
@@ -24,15 +25,16 @@ try {
   const cached = JSON.parse(await readFile(path.join(cacheDir,'locations.json'),'utf8'));
   for (const r of rows) if (r.fullPostcode && cached[r.id]?.precision==='postcode' && postcodeKey(cached[r.id].label)===postcodeKey(r.postcode)) r.location = cached[r.id];
 } catch { /* Optional local geocoding cache. */ }
+try{applyEstimatedLocations(rows,JSON.parse(await readFile(path.join(root,'data/estimated-locations.json'),'utf8')));}catch(error){if((error as NodeJS.ErrnoException).code!=='ENOENT')throw error;}
 // Retained coverage is reused only when its input coordinates still match.
 let retained: {features:Coverage[];arrivalLondon:string|null;calculatedAt?:string;scope?:string;combined?:unknown[];sourceInputs?:{id:string;lat:number;lng:number}[]}={features:[],arrivalLondon:null};
 try{
- const collection=JSON.parse(await readFile(path.join(root,'data/coverage-open.geojson'),'utf8'));
- const report=JSON.parse(await readFile(path.join(root,'reports/coverage-open.json'),'utf8'));
- const features:Coverage[]=collection.features.filter((f:Coverage)=>{const row=rows.find(r=>r.id===f.properties.id);const input=report.sourceInputs.find((r:{id:string})=>r.id===row?.id);return row?.stage==='Open'&&row.location?.lat===input?.lat&&row.location?.lng===input?.lng;});
+ const collection=JSON.parse(await readFile(path.join(root,'data/coverage-planning.geojson'),'utf8'));
+ const report=JSON.parse(await readFile(path.join(root,'reports/coverage-planning.json'),'utf8'));
+ const features:Coverage[]=collection.features.filter((f:Coverage)=>{const row=rows.find(r=>r.id===f.properties.id);const input=report.sourceInputs.find((r:{id:string})=>r.id===row?.id);return row?.stage===input?.stage&&row?.location?.precision===(input?.locationBasis==='estimated'?'estimated':'postcode')&&row?.location?.label===input?.routingPostcode&&row?.location?.lat===input?.lat&&row?.location?.lng===input?.lng;});
  let combined:unknown[]=[];
- if(features.length===collection.features.length){try{combined=JSON.parse(await readFile(path.join(root,'data/coverage-combined.geojson'),'utf8')).features;}catch{}}
- retained={features,arrivalLondon:report.arrivalLondon,calculatedAt:report.calculatedAt,scope:'open',combined,sourceInputs:report.sourceInputs};
+ if(features.length===collection.features.length){try{combined=JSON.parse(await readFile(path.join(root,'data/coverage-planning-combined.geojson'),'utf8')).features;}catch{}}
+ retained={features,arrivalLondon:report.arrivalLondon,calculatedAt:report.calculatedAt,scope:report.scope,combined,sourceInputs:report.sourceInputs};
 }catch(error){if((error as NodeJS.ErrnoException).code!=='ENOENT')throw error;}
 const app = express();
 app.disable('x-powered-by');
@@ -56,7 +58,7 @@ app.use('/api',(req,res,next)=>{
 app.use(express.json({limit:'20kb'}));
 app.use('/api', (_req,res,next)=>{res.set('Cache-Control','no-store');next();});
 const routingReady = () => Boolean(process.env.TRAVELTIME_APP_ID && process.env.TRAVELTIME_API_KEY);
-app.get('/api/status', (_req,res)=>res.json({routingReady:routingReady(),provider:'TravelTime',precise:rows.filter(eligible).length,total:rows.length}));
+app.get('/api/status', (_req,res)=>res.json({routingReady:routingReady(),provider:'TravelTime',precise:rows.filter(isPrecise).length,estimated:rows.filter(r=>r.location?.precision==='estimated').length,total:rows.length}));
 app.get('/api/initiatives', (_req,res)=>res.json(rows));
 app.get('/api/coverage-saved',(_req,res)=>res.json(retained));
 app.get('/api/coverage-sample',async(_req,res)=>{
@@ -71,8 +73,8 @@ app.post('/api/geocode', async (_req,res)=>{
     if (!pending.length) return res.json({resolved:0,remaining:0,rows});
     const snapshot=await resolvePostcodes(pending);
     applyLocations(rows,snapshot);
-    const resolved=pending.filter(eligible).length;
-    await writeFile(path.join(cacheDir,'locations.json'),JSON.stringify(Object.fromEntries(rows.filter(eligible).map(r=>[r.id,r.location]))));
+    const resolved=pending.filter(r=>eligible(r)).length;
+    await writeFile(path.join(cacheDir,'locations.json'),JSON.stringify(Object.fromEntries(rows.filter(r=>eligible(r)).map(r=>[r.id,r.location]))));
     res.json({resolved,remaining:rows.filter(r=>r.fullPostcode&&!eligible(r)).length,rows});
   } catch {res.status(502).json({error:'Precise geocoding is unavailable. Allow api.postcodes.io in environment network settings, then retry. Approximate district pins are preserved.'});}
 });
@@ -90,13 +92,13 @@ let routingBusy=false;
 app.post('/api/coverage',async(req,res)=>{
   if(!routingReady())return res.status(503).json({error:'Add TRAVELTIME_APP_ID and TRAVELTIME_API_KEY on the server to calculate genuine journey coverage.'});
   if(routingBusy)return res.status(429).json({error:'A coverage calculation is already running. Try again when it finishes.'});
-  const {ids,mode,arrival,includePlanned}=req.body;
+  const {ids,mode,arrival,includePlanned,includeEstimated}=req.body;
   if(!Array.isArray(ids)||ids.length<1||ids.length>5||ids.some(id=>typeof id!=='string')||!['driving','public_transport'].includes(mode)||typeof arrival!=='string')return res.status(400).json({error:'Invalid coverage request (maximum five initiatives per batch).'});
   let iso:string;
   try{iso=londonToISO(arrival);}catch(e){return res.status(400).json({error:(e as Error).message});}
   if(Date.parse(iso)<=Date.now())return res.status(400).json({error:'Choose a future arrival time.'});
   const selected=rows.filter(r=>ids.includes(r.id));
-  if(selected.length!==new Set(ids).size||selected.some(r=>!eligible(r)||(r.stage!=='Open'&&includePlanned!==true)))return res.status(400).json({error:'Coverage requires precise full postcodes. Planned initiatives must be explicitly included.'});
+  if(selected.length!==new Set(ids).size||selected.some(r=>!eligible(r,includeEstimated===true)||(r.stage!=='Open'&&includePlanned!==true)))return res.status(400).json({error:'Coverage requires resolved full postcodes, or explicit inclusion of estimated locations. Planned initiatives must be explicitly included.'});
   routingBusy=true;
   const features:Coverage[]=[];const errors:{id:string;error:string}[]=[];
   try {

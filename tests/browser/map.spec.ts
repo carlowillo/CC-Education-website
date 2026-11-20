@@ -19,8 +19,8 @@ test('real dataset, filters, data quality, missing-provider safeguard and export
  await expect(page.getByRole('heading',{name:'School 1',exact:true})).toBeVisible();
  await expect(page.getByText('Postcode centroid, not a verified entrance.',{exact:false})).toBeVisible();
  await page.getByRole('button',{name:'Close initiative details'}).click();
- await page.getByLabel('Open').check(); // already checked: remains current provision
- await page.getByLabel('Open').uncheck();
+ await page.getByRole('checkbox',{name:/^Open \d+$/}).check(); // already checked: remains current provision
+ await page.getByRole('checkbox',{name:/^Open \d+$/}).uncheck();
  await expect(page.getByText('132 initiatives in this view')).toBeVisible();
  await page.getByLabel('Strong Christian ethos',{exact:false}).check();
  await expect(page.getByText('17 initiatives in this view')).toBeVisible();
@@ -39,7 +39,7 @@ test('mobile map and accessible filter drawer',async({page})=>{
  await page.setViewportSize({width:390,height:844});await page.goto('/');
  await expect(page.getByRole('heading',{name:'Christian education. Within reach.'})).toBeVisible();
  await page.getByRole('button',{name:'Filters',exact:true}).click();
- await expect(page.getByLabel('Open')).toBeVisible();
+ await expect(page.getByRole('checkbox',{name:/^Open \d+$/})).toBeVisible();
  await page.getByRole('button',{name:'Close filters'}).click();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBeTruthy();
  await page.screenshot({path:'/tmp/education-reach-mobile.png',fullPage:true});
@@ -52,7 +52,7 @@ test('API preserves internal dataset and fails clearly without routing credentia
  const cov=await request.post('/api/coverage',{data:{ids:['66'],mode:'driving',arrival:'2026-12-01T08:30'}});
  const status=await (await request.get('/api/status')).json();
  expect(cov.status()).toBe(status.routingReady?400:503);
- expect((await cov.json()).error).toContain(status.routingReady?'precise full postcodes':'TRAVELTIME_APP_ID');
+ expect((await cov.json()).error).toContain(status.routingReady?'resolved full postcodes':'TRAVELTIME_APP_ID');
  const search=await request.get('/api/postcode/invalid');expect(search.status()).toBe(400);
  const crossOrigin=await request.post('/api/geocode',{headers:{origin:'https://untrusted.example'},data:{}});expect(crossOrigin.status()).toBe(403);
  const nonJson=await request.post('/api/geocode',{form:{}});expect(nonJson.status()).toBe(415);

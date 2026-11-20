@@ -1,5 +1,7 @@
 import type { Initiative, Coverage } from '../src/types.ts';
-export function eligible(r: Initiative) { return r.fullPostcode && r.location?.precision === 'postcode'; }
+import {stageGroup} from '../src/types.ts';
+import {canRoute} from '../src/locations.ts';
+export function eligible(r: Initiative,includeEstimated=false) { return canRoute(r,includeEstimated); }
 type Point = {lat: number; lng: number};
 export function toFeature(r: Initiative, shapes: {shell: Point[]; holes: Point[][]}[], mode: string, arrival: string): Coverage {
   const ring = (points: Point[]) => {
@@ -8,7 +10,7 @@ export function toFeature(r: Initiative, shapes: {shell: Point[]; holes: Point[]
     if (result[0][0] !== result.at(-1)![0] || result[0][1] !== result.at(-1)![1]) result.push([...result[0]]);
     return result;
   };
-  return {type: 'Feature', properties: {id:r.id, name:r.name, mode, arrival, minutes:45}, geometry: {type:'MultiPolygon', coordinates:shapes.map(s=>[ring(s.shell), ...(s.holes || []).map(ring)])}};
+  return {type: 'Feature', properties: {id:r.id, name:r.name, mode, arrival, minutes:45,stageGroup:stageGroup(r.stage),locationBasis:r.location?.precision==='estimated'?'estimated':'postcode',routingPostcode:r.location?.label}, geometry: {type:'MultiPolygon', coordinates:shapes.map(s=>[ring(s.shell), ...(s.holes || []).map(ring)])}};
 }
 // Interpret a wall-clock time in London, including British Summer Time.
 export function londonToISO(value: string) {

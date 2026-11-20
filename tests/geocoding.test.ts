@@ -37,7 +37,7 @@ test('both routing modes request arrival coverage at 2700 seconds and reject dis
   assert.equal(request.arrival_searches[0].transportation.type,mode);assert.equal(request.arrival_searches[0].travel_time,2700);
   assert.equal(request.arrival_searches[0].arrival_time,'2026-10-30T08:30:00.000Z');
  }
- assert.throws(()=>arrivalRequest(rows.find(r=>r.id==='66')!,'driving','2026-10-30T08:30:00Z'),/resolved full postcode/);
+ assert.throws(()=>arrivalRequest(rows.find(r=>r.id==='66')!,'driving','2026-10-30T08:30:00Z'),/resolved or explicitly estimated postcode/);
 });
 test('saved live sample contains six distinct areas, destination centroids, closed rings and twelve passed journey comparisons',()=>{
  const rows=applyLocations(structuredClone(source) as Initiative[],JSON.parse(readFileSync('data/locations.json','utf8')));
