@@ -32,7 +32,7 @@ export function MapView({rows,coverage,selected,onSelect,searchPoint,roads,label
   }}).addTo(m);
   m.on('movestart',()=>markers.current?.eachLayer(layer=>{if('closeTooltip' in layer)(layer as L.Marker).closeTooltip();}));
   let alive=true;
-  fetch('/api/basemap').then(r=>r.json()).then(data=>{if(alive){L.geoJSON(data,{style:{color:'#b5c7be',weight:1,fillColor:'#f5f5eb',fillOpacity:1},interactive:false}).addTo(m).bringToBack();m.attributionControl.addAttribution('Natural Earth');}}).catch(()=>{});
+  fetch('/api/basemap').then(r=>r.json()).then(data=>{if(alive){L.geoJSON(data,{style:{color:'#bbc1c8',weight:1,fillColor:'#f2eee8',fillOpacity:1},interactive:false}).addTo(m).bringToBack();m.attributionControl.addAttribution('Natural Earth');}}).catch(()=>{});
   fetch('/api/places').then(r=>r.json()).then(data=>{if(alive)setPlaces(data.places||[]);}).catch(()=>{});
   const resize=new ResizeObserver(()=>m.invalidateSize());resize.observe(el.current!);
   return()=>{alive=false;resize.disconnect();m.remove();map.current=null;};
@@ -64,7 +64,7 @@ export function MapView({rows,coverage,selected,onSelect,searchPoint,roads,label
     if(!box)continue;occupied.push(box);
     const text=document.createElement('span');text.textContent=place.name;
     const edgeX=Math.max(box.x,Math.min(p.x,box.x+width)),edgeY=Math.max(box.y,Math.min(p.y,box.y+height));
-    if(Math.hypot(edgeX-p.x,edgeY-p.y)>18)L.polyline([[place.lat,place.lng],m!.containerPointToLatLng([edgeX,edgeY])],{pane:'referenceLabels',color:'#71877b',weight:1,opacity:.5,interactive:false}).addTo(labelsLayer.current!);
+    if(Math.hypot(edgeX-p.x,edgeY-p.y)>18)L.polyline([[place.lat,place.lng],m!.containerPointToLatLng([edgeX,edgeY])],{pane:'referenceLabels',color:'#737b87',weight:1,opacity:.5,interactive:false}).addTo(labelsLayer.current!);
     L.marker([place.lat,place.lng],{pane:'referenceLabels',interactive:false,keyboard:false,icon:L.divIcon({className:'place-label',html:text,iconSize:[width,height],iconAnchor:[p.x-box.x,p.y-box.y]})}).addTo(labelsLayer.current!);
    }
   }
@@ -96,7 +96,7 @@ export function MapView({rows,coverage,selected,onSelect,searchPoint,roads,label
  },[coverage]);
  useEffect(()=>{if(selected?.location)map.current?.setView([selected.location.lat,selected.location.lng],Math.max(10,map.current.getZoom()),{animate:false});},[selected]);
  useEffect(()=>{
-  home.current?.remove();if(searchPoint&&map.current){home.current=L.circleMarker([searchPoint.lat,searchPoint.lng],{radius:9,color:'#fff',fillColor:'#304e91',fillOpacity:1,weight:3}).addTo(map.current);map.current.setView([searchPoint.lat,searchPoint.lng],10);}
+  home.current?.remove();if(searchPoint&&map.current){home.current=L.circleMarker([searchPoint.lat,searchPoint.lng],{radius:9,color:'#fff',fillColor:'#e60d2e',fillOpacity:1,weight:3}).addTo(map.current);map.current.setView([searchPoint.lat,searchPoint.lng],10);}
  },[searchPoint]);
  return <><div ref={el} className="map-canvas" aria-label="Map of Christian education initiatives"/><button className="map-reset" aria-label="UK overview" onClick={()=>map.current?.fitBounds(overview,{padding:[30,25],animate:false})} title="Show the UK"><Compass size={18}/><span>UK overview</span></button>{tileError&&roads&&<div className="tile-note">Street tiles unavailable. Offline labels and country outlines remain available.</div>}</>;
 }

@@ -13,3 +13,9 @@ This contains internal data. Keep the repository private and share only with aut
 ## Exploring the map
 
 Numbered circles group nearby initiatives; select one to zoom in or expand shared locations. Town/city labels work offline. Use **Journey settings** for arrival options, **Map key & layers** for labels/street tiles, and **Expand map** for a larger view. Initiative details sit beside the map on desktop and below it on mobile.
+
+## Christian Concern Education styling
+
+The preview follows the supplied navy, cream, red and purple references, with Montserrat headings/controls, serif introductory copy, highlighted headlines and a matching masthead/footer. [Desktop view](branding-desktop.png) · [Mobile view](branding-mobile.png).
+
+The wordmark is a typographic recreation from the screenshots. The source website is blocked by the environment network policy, so its original logo files and exact font specifications remain unverified. See [branding notes](../reports/BRANDING.md).

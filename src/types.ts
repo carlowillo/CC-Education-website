@@ -8,6 +8,6 @@ export type Initiative = {
 export type StageGroup='open'|'developing'|'unknown';
 export const stageGroup=(stage:string):StageGroup=>stage==='Open'?'open':stage==='Not recorded'?'unknown':'developing';
 export const stageLabels:Record<StageGroup,string>={open:'Open',developing:'In development',unknown:'Stage not recorded'};
-export const stageColours:Record<StageGroup,string>={open:'#21725a',developing:'#b66c19',unknown:'#6c7486'};
+export const stageColours:Record<StageGroup,string>={open:'#783cbd',developing:'#c76300',unknown:'#626b79'};
 export type Coverage = Feature<MultiPolygon, {id: string; name: string; mode: string; arrival: string; minutes: number; stageGroup?:StageGroup; locationBasis?:'postcode'|'estimated'; routingPostcode?:string}>;
 export const ethosLabels: Record<string, string> = {fully: 'Fully Christian ethos', strong: 'Strong Christian ethos', unclassified: 'Needs classification'};

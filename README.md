@@ -2,9 +2,11 @@
 
 An internal Christian education planning map, built from the supplied 23 October 2026 CSV. React, TypeScript and Leaflet with an Express backend. No database is needed.
 
-**20 November update:** filter counts respond to the other selected groups. Map pins and travel areas use green for Open, amber for development, and grey for unrecorded stages. All 53 incomplete locations now have explicitly estimated representative postcodes, while the source values and 79 resolved full postcodes remain intact. With the owner’s explicit approval, all 132 initiatives now have genuine TravelTime driving and public transport areas (264 total), arriving at 08:30 London time on Monday 23 November 2026. The default Open view contains 90 initiatives, including 20 estimated locations. Selecting other stages includes developing/unrecorded scenarios; turning estimates off limits coverage to the 79 source full postcodes. See [the change report](reports/FILTERS-AND-ESTIMATES.md).
+**20 November update:** filter counts respond to the other selected groups. Map pins and travel areas use purple for Open, orange for development, and slate for unrecorded stages. All 53 incomplete locations now have explicitly estimated representative postcodes, while the source values and 79 resolved full postcodes remain intact. With the owner’s explicit approval, all 132 initiatives now have genuine TravelTime driving and public transport areas (264 total), arriving at 08:30 London time on Monday 23 November 2026. The default Open view contains 90 initiatives, including 20 estimated locations. Selecting other stages includes developing/unrecorded scenarios; turning estimates off limits coverage to the 79 source full postcodes. See [the change report](reports/FILTERS-AND-ESTIMATES.md).
 
 **Map usability:** offline town/city labels, clustered pins, larger text, collapsible journey settings/key/filters, docked initiative details and an expanded map view are now included in both app and preview. See [the usability report](reports/MAP-USABILITY.md).
+
+**Branding:** the app and preview now follow the supplied Christian Concern Education references, with navy, cream, red and purple, locally bundled Montserrat, serif introductory copy, a matching masthead and footer, and rectangular controls. The wordmark is a typographic recreation; original assets and exact brand specifications could not be verified because the reference site is blocked by the environment network policy. See [the branding notes](reports/BRANDING.md).
 
 ## Run
 

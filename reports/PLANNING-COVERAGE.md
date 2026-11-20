@@ -9,7 +9,7 @@ All 132 supplied initiatives now have genuine 45-minute TravelTime arrival areas
 | Not recorded | 0 | 14 | 14 |
 | All records | 79 | 53 | 132 |
 
-The default Open view includes all 90 Open initiatives. Selecting other stages includes their saved areas as future scenarios. Estimated locations can be excluded in Journey settings: 70 Open sites, or 79 across all stages, then contribute. Map pins and areas use green for Open, amber for development and grey for unrecorded stages. Estimated areas retain dashed boundaries and lighter fill. Five stage/location-quality unions per mode preserve these distinctions; filters rebuild subsets locally, including in the standalone preview.
+The default Open view includes all 90 Open initiatives. Selecting other stages includes their saved areas as future scenarios. Estimated locations can be excluded in Journey settings: 70 Open sites, or 79 across all stages, then contribute. Map pins and areas use purple for Open, orange for development and slate for unrecorded stages. Estimated areas retain dashed boundaries and lighter fill. Five stage/location-quality unions per mode preserve these distinctions; filters rebuild subsets locally, including in the standalone preview.
 
 ## Permission and provider execution
 

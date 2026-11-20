@@ -47,8 +47,8 @@ test('stage colours and estimate exclusions affect areas, postcode matches and e
  await page.getByRole('checkbox',{name:/^Open \d+$/}).uncheck();
  await expect(page.getByText('3 initiatives in this view')).toBeVisible();
  await expect(page.locator('.coverage-area.developing.estimated')).toHaveCount(1);
- expect(await page.locator('.coverage-area.developing.estimated').getAttribute('fill')).toBe('#b66c19');
- expect(await page.locator('.coverage-area.open.postcode').getAttribute('fill')).toBe('#21725a');
+ expect(await page.locator('.coverage-area.developing.estimated').getAttribute('fill')).toBe('#c76300');
+ expect(await page.locator('.coverage-area.open.postcode').getAttribute('fill')).toBe('#783cbd');
  await page.getByLabel('Search a full UK postcode').fill('NP76AW');await page.getByRole('button',{name:'Find postcode'}).click();
  await expect(page.locator('.search-match-context')).toContainText('1 use estimated locations');
  await page.getByRole('button',{name:'Journey settings',exact:true}).click();
