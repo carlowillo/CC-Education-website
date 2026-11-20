@@ -28,7 +28,9 @@ for(const mode of ['driving','public_transport'] as TravelMode[]){
    // A location unsupported in this mode must not discard successful neighbours.
    for(const row of batch){try{requests++;await save(row,mode,await requestTravelArea(row,mode,arrivalUTC));}catch(e){const code=(e as {status?:number|null}).status;if(!code||[401,403,429].includes(code))throw e;failures.push({id:row.id,mode,error:(e as Error).message});console.log(`${row.name} ${mode}: ${(e as Error).message}`);}}
   }
-  await new Promise(resolve=>setTimeout(resolve,1200));
+  // Keep below 20 provider requests/minute. Results are checkpointed before
+  // pausing, so a provider quota response can be resumed without repeating completed searches.
+  await new Promise(resolve=>setTimeout(resolve,3100));
  }
 }
 const report={version:1,provider:'TravelTime',calculatedAt:new Date().toISOString(),arrivalLondon,arrivalUTC,minutes:45,direction:'arrival',scope:'all-stages-with-labelled-estimates',eligibleCount:selected.length,expectedAreas:selected.length*2,receivedAreas:features.length,requests,reused,counts:Object.fromEntries(['driving','public_transport'].map(mode=>[mode,features.filter(f=>f.properties.mode===mode).length])),sourceInputs:selected.map(row=>({id:row.id,sourcePostcode:row.postcode,routingPostcode:row.location!.label,locationBasis:row.location!.precision==='estimated'?'estimated':'postcode',lat:row.location!.lat,lng:row.location!.lng,stage:row.stage})),failures};

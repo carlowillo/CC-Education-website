@@ -21,7 +21,7 @@ test('hosted password gate protects pages, assets and internal data; health chec
   const headers={Authorization:'Basic '+Buffer.from('viewer:'+password).toString('base64')};
   const page=await fetch(url,{headers});assert.equal(page.status,200);assert.match(page.headers.get('cache-control')||'',/no-store/);
   const data=await fetch(url+'/api/initiatives',{headers});assert.equal(data.status,200);assert.equal((await data.json()).length,132);
-  const saved=await (await fetch(url+'/api/coverage-saved',{headers})).json();assert.equal(saved.features.length,140);assert.equal(saved.combined.length,2);
+  const saved=await (await fetch(url+'/api/coverage-saved',{headers})).json();assert.equal(saved.features.length,264);assert.equal(saved.combined.length,10);
   const health=await fetch(url+'/healthz');assert.deepEqual(await health.json(),{status:'ok'});
  }finally{child.kill();}
 });
