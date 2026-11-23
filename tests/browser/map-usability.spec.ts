@@ -15,6 +15,9 @@ test('offline place labels, collapsible controls and a docked detail panel keep 
  await expect(page.locator('.map-toolbar').getByRole('button',{name:'Initiative list'})).toHaveCount(0);
  await expect(page.locator('.map-toolbar').getByRole('button',{name:'Data quality'})).toHaveCount(0);
  await expect(page.locator('.selection-summary strong')).toHaveCSS('color','rgb(120, 60, 189)');
+ await expect(page.locator('.map-toolbar .selection-summary')).toHaveCount(1);
+ await expect(page.locator('.travel-controls').getByRole('button',{name:'Driving',exact:true})).toBeVisible();
+ await expect(page.locator('.travel-controls').getByRole('button',{name:'Public transport',exact:true})).toBeVisible();
  await expect(page.locator('.place-label').filter({hasText:/^London$/})).toBeVisible();
  await expect(page.locator('.initiative-cluster').first()).toBeVisible();
  await page.getByRole('button',{name:'Expand map',exact:true}).click();

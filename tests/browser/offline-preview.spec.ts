@@ -19,7 +19,7 @@ test('standalone HTML has a simple map and working filters without external asse
  await expect(page.getByRole('heading',{name:'Christ-centred education. Within reach.'})).toBeVisible();
  await expect(page.locator('.initiative-cluster, .initiative-pin').first()).toBeVisible();
  await expect(page.locator('.arrival-summary, .coverage-summary, .map-caption')).toHaveCount(0);
- await expect(page.locator('.stats-bar strong')).toHaveCount(1);
+ await expect(page.locator('.selection-summary strong')).toHaveCount(1);
  await page.getByRole('button',{name:'Map settings',exact:true}).click();
  await page.getByRole('button',{name:'Hide saved coverage'}).click();
  await expect(page.locator('.coverage-area')).toHaveCount(0);await expectSelected(page,90);

@@ -8,7 +8,7 @@ An internal Christian education planning map, built from the supplied 23 October
 
 **Branding:** the app and preview now follow the supplied Christian Concern Education references, with navy, cream, red and purple, locally bundled Montserrat, serif introductory copy, a matching masthead and footer, and rectangular controls. The wordmark is a typographic recreation; original assets and exact brand specifications could not be verified because the reference site is blocked by the environment network policy. See [the branding notes](reports/BRANDING.md).
 
-**23 November interface update:** the main wording is now “Christ-centred education. Within reach.” The map has one compact toolbar for filters, postcode search and travel mode, plus one purple selected-initiative count at the bottom. Arrival-time labels, the estimated/eligible-site summary, top-right list/data-quality buttons and repeated map statistics have been removed from the default view. Optional tools are in the footer: Map settings, Initiative list, Review the data and Coverage details.
+**23 November interface update:** the main wording is now “Christ-centred education. Within reach.” The map has one compact toolbar for filters, postcode search and the purple selected-initiative count. The driving/public transport switch is in the bottom bar. Arrival-time labels, the estimated/eligible-site summary, top-right list/data-quality buttons and repeated map statistics have been removed from the default view. Optional tools are in the footer: Map settings, Initiative list, Review the data and Coverage details.
 
 ## Run
 

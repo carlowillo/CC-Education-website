@@ -12,7 +12,7 @@ This contains internal data. Keep the repository private and share only with aut
 
 ## Exploring the map
 
-Numbered circles group nearby initiatives; select one to zoom in or expand shared locations. Town/city labels work offline. The purple number at the bottom shows how many initiatives match the filters. Search and travel modes share one toolbar. Use **Map key & layers** for labels/street tiles and **Expand map** for a larger view. Optional journey settings, the initiative list, data review and coverage details are available from the footer. Initiative details sit beside the map on desktop and below it on mobile.
+Numbered circles group nearby initiatives; select one to zoom in or expand shared locations. Town/city labels work offline. The purple number in the top toolbar shows how many initiatives match the filters. The driving/public transport switch is in the bottom bar. Use **Map key & layers** for labels/street tiles and **Expand map** for a larger view. Optional journey settings, the initiative list, data review and coverage details are available from the footer. Initiative details sit beside the map on desktop and below it on mobile.
 
 ## Christian Concern Education styling
 

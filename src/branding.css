@@ -78,7 +78,7 @@ input[type=checkbox] { accent-color: var(--cc-purple); }
 .sidebar-footer small { color: var(--cc-slate); font-size: 10px; }
 .tiny-icon { color: var(--cc-purple); background: #eae0f3; border-radius: 2px; }
 .map-toolbar { border-color: var(--cc-line); gap: 12px 16px; }
-.map-toolbar .mode-toggle { margin-left: auto; min-width: 270px; }
+.map-toolbar .selection-summary { margin-left: auto; }
 .desktop-filter-toggle { color: var(--cc-navy); border-color: var(--cc-line); font-size: 11px; font-weight: 650; }
 .postcode-search { color: var(--cc-slate); }
 .postcode-search input { color: var(--cc-navy); font-size: 13px; }
@@ -145,9 +145,11 @@ input[type=checkbox] { accent-color: var(--cc-purple); }
 .website { color: var(--cc-purple); font-weight: 700; font-size: 12px; }
 .close { color: var(--cc-slate); }
 .stats-bar { background: var(--cc-cream); border-color: var(--cc-line); min-height: 95px; }
-.stats-bar.selection-summary { justify-content: flex-start; gap: 12px; padding: 20px 24px; min-height: 86px; }
-.stats-bar.selection-summary strong { color: var(--cc-purple); font-size: 34px; line-height: 1; font-variant-numeric: tabular-nums; }
-.stats-bar.selection-summary span { color: var(--cc-navy); font-size: 13px; font-weight: 650; }
+.selection-summary { display: flex; align-items: center; gap: 12px; }
+.selection-summary strong { font-family: var(--cc-sans); font-weight: 800; color: var(--cc-purple); font-size: 34px; line-height: 1; font-variant-numeric: tabular-nums; }
+.selection-summary span { color: var(--cc-navy); font-size: 13px; font-weight: 650; white-space: nowrap; }
+.stats-bar.travel-controls { justify-content: flex-start; padding: 18px 24px; min-height: 86px; }
+.travel-controls .mode-toggle { flex-direction: row; gap: 4px; }
 .settings-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; grid-column: 1/-1; }
 .settings-actions .saved-button { width: auto; margin: 0; padding: 11px 16px; font-size: 11px; }
 .map-feedback { position: absolute; left: 18px; top: 18px; z-index: 400; display: flex; align-items: center; gap: 7px; max-width: calc(100% - 165px); padding: 9px 12px; background: #fffdf9f5; border: 1px solid #d5cedb; border-radius: 2px; color: #51435d; font-size: 11px; line-height: 1.6; }
@@ -245,14 +247,14 @@ input[type=checkbox] { accent-color: var(--cc-purple); }
   .workspace-heading .export { font-size: 11px; padding: 11px 15px; gap: 8px; }
   .workspace { width: calc(100% - 24px); margin: 22px auto 30px; }
   .map-toolbar { gap: 8px; padding: 10px; }.postcode-search { min-width: 120px; }.postcode-search input { font-size: 12px; }
-  .map-toolbar .mode-toggle { width: 100%; min-width: 0; flex-basis: 100%; margin-left: 0; }
+  .map-toolbar .selection-summary { flex-basis: 100%; width: 100%; margin-left: 0; padding: 8px 4px 4px; gap: 10px; }
   .travel-bar { padding: 12px; }.mode-toggle { width: 100%; min-width: 0; }.mode-toggle button { font-size: 12px; }
   .journey-settings-toggle { font-size: 10px; }.travel-bar .saved-button { font-size: 10px; }
   .coverage-summary { padding: 11px 12px; font-size: 10px; }.coverage-summary > p { font-size: 10px; }
   .legend { width: 216px; }.legend .legend-body { font-size: 11px; }.legend-toggle { font-size: 11px; }
   .legend { bottom: 16px; }.map-feedback { left: 12px; top: 12px; max-width: calc(100% - 70px); font-size: 10px; }
-  .stats-bar.selection-summary { padding: 18px 16px; min-height: 80px; gap: 12px; }
-  .stats-bar.selection-summary strong { font-size: 32px; }.stats-bar.selection-summary span { font-size: 12px; }
+  .stats-bar.travel-controls { padding: 16px 12px; min-height: 80px; }
+  .selection-summary strong { font-size: 32px; }.selection-summary span { font-size: 12px; }
   .map-reset, .expand-map { font-size: 10px; }
   .stats-bar { padding: 16px 12px; }.stats-bar strong { font-size: 24px; }.stats-bar span { font-size: 9px; }
   .vision-band { padding: 34px 20px; }.vision-band h2 { font-size: 23px; line-height: 1.55; }
