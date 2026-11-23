@@ -1,3 +1,4 @@
+import {expectSelected,expectCoverage} from './helpers';
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {applyLocations} from '../../server/geocoding';
@@ -19,15 +20,15 @@ test('facet counts update, combine options and reset without trapping selected f
  await expect(count(page,'stage','Open')).toHaveText('84');
  await expect(count(page,'provision','Full-Time school')).toHaveText('52');
  await page.getByLabel('Home Education Hub',{exact:false}).check();
- await expect(page.getByText('14 initiatives in this view')).toBeVisible();
+ await expectSelected(page,14);
  // A selected option with zero matches stays enabled, so it can be removed.
  await expect(page.getByLabel('Strong Christian ethos',{exact:false})).toBeEnabled();
  await expect(count(page,'ethos','strong')).toHaveText('0');
  await page.getByLabel('Fully Christian ethos',{exact:false}).uncheck();
- await expect(page.getByText('0 initiatives in this view')).toBeVisible();
+ await expectSelected(page,0);
  await expect(page.getByLabel('Home Education Hub',{exact:false})).toBeEnabled();
  await page.getByRole('button',{name:'Reset',exact:true}).click();
- await expect(page.getByText('90 initiatives in this view')).toBeVisible();
+ await expectSelected(page,90);
  await expect(count(page,'provision','Full-Time school')).toHaveText('55');
 });
 
@@ -41,25 +42,24 @@ test('stage colours and estimate exclusions affect areas, postcode matches and e
  const estimate=rows.find(r=>r.id==='45')!;
  await page.route('**/api/postcode/NP76AW',route=>route.fulfill({json:{lat:estimate.location!.lat,lng:estimate.location!.lng,postcode:estimate.location!.label}}));
  await page.goto('/');
- await expect(page.locator('.map-caption')).toContainText('2 / 2 sites · combined driving coverage');
+ await expectCoverage(page);
  await expect(page.locator('.coverage-area.open.estimated')).toHaveCount(1);
  expect(await page.locator('.coverage-area.open.estimated').getAttribute('stroke-dasharray')).toBe('6 4');
  await page.getByRole('checkbox',{name:/^Open \d+$/}).uncheck();
- await expect(page.getByText('3 initiatives in this view')).toBeVisible();
+ await expectSelected(page,3);
  await expect(page.locator('.coverage-area.developing.estimated')).toHaveCount(1);
  expect(await page.locator('.coverage-area.developing.estimated').getAttribute('fill')).toBe('#c76300');
  expect(await page.locator('.coverage-area.open.postcode').getAttribute('fill')).toBe('#783cbd');
  await page.getByLabel('Search a full UK postcode').fill('NP76AW');await page.getByRole('button',{name:'Find postcode'}).click();
  await expect(page.locator('.search-match-context')).toContainText('1 use estimated locations');
- await page.getByRole('button',{name:'Journey settings',exact:true}).click();
+ await page.getByRole('button',{name:'Map settings',exact:true}).click();
  await page.getByLabel('Include estimated locations',{exact:true}).uncheck();
- await expect(page.locator('.coverage-summary')).toContainText('1 / 1');
- await expect(page.locator('.coverage-summary')).toContainText('2 excluded locations');
+ await expectSelected(page,3);
  await expect(page.locator('.coverage-area.estimated')).toHaveCount(0);
  await expect(page.locator('.search-match-context')).toHaveCount(0);
  await page.getByLabel('Include estimated locations',{exact:true}).check();
- await expect(page.locator('.coverage-summary')).toContainText('3 / 3');
- await page.getByRole('button',{name:'Review coverage & exclusions'}).click();
+ await expectCoverage(page);
+ await page.getByRole('button',{name:'Coverage details',exact:true}).click();
  const download=page.waitForEvent('download');await page.getByRole('button',{name:'Export combined coverage'}).click();
  const path=await (await download).path();const exported=JSON.parse(readFileSync(path!,'utf8'));
  expect(exported.features).toHaveLength(3);expect(exported.features.filter((f:Coverage)=>f.properties.locationBasis==='estimated')).toHaveLength(2);

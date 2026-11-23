@@ -70,7 +70,6 @@ html=html.replace(/<link[^>]+href="[^"]+\.css"[^>]*>/,()=>`<style>${css}</style>
 html=html.replace('<title>','<title>Offline preview · ');
 const fontLicense=await read('public/brand/MONTSERRAT-LICENSE.txt');
 html=html.replace('</head>',()=>`<script type="text/plain" id="montserrat-font-license">${fontLicense.replaceAll('</script','<\\/script')}</script></head>`);
-html=html.replace('</body>',`<aside class="preview-note" aria-label="Preview information">Internal preview · ${new Set(features.map(f=>f.properties.id)).size} initiatives have saved travel areas · estimated locations are labelled · live recalculation requires server</aside></body>`);
 await mkdir(path.join(root,'artifacts'),{recursive:true});
 await writeFile(path.join(root,'artifacts/education-reach-preview.html'),html);
 await mkdir(path.join(root,'preview'),{recursive:true});

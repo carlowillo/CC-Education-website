@@ -98,5 +98,5 @@ export function MapView({rows,coverage,selected,onSelect,searchPoint,roads,label
  useEffect(()=>{
   home.current?.remove();if(searchPoint&&map.current){home.current=L.circleMarker([searchPoint.lat,searchPoint.lng],{radius:9,color:'#fff',fillColor:'#e60d2e',fillOpacity:1,weight:3}).addTo(map.current);map.current.setView([searchPoint.lat,searchPoint.lng],10);}
  },[searchPoint]);
- return <><div ref={el} className="map-canvas" aria-label="Map of Christian education initiatives"/><button className="map-reset" aria-label="UK overview" onClick={()=>map.current?.fitBounds(overview,{padding:[30,25],animate:false})} title="Show the UK"><Compass size={18}/><span>UK overview</span></button>{tileError&&roads&&<div className="tile-note">Street tiles unavailable. Offline labels and country outlines remain available.</div>}</>;
+ return <><div ref={el} className="map-canvas" aria-label="Map of Christ-centred education initiatives"/><button className="map-reset" aria-label="UK overview" onClick={()=>map.current?.fitBounds(overview,{padding:[30,25],animate:false})} title="Show the UK"><Compass size={18}/><span>UK overview</span></button>{tileError&&roads&&<div className="tile-note">Street tiles unavailable. Offline labels and country outlines remain available.</div>}</>;
 }

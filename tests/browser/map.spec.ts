@@ -1,3 +1,4 @@
+import {expectSelected,expectCoverage} from './helpers';
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import type {Initiative} from '../../src/types';
@@ -7,9 +8,9 @@ test('real dataset, filters, data quality, missing-provider safeguard and export
  await page.route('**/api/coverage-saved',route=>route.fulfill({json:{features:[],arrivalLondon:null}}));
  await page.route('**/api/status',route=>route.fulfill({json:{routingReady:false,precise:0,total:132}}));
  await page.goto('/');
- await expect(page.getByText('90 initiatives in this view')).toBeVisible();
+ await expectSelected(page,90);
  await expect(page.locator('.initiative-cluster, .initiative-pin').first()).toBeVisible();
- await page.getByRole('button',{name:'Journey settings',exact:true}).click();
+ await page.getByRole('button',{name:'Map settings',exact:true}).click();
  await page.getByRole('button',{name:'Calculate 45-minute areas'}).click();
  await expect(page.getByRole('heading',{name:'Connect travel coverage.'})).toBeVisible();
  await page.getByRole('button',{name:'Close dialog'}).click();
@@ -21,11 +22,11 @@ test('real dataset, filters, data quality, missing-provider safeguard and export
  await page.getByRole('button',{name:'Close initiative details'}).click();
  await page.getByRole('checkbox',{name:/^Open \d+$/}).check(); // already checked: remains current provision
  await page.getByRole('checkbox',{name:/^Open \d+$/}).uncheck();
- await expect(page.getByText('132 initiatives in this view')).toBeVisible();
+ await expectSelected(page,132);
  await page.getByLabel('Strong Christian ethos',{exact:false}).check();
- await expect(page.getByText('17 initiatives in this view')).toBeVisible();
+ await expectSelected(page,17);
  const dl=page.waitForEvent('download');await page.getByRole('button',{name:'Export filtered data'}).click();await expect((await dl).suggestedFilename()).toBe('education-reach-filtered.csv');
- await page.getByRole('button',{name:'Data quality',exact:false}).click();
+ await page.getByRole('button',{name:'Review the data',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Good coverage starts with good data.'})).toBeVisible();
  await expect(page.getByRole('cell',{name:'P03',exact:true})).toBeVisible();
  await page.screenshot({path:'/tmp/education-reach-data-quality.png',fullPage:true});
@@ -37,7 +38,7 @@ test('real dataset, filters, data quality, missing-provider safeguard and export
 
 test('mobile map and accessible filter drawer',async({page})=>{
  await page.setViewportSize({width:390,height:844});await page.goto('/');
- await expect(page.getByRole('heading',{name:'Christian education. Within reach.'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Christ-centred education. Within reach.'})).toBeVisible();
  await page.getByRole('button',{name:'Filters',exact:true}).click();
  await expect(page.getByRole('checkbox',{name:/^Open \d+$/})).toBeVisible();
  await page.getByRole('button',{name:'Close filters'}).click();
@@ -73,13 +74,13 @@ test('fixture coverage uses both travel modes and checks postcode membership',as
  });
  await page.route('**/api/postcode/HS12YN',route=>route.fulfill({json:{lat:58.21,lng:-6.38,postcode:'HS1 2YN'}}));
  await page.goto('/');
- await page.getByRole('button',{name:'Journey settings',exact:true}).click();
+ await page.getByRole('button',{name:'Map settings',exact:true}).click();
  await page.getByRole('button',{name:'Calculate 45-minute areas'}).click();
- await expect(page.getByText('1 / 1 sites · combined driving coverage')).toBeVisible();
+ await expectCoverage(page);
  await page.getByLabel('Search a full UK postcode').fill('HS12YN');await page.getByRole('button',{name:'Find postcode'}).click();
  await expect(page.getByText('Within 45 minutes of 1 selected initiative by car.')).toBeVisible();
  await page.getByRole('button',{name:'Public transport',exact:true}).click();
- await expect(page.getByText('Location view · travel areas not calculated')).toBeVisible();
+ await expect(page.locator('.coverage-area')).toHaveCount(0);
  await page.getByRole('button',{name:'Calculate 45-minute areas'}).click();
  await expect(page.getByText('Within 45 minutes of 1 selected initiative by public transport.')).toBeVisible();
  expect(modes).toEqual(['driving','public_transport']);

@@ -47,7 +47,7 @@ input[type=checkbox] { accent-color: var(--cc-purple); }
 .intro-inner { max-width: 1280px; margin: auto; display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 54px; padding: 37px 32px 44px; }
 .workspace-heading .eyebrow { color: #e8d9f9; font-size: 10px; letter-spacing: 1.8px; font-weight: 750; margin-bottom: 13px; }
 .workspace-heading h1 { font-family: var(--cc-sans); font-size: clamp(32px, 3.2vw, 44px); line-height: 1.32; font-weight: 800; letter-spacing: -1.1px; margin: 0; max-width: none; }
-.workspace-heading h1 span { display: table; width: fit-content; background: var(--cc-cream); color: var(--cc-navy); padding: 0 8px 2px; margin: 3px 0; }
+.workspace-heading h1 span { display: table; width: fit-content; max-width: 100%; background: var(--cc-cream); color: var(--cc-navy); padding: 0 8px 2px; margin: 3px 0; }
 .workspace-heading .intro-lead { font: 400 20px/1.45 var(--cc-serif); color: var(--cc-cream); max-width: 480px; }
 .workspace-heading .intro-vision { font: 700 13px/1.7 var(--cc-sans); color: var(--cc-cream); margin: 14px 0 20px; max-width: 460px; }
 .workspace-heading .export { font-size: 12px; gap: 9px; padding: 11px 17px; }
@@ -77,7 +77,8 @@ input[type=checkbox] { accent-color: var(--cc-purple); }
 .sidebar-footer strong { font-weight: 700; font-size: 11px; }
 .sidebar-footer small { color: var(--cc-slate); font-size: 10px; }
 .tiny-icon { color: var(--cc-purple); background: #eae0f3; border-radius: 2px; }
-.map-toolbar { border-color: var(--cc-line); }
+.map-toolbar { border-color: var(--cc-line); gap: 12px 16px; }
+.map-toolbar .mode-toggle { margin-left: auto; min-width: 270px; }
 .desktop-filter-toggle { color: var(--cc-navy); border-color: var(--cc-line); font-size: 11px; font-weight: 650; }
 .postcode-search { color: var(--cc-slate); }
 .postcode-search input { color: var(--cc-navy); font-size: 13px; }
@@ -144,6 +145,16 @@ input[type=checkbox] { accent-color: var(--cc-purple); }
 .website { color: var(--cc-purple); font-weight: 700; font-size: 12px; }
 .close { color: var(--cc-slate); }
 .stats-bar { background: var(--cc-cream); border-color: var(--cc-line); min-height: 95px; }
+.stats-bar.selection-summary { justify-content: flex-start; gap: 12px; padding: 20px 24px; min-height: 86px; }
+.stats-bar.selection-summary strong { color: var(--cc-purple); font-size: 34px; line-height: 1; font-variant-numeric: tabular-nums; }
+.stats-bar.selection-summary span { color: var(--cc-navy); font-size: 13px; font-weight: 650; }
+.settings-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; grid-column: 1/-1; }
+.settings-actions .saved-button { width: auto; margin: 0; padding: 11px 16px; font-size: 11px; }
+.map-feedback { position: absolute; left: 18px; top: 18px; z-index: 400; display: flex; align-items: center; gap: 7px; max-width: calc(100% - 165px); padding: 9px 12px; background: #fffdf9f5; border: 1px solid #d5cedb; border-radius: 2px; color: #51435d; font-size: 11px; line-height: 1.6; }
+.map-feedback.is-warning { display: block; color: #704615; border-left: 3px solid var(--cc-orange); }
+.map-feedback button { padding: 0; color: var(--cc-purple); text-decoration: underline; }
+.legend { bottom: 20px; }
+.search-result { bottom: 78px; }
 .stats-bar strong { font-family: var(--cc-sans); font-size: 26px; font-weight: 800; color: var(--cc-navy); }
 .stats-bar strong small { color: #6e7682; }
 .stats-bar span { color: #606976; font-size: 10px; }
@@ -185,17 +196,21 @@ input[type=checkbox] { accent-color: var(--cc-purple); }
 .footer-top { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .footer-top h2 { font-size: 33px; line-height: 1.35; font-weight: 800; }
 .footer-top p { font: 400 18px/1.6 var(--cc-serif); margin-top: 9px; color: #e4dfdb; }
-.footer-links { display: flex; align-items: center; gap: 28px; padding: 40px 0 25px; font-size: 10px; font-weight: 700; }
+.footer-links { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; padding: 40px 0 25px; font-size: 10px; font-weight: 700; }
 .footer-links button, .footer-links a { padding: 0; color: var(--cc-cream); text-decoration: none; }
 .footer-links button:hover, .footer-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .footer-links a { margin-left: auto; }
 .footer-bottom { display: flex; align-items: flex-start; gap: 25px; border-top: 1px solid #ffffff26; padding-top: 24px; }
 .footer-wordmark .cc-wordmark { font-size: 27px; }
 .footer-bottom p { color: #c9cbd2; font-size: 10px; line-height: 1.9; }
-.preview-note { margin: 0; padding: 13px 24px; text-align: center; font: 500 10px/1.8 var(--cc-sans); color: #d4cddd; background: var(--cc-navy); border-top: 1px solid #ffffff26; }
 
 @media (min-width: 1600px) {
   .workspace { margin-left: auto; margin-right: auto; }
+}
+@media (min-width: 951px) {
+  .main-map > .map-stage:not(.is-expanded) { flex: 1; }
+  .main-map > .map-stage:not(.is-expanded) > .map-area { height: auto; min-height: 650px; }
+  .main-map > .map-stage:not(.is-expanded) > .detail-card { max-height: none; }
 }
 @media (max-width: 1150px) {
   .header-inner { gap: 20px; padding: 0 24px; }.header nav { gap: 20px; }
@@ -230,10 +245,14 @@ input[type=checkbox] { accent-color: var(--cc-purple); }
   .workspace-heading .export { font-size: 11px; padding: 11px 15px; gap: 8px; }
   .workspace { width: calc(100% - 24px); margin: 22px auto 30px; }
   .map-toolbar { gap: 8px; padding: 10px; }.postcode-search { min-width: 120px; }.postcode-search input { font-size: 12px; }
+  .map-toolbar .mode-toggle { width: 100%; min-width: 0; flex-basis: 100%; margin-left: 0; }
   .travel-bar { padding: 12px; }.mode-toggle { width: 100%; min-width: 0; }.mode-toggle button { font-size: 12px; }
   .journey-settings-toggle { font-size: 10px; }.travel-bar .saved-button { font-size: 10px; }
   .coverage-summary { padding: 11px 12px; font-size: 10px; }.coverage-summary > p { font-size: 10px; }
   .legend { width: 216px; }.legend .legend-body { font-size: 11px; }.legend-toggle { font-size: 11px; }
+  .legend { bottom: 16px; }.map-feedback { left: 12px; top: 12px; max-width: calc(100% - 70px); font-size: 10px; }
+  .stats-bar.selection-summary { padding: 18px 16px; min-height: 80px; gap: 12px; }
+  .stats-bar.selection-summary strong { font-size: 32px; }.stats-bar.selection-summary span { font-size: 12px; }
   .map-reset, .expand-map { font-size: 10px; }
   .stats-bar { padding: 16px 12px; }.stats-bar strong { font-size: 24px; }.stats-bar span { font-size: 9px; }
   .vision-band { padding: 34px 20px; }.vision-band h2 { font-size: 23px; line-height: 1.55; }
