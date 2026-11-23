@@ -36,7 +36,7 @@ npm start
 - Map and accessible initiative list, filters for inferred ethos, development stage, provision, support and affiliation. Counts apply other groups (AND), while options within a group are alternatives (OR). Zero-count selected options can always be deselected.
 - Open initiatives selected by default. Selecting other stages includes their available areas as future scenarios, with separate colours. No additional planned-stage switch is required.
 - Offline Natural Earth base map; optional OpenStreetMap street tiles.
-- Filtered CSV download and calculated-coverage GeoJSON download.
+- Calculated-coverage GeoJSON download through the optional coverage details.
 - Data-quality review, explicit unresolved locations, honest routing readiness and provider errors.
 - Postcode lookup and precise geocoding integration, subject to external-access approval and network permission.
 - Server-side TravelTime integration for 45-minute **arrival** areas by driving or public transport, subject to credentials. Postcode search checks calculated polygons, including holes.

@@ -3,7 +3,7 @@ import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import type {Initiative} from '../../src/types';
 
-test('real dataset, filters, data quality, missing-provider safeguard and exports',async({page})=>{
+test('real dataset, filters, data quality and missing-provider safeguard',async({page})=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
  await page.route('**/api/coverage-saved',route=>route.fulfill({json:{features:[],arrivalLondon:null}}));
  await page.route('**/api/status',route=>route.fulfill({json:{routingReady:false,precise:0,total:132}}));
@@ -25,7 +25,7 @@ test('real dataset, filters, data quality, missing-provider safeguard and export
  await expectSelected(page,132);
  await page.getByLabel('Strong Christian ethos',{exact:false}).check();
  await expectSelected(page,17);
- const dl=page.waitForEvent('download');await page.getByRole('button',{name:'Export filtered data'}).click();await expect((await dl).suggestedFilename()).toBe('education-reach-filtered.csv');
+ await expect(page.locator('.intro-copy button')).toHaveCount(0);
  await page.getByRole('button',{name:'Review the data',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Good coverage starts with good data.'})).toBeVisible();
  await expect(page.getByRole('cell',{name:'P03',exact:true})).toBeVisible();
