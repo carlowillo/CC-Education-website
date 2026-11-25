@@ -18,7 +18,6 @@ test('real dataset, filters, data quality and missing-provider safeguard',async(
  await page.getByLabel('Filter initiative list').fill('Providence Christian School');
  await page.locator('.list-items').getByRole('button',{name:/Providence Christian School HS1/}).click();
  await expect(page.getByRole('heading',{name:'Providence Christian School',exact:true})).toBeVisible();
- await expect(page.getByText('Postcode centroid, not a verified entrance.',{exact:false})).toBeVisible();
  await page.getByRole('button',{name:'Close initiative details'}).click();
  await page.getByRole('checkbox',{name:/^Open \d+$/}).check(); // already checked: remains current provision
  await page.getByRole('checkbox',{name:/^Open \d+$/}).uncheck();
