@@ -12,6 +12,8 @@ An internal Christian education planning map, built from the supplied 23 October
 
 ## Run
 
+For password-protected Vercel hosting, use [VERCEL-DEPLOYMENT.md](VERCEL-DEPLOYMENT.md). The deployment keeps the repository private and gates the page, assets and data APIs behind the app's shared login. Vercel's separate password-protection add-on is not needed.
+
 Requires Node.js **24.5 or later** (Node 24.19 tested) and npm. The startup command uses Node's environment-proxy support so the inherited proxy and CA trust remain in effect.
 
 ```sh
@@ -23,10 +25,12 @@ npm run dev
 The app listens locally on port 3000. Optional `.env` values are loaded automatically; see `.env.example`. This task already has an isolated checkout; use it directly, without creating a worktree. For a downloadable, no-installation visual preview and password-protected Render deployment, see [PREVIEW-AND-PUBLISH.md](PREVIEW-AND-PUBLISH.md).
 
 ```sh
+npm run vercel-build
 npm test
-npm run build
 npm start
 ```
+
+The integration tests use the compiled frontend and prepared Vercel coverage, so run `npm run vercel-build` before `npm test` in a fresh checkout.
 
 `npm start` serves the production build. Processes do not survive an environment snapshot; restart when needed. `HOST` defaults to `127.0.0.1`. External hosting requires `ADMIN_PASSWORD` with at least 16 characters; the browser username defaults to `viewer` (override with `ADMIN_USERNAME`). All pages, assets and data APIs then require authentication. Use HTTPS, as Render provides. Only the non-sensitive `/healthz` check is public. Both data API responses and browser-delivered data are internal information. For organisational use, prefer individual sign-in through your access gateway over a shared preview password.
 

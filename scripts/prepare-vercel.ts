@@ -1,0 +1,14 @@
+import {mkdir,writeFile} from 'node:fs/promises';
+import {gzipSync} from 'node:zlib';
+import {createHash} from 'node:crypto';
+import path from 'node:path';
+import {loadInitiatives,loadRetainedCoverage,root} from '../server/data.ts';
+import {CHUNK_BYTES} from '../server/coverage-transport.ts';
+const saved=await loadRetainedCoverage(await loadInitiatives());
+if(!saved.features.length)throw new Error('No valid saved coverage is available for deployment.');
+const payload=gzipSync(JSON.stringify(saved),{level:9});
+const folder=path.join(root,'server-artifacts');await mkdir(folder,{recursive:true});
+const manifest={transport:'gzip-chunks-v1',bytes:payload.length,sha256:createHash('sha256').update(payload).digest('hex'),chunks:Array.from({length:Math.ceil(payload.length/CHUNK_BYTES)},(_,index)=>`/api/coverage-saved/chunks/${index}`)};
+await writeFile(path.join(folder,'coverage.json.gz'),payload);
+await writeFile(path.join(folder,'coverage-manifest.json'),JSON.stringify(manifest));
+console.log(`Prepared ${saved.features.length} protected travel areas in ${manifest.chunks.length} chunks of at most 1 MiB. No dataset is copied to public assets.`);

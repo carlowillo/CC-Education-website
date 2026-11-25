@@ -1,5 +1,7 @@
 # Preview and publish on Render
 
+For password-protected Vercel hosting instead, follow [VERCEL-DEPLOYMENT.md](VERCEL-DEPLOYMENT.md).
+
 ## See the design immediately — no installation
 
 1. Open the private GitHub repository and use **Code → Download ZIP**, or the commit-specific ZIP link supplied in chat. Codex source panels may display HTML instead of offering a download.

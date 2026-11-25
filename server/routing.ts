@@ -1,5 +1,5 @@
-import type {Initiative,Coverage} from '../src/types.ts';
-import {eligible,toFeature} from './logic.ts';
+import type {Initiative,Coverage} from '../src/types.js';
+import {eligible,toFeature} from './logic.js';
 export type TravelMode='driving'|'public_transport';
 export class RoutingError extends Error{
  constructor(message:string,public status:number|null=null,public providerCode:number|null=null){super(message);}

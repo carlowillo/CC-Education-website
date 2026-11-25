@@ -1,0 +1,10 @@
+.env*
+.cache/**
+.git/**
+.vercel/**
+node_modules/**
+preview/**
+artifacts/**
+test-results/**
+playwright-report/**
+*.log

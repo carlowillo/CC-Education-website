@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.ts",
+      "use": "@vercel/node@32.0.0",
+      "config": {
+        "includeFiles": [
+          "dist/**",
+          "server-artifacts/**",
+          "data/initiatives.json",
+          "data/locations.json",
+          "data/estimated-locations.json",
+          "data/basemap.json",
+          "data/places.json",
+          "data/coverage-sample.geojson",
+          "reports/routing-validation.json"
+        ],
+        "excludeFiles": [
+          "preview/**",
+          "artifacts/**",
+          "tests/**",
+          ".cache/**",
+          "data/coverage-planning.geojson",
+          "data/coverage-planning-combined.geojson",
+          "data/coverage-open.geojson",
+          "data/coverage-combined.geojson"
+        ]
+      }
+    }
+  ],
+  "routes": [{"src": "/(.*)", "dest": "/api/index.ts"}]
+}

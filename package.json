@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node --env-file-if-exists=.env --use-env-proxy --import tsx server/index.ts",
     "build": "tsc --noEmit && vite build",
+    "vercel-build": "npm run build && node --import tsx scripts/prepare-vercel.ts",
     "start": "NODE_ENV=production node --env-file-if-exists=.env --use-env-proxy --import tsx server/index.ts",
     "test": "node --import tsx --test --test-isolation=none tests/*.test.ts",
     "test:browser": "node scripts/create-preview.mjs && playwright test",
@@ -45,6 +46,6 @@
     "vite": "^6.0.5"
   },
   "engines": {
-    "node": ">=24.5.0"
+    "node": "24.x"
   }
 }

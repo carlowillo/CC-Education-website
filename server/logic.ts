@@ -1,6 +1,6 @@
-import type { Initiative, Coverage } from '../src/types.ts';
-import {stageGroup} from '../src/types.ts';
-import {canRoute} from '../src/locations.ts';
+import type { Initiative, Coverage } from '../src/types.js';
+import {stageGroup} from '../src/types.js';
+import {canRoute} from '../src/locations.js';
 export function eligible(r: Initiative,includeEstimated=false) { return canRoute(r,includeEstimated); }
 type Point = {lat: number; lng: number};
 export function toFeature(r: Initiative, shapes: {shell: Point[]; holes: Point[][]}[], mode: string, arrival: string): Coverage {

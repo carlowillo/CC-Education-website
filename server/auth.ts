@@ -9,8 +9,8 @@ export function passwordGate(username: string, password: string): RequestHandler
     if(header.startsWith('Basic ')) supplied=Buffer.from(header.slice(6),'base64').toString('utf8');
     const candidate=createHash('sha256').update(supplied).digest();
     if(timingSafeEqual(candidate,expected))return next();
-    res.set('WWW-Authenticate','Basic realm="Education Reach internal preview", charset="UTF-8"');
+    res.set('WWW-Authenticate','Basic realm="Christ-centred education", charset="UTF-8"');
     res.set('Cache-Control','no-store');
-    res.status(401).send('Sign in to view the internal Education Reach preview.');
+    res.status(401).send('Sign in to view this password-protected education map.');
   };
 }

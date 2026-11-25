@@ -1,4 +1,4 @@
-import type {Initiative} from '../src/types.ts';
+import type {Initiative} from '../src/types.js';
 export const postcodeKey=(value:string)=>value.toUpperCase().replace(/\s/g,'');
 export type Location=NonNullable<Initiative['location']> & {geocodedAt?:string;quality?:number};
 export type LocationSnapshot={version:1;provider:'Postcodes.io';resolvedAt:string;locations:Record<string,Location>;failures:Record<string,string>};

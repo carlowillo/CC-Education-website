@@ -5,6 +5,7 @@ import {ArrowDownToLine, ArrowRight, BusFront, CarFront, ChevronDown, CircleHelp
 import type {Coverage, Initiative} from './types';
 import {ethosLabels,stageGroup,stageLabels,stageColours} from './types';
 import {coverageScope,coverageGroups,type CombinedCoverage} from './coverage';
+import {unpackCoverage} from './coverage-transport';
 import {defaultFilters,matchesFilters,facetCounts,type FilterKey} from './filters';
 import CoverageWorker from './coverage.worker.ts?worker&inline';
 import '@fontsource-variable/montserrat';
@@ -16,14 +17,14 @@ import './branding.css';
 
 const colours:Record<string,string>={fully:'#783cbd',strong:'#a84e00',unclassified:'#626b79'};
 const initialDate=()=>{const d=new Date();d.setDate(d.getDate()+1);while([0,6].includes(d.getDay()))d.setDate(d.getDate()+1);return new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/London',year:'numeric',month:'2-digit',day:'2-digit'}).format(d)+'T08:30';};
-async function api(url:string,body?:unknown){const r=await fetch(url,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:undefined);const d=await r.json();if(!r.ok)throw new Error(d.error||'The request failed. Please retry.');return d;}
+async function api(url:string,body?:unknown){const r=await fetch(url,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:undefined);const d=await r.json();if(!r.ok)throw new Error(d.error||'The request failed. Please retry.');return url==='/api/coverage-saved'&&d.transport==='gzip-chunks-v1'?unpackCoverage(d):d;}
 function saveFile(name:string,data:string,type:string){const u=URL.createObjectURL(new Blob([data],{type}));const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
 
 function App(){
  const [mapExpanded,setMapExpanded]=useState(false);
  useEffect(()=>{if(!mapExpanded)return;const previous=document.body.style.overflow,scrollBefore=window.scrollY;document.body.style.overflow='hidden';const close=(e:KeyboardEvent)=>{if(e.key==='Escape')setMapExpanded(false);};document.addEventListener('keydown',close);return()=>{document.body.style.overflow=previous;document.removeEventListener('keydown',close);requestAnimationFrame(()=>window.scrollTo(0,scrollBefore));};},[mapExpanded]);
  const [settingsOpen,setSettingsOpen]=useState(false),[legendOpen,setLegendOpen]=useState(false),[filtersCollapsed,setFiltersCollapsed]=useState(false),[labelsOn,setLabelsOn]=useState(true);
- const [rows,setRows]=useState<Initiative[]>([]),[status,setStatus]=useState<{routingReady:boolean;precise:number;offlinePreview?:boolean}|null>(null),[loadError,setLoadError]=useState('');
+ const [rows,setRows]=useState<Initiative[]>([]),[status,setStatus]=useState<{routingReady:boolean;precise:number;offlinePreview?:boolean;coverageBatchSize?:number}|null>(null),[loadError,setLoadError]=useState('');
  const [filters,setFilters]=useState(defaultFilters);
  const [mode,setMode]=useState('driving'),[arrival,setArrival]=useState(initialDate),[includeEstimated,setIncludeEstimated]=useState(true),[roads,setRoads]=useState(false);
  const [selected,setSelected]=useState<Initiative|null>(null),[sheet,setSheet]=useState<'quality'|'method'|'setup'|'coverage'|null>(null),[list,setList]=useState(false),[sidebar,setSidebar]=useState(false);
@@ -75,10 +76,10 @@ function App(){
  async function calculate(){
   if(!status?.routingReady){setSheet('setup');return;}
   if(!eligible.length){setNotice('No selected locations are eligible. Review location quality or include estimated locations.');return;}
-  setBusy(true);setCoverageVisible(true);setShowSaved(false);stop.current=false;setCoverage([]);setNotice('');let completed=0;
+  setBusy(true);setCoverageVisible(true);setShowSaved(false);stop.current=false;setCoverage([]);setNotice('');let completed=0;const batchSize=status.coverageBatchSize===1?1:5;
   try{
-   for(let i=0;i<eligible.length;i+=5){if(stop.current)break;setProgress(`Calculating ${i+1}–${Math.min(i+5,eligible.length)} of ${eligible.length}`);
-    const d=await api('/api/coverage',{ids:eligible.slice(i,i+5).map(r=>r.id),mode,arrival,includePlanned,includeEstimated});
+   for(let i=0;i<eligible.length;i+=batchSize){if(stop.current)break;setProgress(`Calculating ${i+1}–${Math.min(i+batchSize,eligible.length)} of ${eligible.length}`);
+    const d=await api('/api/coverage',{ids:eligible.slice(i,i+batchSize).map(r=>r.id),mode,arrival,includePlanned,includeEstimated});
     if(stop.current)break;setCoverage(v=>[...v,...d.features]);completed+=d.features.length;
     if(d.errors.length){setNotice(`${completed} areas calculated. ${d.errors.map((e:{id:string;error:string})=>`School ${e.id}: ${e.error}`).join(' ')}`);return;}
    }
