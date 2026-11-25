@@ -6,8 +6,25 @@ import {applyLocations} from '../server/geocoding.ts';
 import {applyEstimatedLocations} from '../src/locations.ts';
 import {coverageScope,type CombinedCoverage} from '../src/coverage.ts';
 import {stageGroup,type Coverage,type Initiative} from '../src/types.ts';
+import {loadInitiatives,loadRetainedCoverage} from '../server/data.ts';
 const read=(file:string)=>JSON.parse(readFileSync(file,'utf8'));
 const rows:Initiative[]=applyEstimatedLocations(applyLocations(read('data/initiatives.json'),read('data/locations.json')),read('data/estimated-locations.json'));
+test('renamed initiatives retain their travel geometry and use current names in saved coverage',async()=>{
+ const current=await loadInitiatives();
+ const saved=await loadRetainedCoverage(current);
+ const original:Coverage[]=read('data/coverage-planning.geojson').features;
+ assert.equal(saved.features.length,264);
+ assert.equal(current.find(row=>row.id==='1')!.name,'Providence Christian School');
+ assert.equal(current.find(row=>row.id==='45')!.name,'Coed y Brenin');
+ for(const feature of saved.features){
+  const row=current.find(row=>row.id===feature.properties.id)!;
+  const previous=original.find(area=>area.properties.id===row.id&&area.properties.mode===feature.properties.mode)!;
+  assert.equal(feature.properties.name,row.name);
+  assert.deepEqual(feature.geometry,previous.geometry);
+  assert.deepEqual({...feature.properties,name:previous.properties.name},previous.properties);
+ }
+ assert.equal(saved.combined!.length,10);
+});
 test('live planning snapshot covers all 132 initiatives in both modes at one arrival time',()=>{
  const features:Coverage[]=read('data/coverage-planning.geojson').features,report=read('reports/coverage-planning.json');
  assert.equal(features.length,264);assert.equal(new Set(features.map(f=>f.properties.id+':'+f.properties.mode)).size,264);

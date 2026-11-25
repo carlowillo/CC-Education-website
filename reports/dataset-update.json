@@ -1,0 +1,683 @@
+{
+  "fileName": "20261023 Data for Map - Schools Renamed.xlsx",
+  "worksheet": "Sheet1",
+  "updatedAt": "2026-11-25",
+  "updatedLabel": "25 November 2026",
+  "records": 132,
+  "importedAt": "2026-11-25T11:16:27.343640+00:00",
+  "sourceSHA256": "225b22066debd5aa6b1468eec8c1c402868f12e9dd4462a4233e90a8ce1c8957",
+  "renamedCount": 132,
+  "nonNameFieldChanges": 0,
+  "stableIdsPreserved": true,
+  "placeholderNamesRetained": 42,
+  "coverageRecalculated": false,
+  "notes": [
+    "All six non-name source columns match the previous dataset at each row after whitespace normalisation.",
+    "Only name fields in the normalised initiatives were changed; existing IDs and location records are preserved.",
+    "Retained provider geometry and historical validation reports remain unchanged; current labels are joined by stable initiative ID when loading coverage.",
+    "The original uploaded workbook is retained verbatim as data/initiatives-source.xlsx.",
+    "Workbook cells are treated as data, not instructions; no formulas or external links were evaluated."
+  ],
+  "renamedInitiatives": [
+    {
+      "id": "1",
+      "previousName": "School 1",
+      "name": "Providence Christian School"
+    },
+    {
+      "id": "2",
+      "previousName": "School 2",
+      "name": "Regius School"
+    },
+    {
+      "id": "3",
+      "previousName": "School 3",
+      "name": "Bradford Christian School"
+    },
+    {
+      "id": "4",
+      "previousName": "School 4",
+      "name": "Christian Fellowship School"
+    },
+    {
+      "id": "5",
+      "previousName": "School 5",
+      "name": "Covenant Christian School"
+    },
+    {
+      "id": "6",
+      "previousName": "School 6",
+      "name": "Trinity School"
+    },
+    {
+      "id": "7",
+      "previousName": "School 7",
+      "name": "Bethany School"
+    },
+    {
+      "id": "8",
+      "previousName": "School 8",
+      "name": "Kingdom Christian School"
+    },
+    {
+      "id": "9",
+      "previousName": "School 9",
+      "name": "Emmanuel School - Derby"
+    },
+    {
+      "id": "10",
+      "previousName": "School 10",
+      "name": "Emmanuel School - Walsall"
+    },
+    {
+      "id": "11",
+      "previousName": "School 11",
+      "name": "Emmanuel School - Leicester"
+    },
+    {
+      "id": "12",
+      "previousName": "School 12",
+      "name": "The River School"
+    },
+    {
+      "id": "13",
+      "previousName": "School 13",
+      "name": "Wyclif Christian School"
+    },
+    {
+      "id": "14",
+      "previousName": "School 14",
+      "name": "Emmaus School"
+    },
+    {
+      "id": "15",
+      "previousName": "School 15",
+      "name": "Maranatha Christian School"
+    },
+    {
+      "id": "16",
+      "previousName": "School 16",
+      "name": "The King’s School - Witney"
+    },
+    {
+      "id": "17",
+      "previousName": "School 17",
+      "name": "Emmanuel Christian School - Oxford"
+    },
+    {
+      "id": "18",
+      "previousName": "School 18",
+      "name": "The King’s School - Southampton"
+    },
+    {
+      "id": "19",
+      "previousName": "School 19",
+      "name": "The Vine Christian School"
+    },
+    {
+      "id": "20",
+      "previousName": "School 20",
+      "name": "The King's School - Windsor"
+    },
+    {
+      "id": "21",
+      "previousName": "School 21",
+      "name": "Stanborough Secondary School"
+    },
+    {
+      "id": "22",
+      "previousName": "School 22",
+      "name": "The King's School - Harpenden"
+    },
+    {
+      "id": "23",
+      "previousName": "School 23",
+      "name": "Grangewood Independent School"
+    },
+    {
+      "id": "24",
+      "previousName": "School 24",
+      "name": "Young Missionaries' Academy"
+    },
+    {
+      "id": "25",
+      "previousName": "School 25",
+      "name": "Felixstowe International College"
+    },
+    {
+      "id": "26",
+      "previousName": "School 26",
+      "name": "Christ the Rock"
+    },
+    {
+      "id": "27",
+      "previousName": "School 27",
+      "name": "Immanuel Christian School"
+    },
+    {
+      "id": "28",
+      "previousName": "School 28",
+      "name": "Kingdom Pre-school"
+    },
+    {
+      "id": "29",
+      "previousName": "School 29",
+      "name": "Branch Christian School"
+    },
+    {
+      "id": "30",
+      "previousName": "School 30",
+      "name": "King of Kings"
+    },
+    {
+      "id": "31",
+      "previousName": "School 31",
+      "name": "SOL Academy"
+    },
+    {
+      "id": "32",
+      "previousName": "School 32",
+      "name": "Melville Knox Glasgow - Parkhead campus"
+    },
+    {
+      "id": "33",
+      "previousName": "School 33",
+      "name": "Melville Knox Glasgow - Kelvingrove campus"
+    },
+    {
+      "id": "34",
+      "previousName": "School 34",
+      "name": "Melville Knox Aberdeen"
+    },
+    {
+      "id": "35",
+      "previousName": "School 35",
+      "name": "Melville-Knox Christian School Highland"
+    },
+    {
+      "id": "36",
+      "previousName": "School 36",
+      "name": "Thames Christian School"
+    },
+    {
+      "id": "37",
+      "previousName": "School 37",
+      "name": "London Christian School"
+    },
+    {
+      "id": "38",
+      "previousName": "School 38",
+      "name": "Immanuel Christian School - Romford"
+    },
+    {
+      "id": "39",
+      "previousName": "School 39",
+      "name": "Moksliukas Nursery"
+    },
+    {
+      "id": "40",
+      "previousName": "School 40",
+      "name": "Noah's Ark Pre-School"
+    },
+    {
+      "id": "41",
+      "previousName": "School 41",
+      "name": "Bilney"
+    },
+    {
+      "id": "42",
+      "previousName": "School 42",
+      "name": "Fountain Christian School"
+    },
+    {
+      "id": "43",
+      "previousName": "School 43",
+      "name": "MICC Chapel of Light"
+    },
+    {
+      "id": "44",
+      "previousName": "School 44",
+      "name": "Learning Centre in Preston"
+    },
+    {
+      "id": "45",
+      "previousName": "School 45",
+      "name": "Coed y Brenin"
+    },
+    {
+      "id": "46",
+      "previousName": "School 46",
+      "name": "Sophia Learning Centre"
+    },
+    {
+      "id": "47",
+      "previousName": "School 47",
+      "name": "Uplift ED"
+    },
+    {
+      "id": "48",
+      "previousName": "School 48",
+      "name": "Sapphire Minton Nursery"
+    },
+    {
+      "id": "49",
+      "previousName": "School 49",
+      "name": "Waymakers"
+    },
+    {
+      "id": "50",
+      "previousName": "School 50",
+      "name": "Home Education Co-Op Dundee"
+    },
+    {
+      "id": "51",
+      "previousName": "School 51",
+      "name": "Progeny"
+    },
+    {
+      "id": "52",
+      "previousName": "School 52",
+      "name": "School Name in Progress 1"
+    },
+    {
+      "id": "53",
+      "previousName": "School 53",
+      "name": "School Name in Progress 2"
+    },
+    {
+      "id": "54",
+      "previousName": "School 54",
+      "name": "The Light School"
+    },
+    {
+      "id": "55",
+      "previousName": "School 55",
+      "name": "Thrive"
+    },
+    {
+      "id": "56",
+      "previousName": "School 56",
+      "name": "School Name in Progress 3"
+    },
+    {
+      "id": "57",
+      "previousName": "School 57",
+      "name": "School Name in Progress 4"
+    },
+    {
+      "id": "58",
+      "previousName": "School 58",
+      "name": "School Name in Progress 5"
+    },
+    {
+      "id": "59",
+      "previousName": "School 59",
+      "name": "School Name in Progress 6"
+    },
+    {
+      "id": "60",
+      "previousName": "School 60",
+      "name": "School Name in Progress 7"
+    },
+    {
+      "id": "61",
+      "previousName": "School 61",
+      "name": "School Name in Progress 8"
+    },
+    {
+      "id": "62",
+      "previousName": "School 62",
+      "name": "School Name in Progress 9"
+    },
+    {
+      "id": "63",
+      "previousName": "School 63",
+      "name": "School Name in Progress 10"
+    },
+    {
+      "id": "64",
+      "previousName": "School 64",
+      "name": "School Name in Progress 11"
+    },
+    {
+      "id": "65",
+      "previousName": "School 65",
+      "name": "Tution Centre in Reading"
+    },
+    {
+      "id": "66",
+      "previousName": "School 66",
+      "name": "School Name in Progress 12"
+    },
+    {
+      "id": "67",
+      "previousName": "School 67",
+      "name": "School Name in Progress 13"
+    },
+    {
+      "id": "68",
+      "previousName": "School 68",
+      "name": "School Name in Progress 14"
+    },
+    {
+      "id": "69",
+      "previousName": "School 69",
+      "name": "School Name in Progress 15"
+    },
+    {
+      "id": "70",
+      "previousName": "School 70",
+      "name": "School Name in Progress 16"
+    },
+    {
+      "id": "71",
+      "previousName": "School 71",
+      "name": "School Name in Progress 17"
+    },
+    {
+      "id": "72",
+      "previousName": "School 72",
+      "name": "School Name in Progress 18"
+    },
+    {
+      "id": "73",
+      "previousName": "School 73",
+      "name": "School Name in Progress 19"
+    },
+    {
+      "id": "74",
+      "previousName": "School 74",
+      "name": "School Name in Progress 20"
+    },
+    {
+      "id": "75",
+      "previousName": "School 75",
+      "name": "School Name in Progress 21"
+    },
+    {
+      "id": "76",
+      "previousName": "School 76",
+      "name": "School Name in Progress 22"
+    },
+    {
+      "id": "77",
+      "previousName": "School 77",
+      "name": "School Name in Progress 23"
+    },
+    {
+      "id": "78",
+      "previousName": "School 78",
+      "name": "School Name in Progress 24"
+    },
+    {
+      "id": "79",
+      "previousName": "School 79",
+      "name": "School Name in Progress 25"
+    },
+    {
+      "id": "80",
+      "previousName": "School 80",
+      "name": "School Name in Progress 26"
+    },
+    {
+      "id": "81",
+      "previousName": "School 81",
+      "name": "School Name in Progress 27"
+    },
+    {
+      "id": "82",
+      "previousName": "School 82",
+      "name": "School Name in Progress 28"
+    },
+    {
+      "id": "83",
+      "previousName": "School 83",
+      "name": "School Name in Progress 29"
+    },
+    {
+      "id": "84",
+      "previousName": "School 84",
+      "name": "Home Education Hub - Cambridge Central"
+    },
+    {
+      "id": "85",
+      "previousName": "School 85",
+      "name": "Home Education Hub - Alconbury, Cambridgeshire"
+    },
+    {
+      "id": "86",
+      "previousName": "School 86",
+      "name": "Home Education Hub - Kidderminster"
+    },
+    {
+      "id": "87",
+      "previousName": "School 87",
+      "name": "School Name in Progress 30"
+    },
+    {
+      "id": "88",
+      "previousName": "School 88",
+      "name": "Home Education Hub - Norwich"
+    },
+    {
+      "id": "89",
+      "previousName": "School 89",
+      "name": "Home Education Hub - Caterham"
+    },
+    {
+      "id": "90",
+      "previousName": "School 90",
+      "name": "School Name in Progress 31"
+    },
+    {
+      "id": "91",
+      "previousName": "School 91",
+      "name": "Home Education Hub - Hull"
+    },
+    {
+      "id": "92",
+      "previousName": "School 92",
+      "name": "School Name in Progress 32"
+    },
+    {
+      "id": "93",
+      "previousName": "School 93",
+      "name": "School Name in Progress 33"
+    },
+    {
+      "id": "94",
+      "previousName": "School 94",
+      "name": "Home Education Hub - Loughton"
+    },
+    {
+      "id": "95",
+      "previousName": "School 95",
+      "name": "School Name in Progress 34"
+    },
+    {
+      "id": "96",
+      "previousName": "School 96",
+      "name": "Home Education Hub - Sevenoaks"
+    },
+    {
+      "id": "97",
+      "previousName": "School 97",
+      "name": "School Name in Progress 35"
+    },
+    {
+      "id": "98",
+      "previousName": "School 98",
+      "name": "School Name in Progress 36"
+    },
+    {
+      "id": "99",
+      "previousName": "School 99",
+      "name": "Home Education Hub - North London"
+    },
+    {
+      "id": "100",
+      "previousName": "School 100",
+      "name": "School Name in Progress 37"
+    },
+    {
+      "id": "101",
+      "previousName": "School 101",
+      "name": "School Name in Progress 38"
+    },
+    {
+      "id": "102",
+      "previousName": "School 102",
+      "name": "Home Education Hub - Dundee"
+    },
+    {
+      "id": "103",
+      "previousName": "School 103",
+      "name": "School Name in Progress 39"
+    },
+    {
+      "id": "104",
+      "previousName": "School 104",
+      "name": "Home Education Hub - Newcastle"
+    },
+    {
+      "id": "105",
+      "previousName": "School 105",
+      "name": "School Name in Progress 40"
+    },
+    {
+      "id": "106",
+      "previousName": "School 106",
+      "name": "School Name in Progress 41"
+    },
+    {
+      "id": "107",
+      "previousName": "School 107",
+      "name": "School Name in Progress 42"
+    },
+    {
+      "id": "108",
+      "previousName": "School 108",
+      "name": "Home Education Hub - Dartford"
+    },
+    {
+      "id": "109",
+      "previousName": "School 109",
+      "name": "Stowe School"
+    },
+    {
+      "id": "110",
+      "previousName": "School 110",
+      "name": "Canford School"
+    },
+    {
+      "id": "111",
+      "previousName": "School 111",
+      "name": "Aldro Prep School"
+    },
+    {
+      "id": "112",
+      "previousName": "School 112",
+      "name": "Berkhamsted School"
+    },
+    {
+      "id": "113",
+      "previousName": "School 113",
+      "name": "Birkdale School"
+    },
+    {
+      "id": "114",
+      "previousName": "School 114",
+      "name": "Castle Court Prep School"
+    },
+    {
+      "id": "115",
+      "previousName": "School 115",
+      "name": "Dean Close School"
+    },
+    {
+      "id": "116",
+      "previousName": "School 116",
+      "name": "Dolphin School"
+    },
+    {
+      "id": "117",
+      "previousName": "School 117",
+      "name": "Eltham College"
+    },
+    {
+      "id": "118",
+      "previousName": "School 118",
+      "name": "Francis Holland Schools"
+    },
+    {
+      "id": "119",
+      "previousName": "School 119",
+      "name": "Kingham Hill School"
+    },
+    {
+      "id": "120",
+      "previousName": "School 120",
+      "name": "Lucky House School"
+    },
+    {
+      "id": "121",
+      "previousName": "School 121",
+      "name": "Monkton Combe School"
+    },
+    {
+      "id": "122",
+      "previousName": "School 122",
+      "name": "St David's College"
+    },
+    {
+      "id": "123",
+      "previousName": "School 123",
+      "name": "St Lawrence College"
+    },
+    {
+      "id": "124",
+      "previousName": "School 124",
+      "name": "Life Boat Fellowship"
+    },
+    {
+      "id": "125",
+      "previousName": "School 125",
+      "name": "Harmony Christian School"
+    },
+    {
+      "id": "126",
+      "previousName": "School 126",
+      "name": "Redruth Learning Centre"
+    },
+    {
+      "id": "127",
+      "previousName": "School 127",
+      "name": "Sidcup Learning Centre"
+    },
+    {
+      "id": "128",
+      "previousName": "School 128",
+      "name": "Edmonton Learning Centre"
+    },
+    {
+      "id": "129",
+      "previousName": "School 129",
+      "name": "Bristol Learning Centre"
+    },
+    {
+      "id": "130",
+      "previousName": "School 130",
+      "name": "Durham Learning Centre"
+    },
+    {
+      "id": "131",
+      "previousName": "School 131",
+      "name": "Leeds Learning Centre"
+    },
+    {
+      "id": "132",
+      "previousName": "School 132",
+      "name": "Learning Centre in Harlow"
+    }
+  ]
+}

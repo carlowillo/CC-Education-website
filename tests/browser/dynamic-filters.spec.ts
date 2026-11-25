@@ -75,8 +75,8 @@ test('downloaded preview searches saved representative postcodes offline and oth
  await expect(page.locator('.search-result strong')).toHaveText('NP7 6AW');expect(requests).toHaveLength(0);
  await page.getByLabel('Search a full UK postcode').fill('SW1A1AA');await page.getByRole('button',{name:'Find postcode'}).click();
  await expect(page.locator('.search-result strong')).toHaveText('SW1A 1AA');expect(requests).toHaveLength(1);
- await page.getByRole('button',{name:'Initiative list'}).click();await page.getByLabel('Filter initiative list').fill('School 45');
- await page.locator('.list-items').getByRole('button',{name:/School 45 NP7/}).click();
+ await page.getByRole('button',{name:'Initiative list'}).click();await page.getByLabel('Filter initiative list').fill('Coed y Brenin');
+ await page.locator('.list-items').getByRole('button',{name:/Coed y Brenin NP7/}).click();
  await expect(page.locator('.location-warning')).toContainText('Estimated location: NP7 6AW');
  await expect(page.locator('.location-warning')).toContainText('not the school address');
  await page.screenshot({path:'/tmp/education-reach-estimated-location.png',fullPage:true});

@@ -33,7 +33,7 @@ Use the private GitHub repository **carlowillo/CC-Education-website**, branch **
 
 ## What works without additional services
 
-The deployment bundles all 132 initiatives and 264 saved driving/public transport areas. Mode changes, filtering, initiative details and saved coverage work without TravelTime credentials. Full postcode search uses Postcodes.io and needs no API key. Coverage represents the saved **23 November 2026, 08:30 London time** snapshot; the 53 representative locations remain labelled estimates.
+The deployment bundles all 132 initiatives with the names from the updated workbook supplied on **25 November 2026**, and 264 saved driving/public transport areas. Mode changes, filtering, initiative details and saved coverage work without TravelTime credentials. Full postcode search uses Postcodes.io and needs no API key. Coverage represents the saved **23 November 2026, 08:30 London time** snapshot; the 53 representative locations remain labelled estimates. The original workbook stays in the private repository and is excluded from the hosted function.
 
 The Map settings control in the footer supports fresh calculations when actual TravelTime credentials are configured. Vercel uses one initiative per calculation request to stay within a 60-second function budget. Provider limits and usage charges still apply. Calculations and geocoding overrides are cached only in temporary Vercel storage and may disappear between invocations. Live results are shown in that browser session. To publish a refreshed shared snapshot, regenerate the retained coverage files, commit/push them to `main`, and let Vercel redeploy. No durable database has been added.
 

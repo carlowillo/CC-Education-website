@@ -1,5 +1,7 @@
 # Download the internal preview
 
+**Dataset updated 25 November 2026:** initiative names now match the supplied Schools Renamed workbook, including its 42 remaining placeholders. Postcodes and other source fields are unchanged; all 264 saved travel areas remain available.
+
 1. Open `education-reach-preview.html` in this GitHub folder.
 2. Choose **Download raw file** (the download icon in the file toolbar).
 3. Open the saved HTML file from your computer using Chrome, Edge, Safari or Firefox.

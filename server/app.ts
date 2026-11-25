@@ -3,7 +3,7 @@ import {readFile, writeFile, mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {tmpdir} from 'node:os';
-import {root,loadInitiatives,loadRetainedCoverage,type RetainedCoverage} from './data.js';
+import {root,loadInitiatives,loadRetainedCoverage,withInitiativeNames,type RetainedCoverage} from './data.js';
 import {loadCoverageTransport} from './coverage-transport.js';
 import {eligible, londonToISO} from './logic.js';
 import {applyLocations,resolvePostcodes} from './geocoding.js';
@@ -58,7 +58,7 @@ app.get('/api/coverage-saved/chunks/:index',(req,res)=>{
  res.type('application/octet-stream').send(chunk);
 });
 app.get('/api/coverage-sample',async(_req,res)=>{
-  try{const collection=JSON.parse(await readFile(path.join(root,'data/coverage-sample.geojson'),'utf8'));const report=JSON.parse(await readFile(path.join(root,'reports/routing-validation.json'),'utf8'));res.json({...collection,arrivalLondon:report.arrivalLondon,validatedAt:report.validatedAt});}
+  try{const collection=JSON.parse(await readFile(path.join(root,'data/coverage-sample.geojson'),'utf8'));const report=JSON.parse(await readFile(path.join(root,'reports/routing-validation.json'),'utf8'));res.json({...collection,features:withInitiativeNames(collection.features,rows),arrivalLondon:report.arrivalLondon,validatedAt:report.validatedAt});}
   catch{res.json({features:[],arrivalLondon:null});}
 });
 app.get('/api/places',async(_req,res)=>res.type('json').send(await readFile(path.join(root,'data/places.json'),'utf8')));
@@ -104,7 +104,7 @@ app.post('/api/coverage',async(req,res)=>{
       const input=retained.sourceInputs?.find(v=>v.id===r.id);
       const saved=input?.lat===r.location?.lat&&input?.lng===r.location?.lng?retained.features.find(f=>f.properties.id===r.id&&f.properties.mode===mode&&f.properties.arrival===iso):undefined;
       if(saved){features.push(saved);continue;}
-      try{features.push(JSON.parse(await readFile(file,'utf8')));continue;}catch{}
+      try{features.push(...withInitiativeNames([JSON.parse(await readFile(file,'utf8'))],rows));continue;}catch{}
       try{
         const feature=await requestTravelArea(r,mode as TravelMode,iso);features.push(feature);await writeFile(file,JSON.stringify(feature));
       }catch(error){errors.push({id:r.id,error:(error as Error).message});break;}

@@ -1,5 +1,7 @@
 # Password-protected Vercel deployment readiness
 
+The later 25 November dataset refresh uses the renamed school workbook and passes 27 automated checks plus the 13 browser checks. See [DATASET-UPDATE.md](DATASET-UPDATE.md). The validation below records the original Vercel preparation.
+
 Validated 25 November 2026. Deployment instructions are in [VERCEL-DEPLOYMENT.md](../VERCEL-DEPLOYMENT.md). No Vercel deployment has been created: the user must import the private repository and enter their credentials in their own Vercel account.
 
 ## Prepared configuration

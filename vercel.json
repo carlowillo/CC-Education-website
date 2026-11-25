@@ -17,6 +17,7 @@
           "reports/routing-validation.json"
         ],
         "excludeFiles": [
+          "data/*.xlsx",
           "preview/**",
           "artifacts/**",
           "tests/**",

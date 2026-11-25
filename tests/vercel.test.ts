@@ -34,6 +34,9 @@ test('the Vercel entry protects HTML, assets, data and chunks, and delivers all 
   let requests=0;
   const decoded=await unpackCoverage(manifest,async(url,init)=>{const response=await fetch(base+url,{...init,headers});requests++;assert.equal(response.status,200);const length=Number(response.headers.get('content-length'));assert.ok(length>0&&length<=1024*1024);return response;});
   assert.equal(requests,manifest.chunks.length);assert.equal(decoded.features.length,264);assert.equal(decoded.combined.length,10);assert.equal(decoded.arrivalLondon,'2026-11-23T08:30');
+  const initiatives=await (await fetch(base+'/api/initiatives',{headers})).json();
+  const names=new Map(initiatives.map((row:{id:string;name:string})=>[row.id,row.name]));
+  for(const feature of decoded.features)assert.equal(feature.properties.name,names.get(feature.properties.id),'protected coverage must use the updated workbook names');
   for(const index of ['-1','not-a-number','999999'])assert.equal((await fetch(base+'/api/coverage-saved/chunks/'+index,{headers})).status,404);
   assert.ok((await stat(path.join(temporary,'cc-education-reach'))).isDirectory());
   const geocode=await fetch(base+'/api/geocode',{method:'POST',headers:{...headers,'Content-Type':'application/json'},body:'{}'});assert.equal(geocode.status,200);assert.equal((await geocode.json()).resolved,0);

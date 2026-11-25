@@ -64,12 +64,12 @@ test('real estimated areas, postcode matches and developing stages work through 
  await openOffline(page);
  await expect(page.locator('.coverage-area.open.estimated')).toHaveCount(1);
  await page.getByLabel('Search a full UK postcode').fill('NP76AW');await page.getByRole('button',{name:'Find postcode'}).click();
- await expect(page.locator('.search-result').getByRole('button',{name:/School 45 \(estimated\) · Open/})).toBeVisible();
+ await expect(page.locator('.search-result').getByRole('button',{name:/Coed y Brenin \(estimated\) · Open/})).toBeVisible();
  await expect(page.locator('.search-match-context')).toContainText('use estimated locations');
  await page.getByRole('button',{name:'Map settings',exact:true}).click();
  await page.getByLabel('Include estimated locations',{exact:true}).uncheck();
  await expectSelected(page,90);await expect(page.locator('.coverage-area.estimated')).toHaveCount(0);
- await expect(page.locator('.search-result').getByRole('button',{name:/School 45 \(estimated\)/})).toHaveCount(0);
+ await expect(page.locator('.search-result').getByRole('button',{name:/Coed y Brenin \(estimated\)/})).toHaveCount(0);
  await page.getByLabel('Include estimated locations',{exact:true}).check();
  await page.getByRole('button',{name:'Close journey settings'}).click();
  await page.getByRole('button',{name:'Clear search'}).click();

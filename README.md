@@ -1,6 +1,8 @@
 # Education Reach
 
-An internal Christian education planning map, built from the supplied 23 October 2026 CSV. React, TypeScript and Leaflet with an Express backend. No database is needed.
+An internal Christian education planning map, using the updated school spreadsheet supplied on 25 November 2026. React, TypeScript and Leaflet with an Express backend. No database is needed.
+
+**25 November dataset update:** all 132 initiative names now follow `20261023 Data for Map - Schools Renamed.xlsx`, retained verbatim as `data/initiatives-source.xlsx`. The other six source columns are unchanged, so initiative IDs, coordinates, filter counts and all 264 saved travel areas remain valid. The 42 “School Name in Progress” placeholders are preserved as supplied. App, postcode results, coverage exports and offline preview use current names; original provider geometry and historical reports are retained. See [the dataset update](reports/DATASET-UPDATE.md).
 
 **20 November update:** filter counts respond to the other selected groups. Map pins and travel areas use purple for Open, orange for development, and slate for unrecorded stages. All 53 incomplete locations now have explicitly estimated representative postcodes, while the source values and 79 resolved full postcodes remain intact. With the owner’s explicit approval, all 132 initiatives now have genuine TravelTime driving and public transport areas (264 total), arriving at 08:30 London time on Monday 23 November 2026. The default Open view contains 90 initiatives, including 20 estimated locations. Selecting other stages includes developing/unrecorded scenarios; turning estimates off limits coverage to the 79 source full postcodes. See [the change report](reports/FILTERS-AND-ESTIMATES.md).
 
@@ -47,11 +49,11 @@ The integration tests use the compiled frontend and prepared Vercel coverage, so
 
 ## Data quality and interpretation
 
-The source CSV is `data/initiatives.csv`; the normalised map data is `data/initiatives.json`. There are 90 Open records, 12 developing a strategy, 16 gathering a team and 14 with no stage recorded. Whitespace and one “Developin a Strategy” typo are normalised; `stageDetail` retains the original wording, including opening dates. Names are anonymised, but websites and locations remain identifying information.
+The authoritative supplied workbook is `data/initiatives-source.xlsx`; `data/initiatives.csv` is its CSV representation and `data/initiatives.json` is the normalised map data. `data/source.json` records the original filename, sheet and update date. There are 90 Open records, 12 developing a strategy, 16 gathering a team and 14 with no stage recorded. Whitespace and one “Developin a Strategy” typo are normalised; `stageDetail` retains the original wording, including opening dates. Names match the updated workbook, including 42 placeholders; websites and locations remain identifying information.
 
-All **79 full-postcode records are resolved** using Postcodes.io; `data/locations.json` retains the coordinates, resolution date and provider quality. The original source JSON remains intact. The remaining **53 records** use current representative postcodes, merged from `data/estimated-locations.json`, with `precision: estimated`. Representative postcodes are chosen near the recorded district centre; broad areas use a stated central reference district. `reports/estimated-locations.csv` records each assignment and its basis. Estimated routing is enabled by default and can be excluded in Journey settings. Pins use dashed borders; returned areas use dashed boundaries and lighter fill. None of these assignments asserts the actual school address. A source full-postcode centroid is also not a verified entrance.
+All **79 full-postcode records are resolved** using Postcodes.io; `data/locations.json` retains the coordinates, resolution date and provider quality. Source postcodes and all non-name fields are preserved. The remaining **53 records** use current representative postcodes, merged from `data/estimated-locations.json`, with `precision: estimated`. Representative postcodes are chosen near the recorded district centre; broad areas use a stated central reference district. `reports/estimated-locations.csv` records each assignment and its basis. Estimated routing is enabled by default and can be excluded in Journey settings. Pins use dashed borders; returned areas use dashed boundaries and lighter fill. None of these assignments asserts the actual school address. A source full-postcode centroid is also not a verified entrance.
 
-Broad source locations include `South East London`, `BS` (two records), `CB`, `HU`, `TN`, `GL`, `KT`, `CH`, `Dagenham`, and `DH`. Their central references can be far from the actual initiative. Invalid source `P03` is explicitly assumed to mean `PO3`, recorded in the estimate basis and visible in details. All 53 still need confirmation using `reports/locations-needing-clarification.csv`; the source CSV/JSON remains unchanged.
+Broad source locations include `South East London`, `BS` (two records), `CB`, `HU`, `TN`, `GL`, `KT`, `CH`, `Dagenham`, and `DH`. Their central references can be far from the actual initiative. Invalid source `P03` is explicitly assumed to mean `PO3`, recorded in the estimate basis and visible in details. All 53 still need confirmation using `reports/locations-needing-clarification.csv`; source postcode values remain unchanged.
 
 Ethos is **inferred and unverified**: CST, ACE, Classical Conversations, Melville Knox and initiatives with recorded Christian Concern support are provisionally “fully Christian ethos”; TISCA is provisionally “strong Christian ethos” and takes priority if both apply. Others remain unclassified. Whole-source counts are 109 / 17 / 6; the default Open filter shows 67 / 17 / 6. Ethos filters and detail badges remain available, while map colours now show development stage. Affiliation is not evidence of an individual school's employment or teaching policies. All ethos classifications need review. N/A support is not treated as evidence of no support.
 
@@ -72,8 +74,8 @@ The app shows calculated/eligible counts, estimated-location counts, exclusions 
 ## Validation
 
 ```sh
+npm run vercel-build
 npm test
-npm run build
 # Start npm run dev or npm start in another terminal before browser tests:
 npm run test:browser
 ```
@@ -86,7 +88,7 @@ Browser tests use system Chromium (`/usr/bin/chromium`), or `CHROMIUM_PATH`. On 
 
 ## Sources
 
-- Initiatives: user-supplied CSV, 23 October 2026. No document contents are executed as instructions.
+- Initiatives: user-supplied Schools Renamed workbook, received 25 November 2026; preserved as `data/initiatives-source.xlsx`. No document contents are executed as instructions.
 - Approximate coordinates: [Gibbs/uk-postcodes](https://github.com/Gibbs/uk-postcodes), archived outward-code dataset, CC0. Licence retained in `data/POSTCODE-LICENSE.txt`.
 - Offline outlines: [Natural Earth](https://www.naturalearthdata.com/about/terms-of-use/), public domain, 1:50m country boundaries. Selected UK/Ireland/nearby-country geometry bundled in `data/basemap.json`.
 - Precise postcode centroids: [Postcodes.io](https://postcodes.io/), when enabled. Underlying UK postcode data has applicable ONS/Ordnance Survey/Royal Mail attribution; see the service's terms before wider distribution.

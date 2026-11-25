@@ -8,6 +8,11 @@ import type {CombinedCoverage} from '../src/coverage.js';
 
 export const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 export type RetainedCoverage={features:Coverage[];arrivalLondon:string|null;calculatedAt?:string;scope?:string;combined?:CombinedCoverage[];sourceInputs?:{id:string;lat:number;lng:number}[]};
+// Names can change without invalidating the provider's saved travel geometry.
+export function withInitiativeNames(features:Coverage[],rows:Initiative[]):Coverage[]{
+ const names=new Map(rows.map(row=>[row.id,row.name]));
+ return features.map(feature=>names.has(feature.properties.id)?{...feature,properties:{...feature.properties,name:names.get(feature.properties.id)!}}:feature);
+}
 export async function loadInitiatives(cacheDir?:string):Promise<Initiative[]>{
  const rows:Initiative[]=JSON.parse(await readFile(path.join(root,'data/initiatives.json'),'utf8'));
  applyLocations(rows,JSON.parse(await readFile(path.join(root,'data/locations.json'),'utf8')));
@@ -22,6 +27,6 @@ export async function loadRetainedCoverage(rows:Initiative[]):Promise<RetainedCo
   const features:Coverage[]=collection.features.filter((feature:Coverage)=>{const row=rows.find(r=>r.id===feature.properties.id);const input=report.sourceInputs.find((r:{id:string})=>r.id===row?.id);return row?.stage===input?.stage&&row?.location?.precision===(input?.locationBasis==='estimated'?'estimated':'postcode')&&row?.location?.label===input?.routingPostcode&&row?.location?.lat===input?.lat&&row?.location?.lng===input?.lng;});
   let combined:CombinedCoverage[]=[];
   if(features.length===collection.features.length)combined=JSON.parse(await readFile(path.join(root,'data/coverage-planning-combined.geojson'),'utf8')).features;
-  return {features,arrivalLondon:report.arrivalLondon,calculatedAt:report.calculatedAt,scope:report.scope,combined,sourceInputs:report.sourceInputs};
+  return {features:withInitiativeNames(features,rows),arrivalLondon:report.arrivalLondon,calculatedAt:report.calculatedAt,scope:report.scope,combined,sourceInputs:report.sourceInputs};
  }catch(error){if((error as NodeJS.ErrnoException).code!=='ENOENT')throw error;return {features:[],arrivalLondon:null};}
 }

@@ -15,9 +15,9 @@ test('real dataset, filters, data quality and missing-provider safeguard',async(
  await expect(page.getByRole('heading',{name:'Connect travel coverage.'})).toBeVisible();
  await page.getByRole('button',{name:'Close dialog'}).click();
  await page.getByRole('button',{name:'Initiative list'}).click();
- await page.getByLabel('Filter initiative list').fill('School 1');
- await page.locator('.list-items').getByRole('button',{name:/School 1 HS1/}).click();
- await expect(page.getByRole('heading',{name:'School 1',exact:true})).toBeVisible();
+ await page.getByLabel('Filter initiative list').fill('Providence Christian School');
+ await page.locator('.list-items').getByRole('button',{name:/Providence Christian School HS1/}).click();
+ await expect(page.getByRole('heading',{name:'Providence Christian School',exact:true})).toBeVisible();
  await expect(page.getByText('Postcode centroid, not a verified entrance.',{exact:false})).toBeVisible();
  await page.getByRole('button',{name:'Close initiative details'}).click();
  await page.getByRole('checkbox',{name:/^Open \d+$/}).check(); // already checked: remains current provision
@@ -70,7 +70,7 @@ test('fixture coverage uses both travel modes and checks postcode membership',as
  await page.route('**/api/coverage',route=>{
   const b=route.request().postDataJSON();modes.push(b.mode);
   expect(b.ids).toEqual(['1']);expect(b.includePlanned).toBe(false);
-  return route.fulfill({json:{errors:[],features:[{type:'Feature',properties:{id:'1',name:'School 1',mode:b.mode,arrival:'2026-12-01T08:30:00Z',minutes:45},geometry:{type:'MultiPolygon',coordinates:[[[[-6.6,58],[-6.1,58],[-6.1,58.5],[-6.6,58.5],[-6.6,58]]]]}}]}});
+  return route.fulfill({json:{errors:[],features:[{type:'Feature',properties:{id:'1',name:'Providence Christian School',mode:b.mode,arrival:'2026-12-01T08:30:00Z',minutes:45},geometry:{type:'MultiPolygon',coordinates:[[[[-6.6,58],[-6.1,58],[-6.1,58.5],[-6.6,58.5],[-6.6,58]]]]}}]}});
  });
  await page.route('**/api/postcode/HS12YN',route=>route.fulfill({json:{lat:58.21,lng:-6.38,postcode:'HS1 2YN'}}));
  await page.goto('/');

@@ -35,8 +35,8 @@ test('offline place labels, collapsible controls and a docked detail panel keep 
  await page.getByRole('button',{name:'Map key & layers'}).click();
  await page.getByRole('button',{name:'Hide filters',exact:true}).click();await expect(page.locator('.sidebar')).toBeHidden();
  await page.getByRole('button',{name:'Show filters',exact:true}).click();await expect(page.locator('.sidebar')).toBeVisible();
- await page.getByRole('button',{name:'Initiative list'}).click();await page.getByLabel('Filter initiative list').fill('School 9');
- await page.locator('.list-items').getByRole('button',{name:/School 9 DE22/}).click();
+ await page.getByRole('button',{name:'Initiative list'}).click();await page.getByLabel('Filter initiative list').fill('Emmanuel School - Derby');
+ await page.locator('.list-items').getByRole('button',{name:/Emmanuel School - Derby DE22/}).click();
  const canvas=await page.locator('.map-area').boundingBox(),detail=await page.locator('.detail-card').boundingBox();
  expect(canvas!.x+canvas!.width).toBeLessThanOrEqual(detail!.x+1);
  expect(await page.locator('.detail-card dd').first().evaluate(el=>parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(14);
@@ -57,10 +57,10 @@ test('co-located initiatives can be expanded and individually selected with the 
  const cluster=page.locator('.initiative-cluster').filter({hasText:'2 initiatives'});
  await expect(cluster).toBeVisible();await cluster.focus();await cluster.press('Enter');
  if(await cluster.isVisible()){await cluster.focus();await cluster.press('Enter');}
- await expect(page.getByRole('button',{name:/School 8 · DE55/})).toBeVisible();
- await expect(page.getByRole('button',{name:/School 55 · DE55/})).toBeVisible();
- await page.getByRole('button',{name:/School 55 · DE55/}).click();
- await expect(page.getByRole('heading',{name:'School 55',exact:true})).toBeVisible();
+ await expect(page.getByRole('button',{name:/Kingdom Christian School · DE55/})).toBeVisible();
+ await expect(page.getByRole('button',{name:/Thrive · DE55/})).toBeVisible();
+ await page.getByRole('button',{name:/Thrive · DE55/}).click();
+ await expect(page.getByRole('heading',{name:'Thrive',exact:true})).toBeVisible();
 });
 
 test('mobile details sit below the map and settings do not overflow the viewport',async({page})=>{
@@ -68,8 +68,8 @@ test('mobile details sit below the map and settings do not overflow the viewport
  await page.getByRole('button',{name:'Map settings',exact:true}).click();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
  await page.getByRole('button',{name:'Close journey settings'}).click();
- await page.getByRole('button',{name:'Initiative list'}).click();await page.getByLabel('Filter initiative list').fill('School 23');
- await page.locator('.list-items').getByRole('button',{name:/School 23 E7/}).click();
+ await page.getByRole('button',{name:'Initiative list'}).click();await page.getByLabel('Filter initiative list').fill('Grangewood Independent School');
+ await page.locator('.list-items').getByRole('button',{name:/Grangewood Independent School E7/}).click();
  const map=await page.locator('.map-area').boundingBox(),details=await page.locator('.detail-card').boundingBox();
  expect(map!.y+map!.height).toBeLessThanOrEqual(details!.y+1);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
