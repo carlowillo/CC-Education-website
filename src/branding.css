@@ -72,7 +72,7 @@ input[type=checkbox] { accent-color: var(--cc-purple); }
 .checks small { color: #5c6572; font-size: 11px; font-variant-numeric: tabular-nums; }
 .checks .zero-count, .checks .zero-count small { color: #8b8d93; }
 .checks .zero-count input:checked + span { color: var(--cc-navy); }
-.inference-note { color: #51415e; background: #eee6f5; border-radius: 0; border-left: 3px solid var(--cc-purple); font-size: 11px; }
+
 .sidebar-footer { background: var(--cc-cream); border-color: var(--cc-line); }
 .sidebar-footer strong { font-weight: 700; font-size: 11px; }
 .sidebar-footer small { color: var(--cc-slate); font-size: 10px; }
